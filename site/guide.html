@@ -79,6 +79,7 @@ html[lang=ar] .cl .meta{letter-spacing:0}
 <p class="lead" data-i18n="g.lead">This is your own chart, calculated from the moment and place you were born, and explained in plain language. Read it slowly. Come back to it. Notice what feels true.</p>
 <form class="mf" id="f" autocomplete="on">
   <label><span data-i18n="g.name">Your first name</span><input id="nm" name="given-name" autocomplete="given-name" required></label>
+  <label><span data-i18n="g.email">Your email</span><input id="em" type="email" name="email" autocomplete="email" required dir="ltr"></label>
   <div class="row">
     <label><span data-i18n="g.date">Birth date</span><input id="bd" type="date" required></label>
     <label><span data-i18n="g.time">Birth time</span><input id="bt" type="time" required><span class="hint" data-i18n="g.hint">Use your birth certificate if you can. The time matters.</span></label>
@@ -87,11 +88,13 @@ html[lang=ar] .cl .meta{letter-spacing:0}
   <div class="places" id="pl"></div>
   <p class="err" id="er" role="alert"></p>
   <button class="btn" type="submit" data-i18n="g.submit">Reveal my design</button>
-  <p class="small-note" data-i18n="g.privacy">Your birth details stay in your browser. Nothing is saved or shared.</p>
+  <p class="small-note" data-i18n="g.privacy">Your details are saved securely so I can send you emails written for your design. Unsubscribe anytime. Nothing is ever shared or sold.</p>
 </form>
 </div>
 <div class="res" id="res"></div>
 </main>
+<form name="chart-guide" data-netlify="true" netlify-honeypot="bot-field" hidden><input name="bot-field"><input name="name"><input name="email"><input name="birth_date"><input name="birth_time"><input name="birth_place"><input name="country"><input name="timezone"><input name="latitude"><input name="longitude"><input name="language"><input name="type"><input name="strategy"><input name="authority"><input name="profile"><input name="definition"><input name="defined_centres"><input name="open_centres"><input name="channels"><input name="incarnation_cross"><input name="cross_gates"><input name="personality"><input name="design"><input name="signature"><input name="not_self"><input name="submitted_at"></form>
+
 <script src="https://cdn.jsdelivr.net/npm/astronomy-engine@2.1.19/astronomy.browser.min.js"></script>
 <script src="hd-engine.js"></script>
 <script src="ar-guide.js"></script>
@@ -407,6 +410,21 @@ h+='<p style="margin-top:40px">'+S('love')+'</p><p style="margin-top:24px;font-s
 var r=document.getElementById('res');r.innerHTML=h;r.classList.add('on');document.querySelector('.intro-only').style.display='none';
 document.getElementById('title').textContent=S('titleName')(name);if(!keepScroll)window.scrollTo(0,0);
 document.getElementById('again').onclick=function(){last=null;r.classList.remove('on');document.querySelector('.intro-only').style.display='';document.getElementById('title').textContent=S('title');};}
+
+function save(name,email,d,t,c){try{
+var A=act(c),dn=ORDER.filter(function(k){return c.defined[k];}),op=ORDER.filter(function(k){return !c.defined[k];});
+var g=c.cross[0],x=(c.pLine===4&&c.dLine===1)?'The Juxtaposition Cross of '+JXN[g]:(c.pLine>=5?'The Left Angle Cross of '+LAXG[g]:'The Right Angle Cross of '+RAXG[g]);
+function acts(l){return l.map(function(a){return a.planet+' '+a.gate+'.'+a.line;}).join('; ');}
+var f={'form-name':'chart-guide','name':name,'email':email,'birth_date':d,'birth_time':t,'birth_place':bp.value,
+'country':sel.country||'','timezone':sel.timezone||'','latitude':sel.latitude!=null?sel.latitude:'','longitude':sel.longitude!=null?sel.longitude:'',
+'language':lang(),'type':c.type,'strategy':T[c.type].s,'authority':c.authority,'profile':c.profile+' '+LN[c.pLine][0]+' / '+LN[c.dLine][0],
+'definition':c.definition,'defined_centres':dn.join(', '),'open_centres':op.join(', '),
+'channels':c.channels.map(function(ch){return ch.a+'-'+ch.b+' '+CHD[ch.a+'-'+ch.b][0];}).join(', '),
+'incarnation_cross':x,'cross_gates':c.cross[0]+'/'+c.cross[1]+' | '+c.cross[2]+'/'+c.cross[3],
+'personality':acts(c.personality),'design':acts(c.design),'signature':T[c.type].sig,'not_self':T[c.type].ns,'submitted_at':new Date().toISOString()};
+var body=Object.keys(f).map(function(k){return encodeURIComponent(k)+'='+encodeURIComponent(f[k]);}).join('&');
+fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:body}).catch(function(){});
+}catch(e){}}
 window.HBD_onLang=function(){if(last)render(last.name,last.c,last.place,true);else document.getElementById('title').textContent=S('title');};
 window.HBD_onLang();
 document.getElementById('f').addEventListener('submit',function(e){e.preventDefault();er.textContent='';
@@ -414,7 +432,7 @@ var name=document.getElementById('nm').value.trim(),d=document.getElementById('b
 if(!sel){er.textContent=S('pick');return;}
 if(!d||!t){er.textContent=S('needDT');return;}
 try{var dp=d.split('-').map(Number),tp=t.split(':').map(Number);
-var utc=HD.localToUtc(dp[0],dp[1],dp[2],tp[0],tp[1],sel.timezone);var c=HD.chart(utc);render(name||S('friend'),c,bp.value);}
+var utc=HD.localToUtc(dp[0],dp[1],dp[2],tp[0],tp[1],sel.timezone);var c=HD.chart(utc);render(name||S('friend'),c,bp.value);save(name,document.getElementById('em').value.trim(),d,t,c);}
 catch(x){er.textContent=S('calcErr');}});
 })();
 </script>
