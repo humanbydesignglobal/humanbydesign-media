@@ -108,3 +108,61 @@ html[lang=ar] em{font-style:normal;font-weight:600}
 [dir=rtl] .tbl th{text-align:right}
 [dir=rtl] .callout{border-left:0;border-right:6px solid #D7261E;border-radius:12px 0 0 12px}
 [dir=rtl] .hbd-form{margin-left:0;margin-right:-8px}
+
+/* Readers directory and application */
+.page-head{max-width:760px;padding:56px 0 72px;display:flex;flex-direction:column;gap:22px}
+.page-head h1,.narrow h1{font-size:clamp(38px,5vw,60px);line-height:1.05}
+h1 em,h2 em{font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-weight:400;color:#D7261E}
+html[lang=ar] h1 em,html[lang=ar] h2 em{font-family:'Readex Pro','IBM Plex Sans Arabic',sans-serif;font-style:normal;font-weight:700}
+.readers{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,440px));gap:28px;padding-bottom:96px}
+.reader{border:2px solid #111;border-radius:28px;overflow:hidden;display:flex;flex-direction:column;background:#fff}
+.reader img{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:center 22%;display:block;border-bottom:2px solid #111}
+.reader-body{padding:32px;display:flex;flex-direction:column;gap:16px;flex:1}
+.reader-body h2{font-size:32px;line-height:1.1}
+.reader-body>p{font-size:16px;line-height:1.65;color:#333}
+.tagline{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#D7261E}
+html[lang=ar] .tagline{letter-spacing:0;font-size:14px}
+.chips{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.chips li{border:1px solid #111;border-radius:999px;padding:6px 12px;font-size:13px}
+.reader-offer{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;padding-top:16px;margin-top:auto;border-top:1px solid #ddd}
+.offer-name{font-weight:600;font-size:17px}
+.reader .btn{align-self:flex-start}
+.reader-soon{background:#111;color:#fff;border-color:#111;justify-content:center}
+.reader-soon .reader-body>p{color:#D6D6D6}
+.reader-soon .tagline{color:#FF6B60}
+.reader-soon .btn-ghost{background:#111;color:#fff;border-color:#fff}
+.reader-soon .btn-ghost:hover{background:#fff;color:#111}
+.join-band{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:32px;padding:72px 0 96px;border-top:2px solid #111}
+.join-band>div{max-width:640px;display:flex;flex-direction:column;gap:16px}
+.join-band h2{font-size:clamp(32px,4vw,48px);line-height:1.08}
+.narrow{max-width:760px;padding:48px 0 112px;display:flex;flex-direction:column;gap:22px}
+.narrow h2{font-size:26px;margin-top:40px}
+.narrow>div>p,.narrow>div>*+*{margin-top:18px}
+.narrow p{font-size:17px;line-height:1.7;color:#222}
+.looklist{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:10px;font-size:17px;line-height:1.6}
+[dir=rtl] .looklist{padding-left:0;padding-right:20px}
+.af{display:flex;flex-direction:column;gap:18px;margin-top:32px;padding:36px;border:2px solid #111;border-radius:24px}
+.af h2{margin-top:12px;font-size:22px}
+.af label{font-weight:600;font-size:15px;display:flex;flex-direction:column;gap:8px}
+.af input:not([type=checkbox]),.af textarea{min-height:52px;padding:12px 16px;border:2px solid #111;border-radius:14px;font:inherit;font-size:16px;font-weight:400;color:#111;background:#fff}
+.af textarea{resize:vertical}
+.af .row{display:flex;flex-wrap:wrap;gap:18px}.af .row label{flex:1 1 220px}
+.af .hint{font-size:13px;color:#555;font-weight:400}
+.af fieldset{border:0;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:10px 18px}
+.af legend{font-weight:600;font-size:15px;margin-bottom:10px;width:100%}
+.af .tick{flex-direction:row;align-items:center;gap:8px;font-weight:400}
+.af .tick input{width:20px;height:20px;accent-color:#D7261E}
+.af .tick-other input{min-height:40px;padding:6px 12px}
+.af .consent{align-items:flex-start;font-size:14px;line-height:1.5}
+.af .consent input{margin-top:2px;flex:0 0 20px}
+.af button{cursor:pointer;align-self:flex-start}
+.err{color:#B51E17;font-size:14px}
+.reading-more{font-size:14px;text-align:center}
+.reader-soon .reader-body{justify-content:center}
+.af .tick-other input{min-width:160px;flex:1}
+.signup-form{display:flex;flex-wrap:wrap;gap:10px;margin:4px 0}
+.signup-form input[type=email]{flex:1 1 240px;min-width:0;height:56px;padding:0 20px;border:2px solid #111;border-radius:999px;font:inherit;font-size:16px;color:#111;background:#fff}
+.signup-form input[type=email]:focus{outline:3px solid #D7261E;outline-offset:2px}
+.signup-form .btn{height:56px;cursor:pointer}
+.signup-form .btn:disabled{opacity:.6}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}

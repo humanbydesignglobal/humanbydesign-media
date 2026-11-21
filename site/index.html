@@ -26,6 +26,7 @@
     <span dir="ltr">Human by Design</span>
   </a>
   <nav class="nav-links">
+    <a class="plain" href="readers.html" data-i18n="nav.readers">Our readers</a>
     <a class="plain" href="https://instagram.com/humanbydesign.global" target="_blank" rel="noopener" dir="ltr">@humanbydesign.global</a>
     <a class="btn btn-ghost" href="#book" data-i18n="nav.book">Book a reading</a>
     <button class="lang-btn" type="button" data-lang-toggle lang="ar" dir="rtl" aria-label="التبديل إلى العربية">عربي</button>
@@ -38,7 +39,15 @@
     <p class="lead" data-i18n="hero.lead">Human Design shows how your energy actually works: when to say yes, when to rest, how you're meant to make decisions. I'm Cici, a Projector who spent years trying to hustle like everyone else. Let me show you yours.</p>
     <div class="signup" id="signup">
       <p style="font-weight:600" data-i18n="signup.title">Get your free guide: <em>Meeting Your Design</em>, your own chart, read for you</p>
-      <div class="hbd-form" dir="ltr"><script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="d800588c-62cd-432d-8802-c75189bbfb2d"></script></div>
+      <form class="signup-form" id="sf" name="signup" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="signup">
+        <p hidden><label>Leave this empty <input name="bot-field"></label></p>
+        <input type="hidden" name="language" value="en">
+        <input type="hidden" name="submitted_at" value="">
+        <label class="sr-only" for="sf-email" data-i18n="signup.label">Your email</label>
+        <input id="sf-email" type="email" name="email" required autocomplete="email" dir="ltr" placeholder="you@email.com">
+        <button class="btn" type="submit" data-i18n="signup.btn">Get my free chart</button>
+      </form>
       <p class="note" data-i18n="signup.note">Plus one short, honest email a week. Leave whenever you like.</p>
     </div>
   </div>
@@ -112,7 +121,6 @@
       <p data-i18n="about.p1">I pushed, I chased, I burned out, and I called it ambition. Learning my design gave me permission to rest, to wait for the right invitations, and to trust what I hear myself say out loud.</p>
       <p data-i18n="about.p2">Knowing my design changed my life, and I want it to do the same for you. Fair warning: I'm the friend who asks for your birth time before your surname.</p>
       <p class="joke" data-i18n="about.joke">Yes, I will read your chart at a dinner party. Usually before dessert.</p>
-      <p data-i18n="about.p3">So I teach Human Design the way I wish someone had taught me: in plain words, with real-life examples, and never as a box you have to fit into. Your chart is not a label. It's permission.</p>
     </div>
   </div>
 </section>
@@ -134,6 +142,7 @@
     </ul>
     <a class="btn" href="https://calendly.com/cynthia-khourym/your-chart-explained" target="_blank" rel="noopener" data-i18n="book.btn">Book your reading</a>
     <p class="small" data-i18n="book.small">You'll need your birth date, time and place.</p>
+    <p class="reading-more"><a href="readers.html" data-i18n="book.more">Meet our other readers</a></p>
   </div>
 </section>
 </div>
@@ -155,10 +164,14 @@ window.HBD_I18N = {
 'meta.title': 'Human by Design | هيومان ديزاين ببساطة، مع سيسي',
 'meta.desc': 'لستَ كسولًا، ولا «زيادة عن اللزوم». ربما كنتَ طوال الوقت تعيش بتصميمٍ ليس لك. اكتشف هيومان ديزاين على راحتك، أو احجز قراءة لخريطتك مع سيسي.',
 'nav.book': 'احجز قراءتك',
+'nav.readers': 'قرّاؤنا',
+'book.more': 'تعرّف إلى قرّائنا الآخرين',
 'hero.eyebrow': 'هيومان ديزاين، ببساطة',
 'hero.h1': 'لستَ كسولًا. ولستَ «زيادة عن اللزوم». ربما كنتَ فقط تعيش بتصميمٍ ليس لك.',
 'hero.lead': 'هيومان ديزاين (التصميم البشري) يشرح لك كيف تعمل طاقتك فعلًا: متى تقول نعم، ومتى تحتاج إلى الراحة، وكيف تتّخذ قراراتك بالطريقة التي خُلقتَ لها. أنا سيسي، بروجكتور، وأمضيتُ سنوات أحاول أن ألحق بإيقاع الجميع. دعني أُريك تصميمك أنت.',
 'signup.title': 'دليلك المجاني: <em>تعرّف إلى تصميمك</em>. خريطتك أنت، وقراءتها مكتوبة لك.',
+'signup.label': 'بريدك الإلكتروني',
+'signup.btn': 'أريد خريطتي المجانية',
 'signup.note': 'ومعه رسالة قصيرة وصادقة كل أسبوع، وتستطيع إلغاء الاشتراك متى أردت.',
 'hero.art': 'خريطة جسد سيسي: بروجكتور 2/4، ومراكز الأجنا والحلق وG معرَّفة',
 'hero.caption': 'تصميمي: بروجكتور <bdi dir="ltr">2/4</bdi>، سلطة مُسقَطة ذاتيًا',
@@ -203,7 +216,6 @@ window.HBD_I18N = {
 'about.p1': 'ضغطتُ على نفسي، وركضتُ خلف كل شيء، ثم احترقت، وكنتُ أسمّي ذلك طموحًا. حين فهمتُ تصميمي، سمحتُ لنفسي أخيرًا أن أرتاح، وأن أنتظر الدعوات التي تشبهني، وأن أثق بما أسمعه حين أتكلّم بصوت عالٍ.',
 'about.p2': 'معرفة تصميمي غيّرت حياتي، وأريدها أن تفعل الشيء نفسه معك. وأعترف لك مسبقًا: أنا الصديقة التي تسألك عن ساعة ولادتك قبل أن تعرف اسم عائلتك.',
 'about.joke': 'نعم، سأقرأ خريطتك على العشاء. وغالبًا قبل أن تصل الحلوى.',
-'about.p3': 'لهذا أعلّم هيومان ديزاين كما تمنّيتُ أن يعلّمني إياه أحد: بكلام بسيط، وأمثلة من الحياة، ومن دون أن يتحوّل إلى قالب تُجبَر على الدخول فيه. خريطتك ليست تصنيفًا لك. إنها إذنٌ لتكون نفسك.',
 'book.h2': 'نقرأ خريطتك معًا؟',
 'book.lead': 'القراءة الفردية حديث بيننا، لا محاضرة. نفتح خريطتك معًا ونربطها بحياتك كما هي: عملك، وعلاقاتك، والأماكن التي تجد نفسك عالقًا فيها في كل مرة.',
 'book.h3': 'خريطتك، بوضوح',
@@ -222,6 +234,22 @@ window.HBD_I18N = {
 'foot.disc': 'هيومان ديزاين أداة لفهم الذات والتأمّل فيها، وليس بديلًا عن أي استشارة طبية أو نفسية أو مالية.',
 'foot.follow': 'تابعني على <bdi dir="ltr">@humanbydesign.global</bdi>'
 };
+</script>
+<script>
+(function(){
+var f=document.getElementById('sf');if(!f)return;
+f.addEventListener('submit',function(e){
+  e.preventDefault();
+  var em=f.elements.email.value.trim();if(!em)return;
+  f.elements.language.value=window.HBDL?HBDL():'en';
+  f.elements.submitted_at.value=new Date().toISOString();
+  try{sessionStorage.setItem('hbd-email',em);}catch(x){}
+  var b=f.querySelector('button');b.disabled=true;
+  var go=function(){location.href='guide.html';};
+  fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(f)).toString()}).then(go,go);
+  setTimeout(go,2500);
+});
+})();
 </script>
 </body>
 </html>

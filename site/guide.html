@@ -93,7 +93,7 @@ html[lang=ar] .cl .meta{letter-spacing:0}
 </div>
 <div class="res" id="res"></div>
 </main>
-<form name="chart-guide" data-netlify="true" netlify-honeypot="bot-field" hidden><input name="bot-field"><input name="name"><input name="email"><input name="birth_date"><input name="birth_time"><input name="birth_place"><input name="country"><input name="timezone"><input name="latitude"><input name="longitude"><input name="language"><input name="type"><input name="strategy"><input name="authority"><input name="profile"><input name="definition"><input name="defined_centres"><input name="open_centres"><input name="channels"><input name="incarnation_cross"><input name="cross_gates"><input name="personality"><input name="design"><input name="signature"><input name="not_self"><input name="submitted_at"></form>
+<form name="chart-guide" data-netlify="true" netlify-honeypot="bot-field" hidden><input name="bot-field"><input name="name"><input name="email"><input name="birth_date"><input name="birth_time"><input name="birth_place"><input name="country"><input name="timezone"><input name="latitude"><input name="longitude"><input name="language"><input name="type"><input name="strategy"><input name="authority"><input name="profile"><input name="definition"><input name="defined_centres"><input name="open_centres"><input name="channels"><input name="incarnation_cross"><input name="cross_gates"><input name="personality"><input name="design"><input name="signature"><input name="not_self"><input name="submitted_at"><input name="first_name"><input name="type_label"><input name="strategy_label"><input name="authority_label"><input name="profile_label"><input name="signature_label"><input name="type_summary"><input name="strategy_tip"><input name="authority_summary"><input name="reopen_url"></form>
 
 <script src="https://cdn.jsdelivr.net/npm/astronomy-engine@2.1.19/astronomy.browser.min.js"></script>
 <script src="hd-engine.js"></script>
@@ -411,6 +411,9 @@ var r=document.getElementById('res');r.innerHTML=h;r.classList.add('on');documen
 document.getElementById('title').textContent=S('titleName')(name);if(!keepScroll)window.scrollTo(0,0);
 document.getElementById('again').onclick=function(){last=null;r.classList.remove('on');document.querySelector('.intro-only').style.display='';document.getElementById('title').textContent=S('title');};}
 
+function b64u(str){return btoa(unescape(encodeURIComponent(str))).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');}
+function unb64u(str){str=str.replace(/-/g,'+').replace(/_/g,'/');while(str.length%4)str+='=';return decodeURIComponent(escape(atob(str)));}
+function reopenUrl(n,d,t,z,p){return 'https://humanbydesign.global/guide.html'+(lang()==='ar'?'?lang=ar':'')+'#r='+b64u(JSON.stringify({n:n,d:d,t:t,z:z,p:p}));}
 function save(name,email,d,t,c){try{
 var A=act(c),dn=ORDER.filter(function(k){return c.defined[k];}),op=ORDER.filter(function(k){return !c.defined[k];});
 var g=c.cross[0],x=(c.pLine===4&&c.dLine===1)?'The Juxtaposition Cross of '+JXN[g]:(c.pLine>=5?'The Left Angle Cross of '+LAXG[g]:'The Right Angle Cross of '+RAXG[g]);
@@ -421,12 +424,18 @@ var f={'form-name':'chart-guide','name':name,'email':email,'birth_date':d,'birth
 'definition':c.definition,'defined_centres':dn.join(', '),'open_centres':op.join(', '),
 'channels':c.channels.map(function(ch){return ch.a+'-'+ch.b+' '+CHD[ch.a+'-'+ch.b][0];}).join(', '),
 'incarnation_cross':x,'cross_gates':c.cross[0]+'/'+c.cross[1]+' | '+c.cross[2]+'/'+c.cross[3],
-'personality':acts(c.personality),'design':acts(c.design),'signature':T[c.type].sig,'not_self':T[c.type].ns,'submitted_at':new Date().toISOString()};
+'personality':acts(c.personality),'design':acts(c.design),'signature':T[c.type].sig,'not_self':T[c.type].ns,'submitted_at':new Date().toISOString(),
+'first_name':(name.split(' ')[0]||name),'type_label':tr('TN',c.type),'strategy_label':D().T[c.type].s,'authority_label':tr('AUN',c.authority),
+'profile_label':c.profile+' '+D().LN[c.pLine][0]+' / '+D().LN[c.dLine][0],'signature_label':D().T[c.type].sig,'type_summary':D().T[c.type].d,
+'strategy_tip':D().T[c.type].x,'authority_summary':D().AU[c.authority],'reopen_url':reopenUrl(name,d,t,sel.timezone,bp.value)};
 var body=Object.keys(f).map(function(k){return encodeURIComponent(k)+'='+encodeURIComponent(f[k]);}).join('&');
 fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:body}).catch(function(){});
 }catch(e){}}
 window.HBD_onLang=function(){if(last)render(last.name,last.c,last.place,true);else document.getElementById('title').textContent=S('title');};
 window.HBD_onLang();
+try{if(location.hash.indexOf('#r=')===0){var R=JSON.parse(unb64u(location.hash.slice(3)));var dp=R.d.split('-').map(Number),tp=R.t.split(':').map(Number);
+render(R.n||S('friend'),HD.chart(HD.localToUtc(dp[0],dp[1],dp[2],tp[0],tp[1],R.z)),R.p||'');}}catch(x){}
+try{var se=sessionStorage.getItem('hbd-email');if(se){document.getElementById('em').value=se;}}catch(x){}
 document.getElementById('f').addEventListener('submit',function(e){e.preventDefault();er.textContent='';
 var name=document.getElementById('nm').value.trim(),d=document.getElementById('bd').value,t=document.getElementById('bt').value;
 if(!sel){er.textContent=S('pick');return;}

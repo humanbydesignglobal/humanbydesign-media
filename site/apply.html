@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Read with us | Human by Design</title>
+<meta name="description" content="Apply to join Human by Design's hand-picked group of Human Design readers, in English and Arabic.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Inter:wght@400;500;600&family=Instrument+Serif:ital@1&family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=Readex+Pro:wght@500;700&display=swap">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'%3E%3Cpath d='M14 2 L26 14 L14 26 L2 14 Z' fill='%23D7261E' stroke='%23111' stroke-width='2'/%3E%3C/svg%3E">
+<script src="i18n.js"></script>
+</head>
+<body>
+<div class="wrap">
+<header class="nav">
+  <a class="logo" href="/">
+    <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><path d="M14 2 L26 14 L14 26 L2 14 Z" fill="#D7261E" stroke="#111" stroke-width="2"/></svg>
+    <span dir="ltr">Human by Design</span>
+  </a>
+  <nav class="nav-links">
+    <a class="plain" href="readers.html" data-i18n="a.nav.readers">Our readers</a>
+    <button class="lang-btn" type="button" data-lang-toggle lang="ar" dir="rtl" aria-label="التبديل إلى العربية">عربي</button>
+  </nav>
+</header>
+
+<main class="narrow">
+<p class="eyebrow" data-i18n="a.eyebrow">For Human Design readers</p>
+<h1 data-i18n="a.h1">Read with <em>us.</em></h1>
+<div id="intro">
+<p class="lead" data-i18n="a.lead">Human by Design is building a small, hand-picked group of readers in English and Arabic. People come to us after meeting their chart for free, and they're ready for a reading. We handle the bookings and the payments, and pay you after each session.</p>
+
+<h2 data-i18n="a.look.h">What we look for</h2>
+<ul class="looklist">
+  <li data-i18n="a.look.1">Real training in Human Design, and charts read for real clients</li>
+  <li data-i18n="a.look.2">Readings that explain, never label: warm, plain-spoken and practical</li>
+  <li data-i18n="a.look.3">Respect for the system as taught by Ra Uru Hu, and honesty where schools differ</li>
+  <li data-i18n="a.look.4">Arabic readers especially welcome</li>
+</ul>
+<p data-i18n="a.how">How it works: you apply, we look at your answers and a sample of your work, and we meet you on a short call. If it's a fit, we agree your price and the platform fee before your profile goes live.</p>
+
+<form class="af" name="reader-application" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="af">
+  <input type="hidden" name="form-name" value="reader-application">
+  <p hidden><label>Leave this empty <input name="bot-field"></label></p>
+  <input type="hidden" name="language" id="lng" value="en">
+
+  <h2 data-i18n="a.s1">About you</h2>
+  <div class="row">
+    <label><span data-i18n="a.name">Full name</span><input name="name" required autocomplete="name"></label>
+    <label><span data-i18n="a.email">Email</span><input name="email" type="email" required autocomplete="email" dir="ltr"></label>
+  </div>
+  <div class="row">
+    <label><span data-i18n="a.phone">WhatsApp number</span><input name="whatsapp" type="tel" autocomplete="tel" dir="ltr" placeholder="+971"></label>
+    <label><span data-i18n="a.city">City and country</span><input name="city_country" required></label>
+  </div>
+  <label><span data-i18n="a.links">Instagram, website or both</span><input name="links" dir="ltr" placeholder="@yourhandle · yoursite.com"></label>
+
+  <h2 data-i18n="a.s2">Your Human Design</h2>
+  <label><span data-i18n="a.design">Your own type and profile</span><input name="own_design" data-i18n-attr="placeholder:a.design.ph" placeholder="e.g. Generator 3/5"></label>
+  <label><span data-i18n="a.training">Where and how you trained</span><span class="hint" data-i18n="a.training.hint">Courses, teachers, certifications (for example IHDS) and when</span><textarea name="training" rows="3" required></textarea></label>
+  <div class="row">
+    <label><span data-i18n="a.years">Years reading charts</span><input name="years_reading" type="number" min="0" step="1" required></label>
+    <label><span data-i18n="a.count">Readings given so far (roughly)</span><input name="readings_given" type="number" min="0" step="1" required></label>
+  </div>
+
+  <fieldset>
+    <legend data-i18n="a.langs">Languages you read in</legend>
+    <label class="tick"><input type="checkbox" name="reading_languages" value="Arabic"> <span data-i18n="a.l.ar">Arabic</span></label>
+    <label class="tick"><input type="checkbox" name="reading_languages" value="English"> <span data-i18n="a.l.en">English</span></label>
+    <label class="tick"><input type="checkbox" name="reading_languages" value="French"> <span data-i18n="a.l.fr">French</span></label>
+    <label class="tick tick-other"><span data-i18n="a.l.other">Other</span> <input name="other_languages"></label>
+  </fieldset>
+
+  <fieldset>
+    <legend data-i18n="a.spec">What you love reading for</legend>
+    <label class="tick"><input type="checkbox" name="specialisms" value="Work and purpose"> <span data-i18n="a.sp.work">Work and purpose</span></label>
+    <label class="tick"><input type="checkbox" name="specialisms" value="Love and relationships"> <span data-i18n="a.sp.love">Love and relationships</span></label>
+    <label class="tick"><input type="checkbox" name="specialisms" value="Parenting and children"> <span data-i18n="a.sp.kids">Parenting and children</span></label>
+    <label class="tick"><input type="checkbox" name="specialisms" value="Rest and energy"> <span data-i18n="a.sp.rest">Rest and energy</span></label>
+    <label class="tick"><input type="checkbox" name="specialisms" value="Business and teams"> <span data-i18n="a.sp.biz">Business and teams</span></label>
+    <label class="tick"><input type="checkbox" name="specialisms" value="First readings for beginners"> <span data-i18n="a.sp.first">First readings for beginners</span></label>
+  </fieldset>
+
+  <h2 data-i18n="a.s3">Your readings</h2>
+  <label><span data-i18n="a.style">How would a client describe a reading with you?</span><textarea name="reading_style" rows="4" required></textarea></label>
+  <div class="row">
+    <label><span data-i18n="a.length">Usual reading length (minutes)</span><input name="reading_minutes" type="number" min="15" step="5"></label>
+    <label><span data-i18n="a.price">Your usual price, with currency</span><input name="usual_price" dir="ltr" placeholder="AED 500"></label>
+  </div>
+  <label><span data-i18n="a.sample">A sample of your work</span><span class="hint" data-i18n="a.sample.hint">A link to a recorded reading (with the client's permission), a written reading or a video of you explaining a chart</span><input name="sample_link" dir="ltr" placeholder="https://"></label>
+  <label><span data-i18n="a.why">Why Human by Design?</span><textarea name="why" rows="3"></textarea></label>
+
+  <label class="tick consent"><input type="checkbox" name="consent" value="yes" required> <span data-i18n="a.consent">I agree that Human by Design keeps these details to review my application and contact me about it.</span></label>
+  <p class="err" id="aerr" role="alert"></p>
+  <button class="btn" type="submit" data-i18n="a.submit">Send my application</button>
+</form>
+</div>
+
+<div id="thanks" hidden>
+  <h2 data-i18n="a.thanks.h">Thank you. Your application is in.</h2>
+  <p class="lead" data-i18n="a.thanks.p">We read every application personally and will reply by email within two weeks. In the meantime, come and say hi on Instagram.</p>
+  <a class="btn btn-ghost" href="https://instagram.com/humanbydesign.global" target="_blank" rel="noopener" data-i18n="a.thanks.btn">Follow @humanbydesign.global</a>
+</div>
+</main>
+
+<footer>
+  <p data-i18n="foot.disc">Human Design is a tool for self-reflection. It is not medical, psychological or financial advice.</p>
+  <a href="/" style="font-weight:600" data-i18n="a.home">humanbydesign.global</a>
+</footer>
+</div>
+<script>
+window.HBD_I18N = {
+'meta.title': 'اقرأ معنا | Human by Design',
+'meta.desc': 'قدّم طلبك للانضمام إلى مجموعة قرّاء هيومان ديزاين المختارين بعناية في Human by Design، بالعربية والإنجليزية.',
+'a.nav.readers': 'قرّاؤنا',
+'a.eyebrow': 'لقرّاء هيومان ديزاين',
+'a.h1': 'اقرأ <em>معنا.</em>',
+'a.lead': 'تبني Human by Design مجموعة صغيرة من القرّاء المختارين بعناية، بالعربية والإنجليزية. يصل إلينا الناس بعد أن يتعرّفوا إلى خريطتهم مجانًا، ويكونون جاهزين لقراءة حقيقية. نحن نتولّى الحجوزات والمدفوعات، وندفع لك بعد كل جلسة.',
+'a.look.h': 'ما الذي نبحث عنه',
+'a.look.1': 'دراسة حقيقية لهيومان ديزاين، وخرائط قرأتَها لعملاء حقيقيين',
+'a.look.2': 'قراءات تشرح ولا تُصنّف: دافئة، واضحة، وعملية',
+'a.look.3': 'احترام للنظام كما علّمه رع أورو هو، وصدق حين تختلف المدارس',
+'a.look.4': 'نرحّب بشكل خاص بمن يقرأ بالعربية',
+'a.how': 'كيف تسير الأمور: تقدّم طلبك، فنقرأ إجاباتك ونطّلع على عيّنة من عملك، ثم نلتقي في مكالمة قصيرة. وإن وجدنا التوافق، نتّفق على سعرك ورسوم المنصّة قبل أن يظهر ملفك على الموقع.',
+'a.s1': 'عنك',
+'a.name': 'الاسم الكامل',
+'a.email': 'البريد الإلكتروني',
+'a.phone': 'رقم الواتساب',
+'a.city': 'المدينة والبلد',
+'a.links': 'إنستغرام، أو موقعك، أو الاثنان',
+'a.s2': 'رحلتك مع هيومان ديزاين',
+'a.design': 'نوعك والبروفايل الخاص بك',
+'a.design.ph': 'مثلًا: جنريتر 3/5',
+'a.training': 'أين وكيف درستَ',
+'a.training.hint': 'الدورات، والمعلّمون، والشهادات (مثل IHDS)، ومتى',
+'a.years': 'سنوات قراءة الخرائط',
+'a.count': 'عدد القراءات حتى الآن (تقريبًا)',
+'a.langs': 'اللغات التي تقرأ بها',
+'a.l.ar': 'العربية',
+'a.l.en': 'الإنجليزية',
+'a.l.fr': 'الفرنسية',
+'a.l.other': 'لغة أخرى',
+'a.spec': 'ما الذي تحبّ أن تقرأ له',
+'a.sp.work': 'العمل والهدف',
+'a.sp.love': 'الحب والعلاقات',
+'a.sp.kids': 'التربية والأطفال',
+'a.sp.rest': 'الراحة والطاقة',
+'a.sp.biz': 'الأعمال وفرق العمل',
+'a.sp.first': 'القراءة الأولى للمبتدئين',
+'a.s3': 'قراءاتك',
+'a.style': 'كيف قد يصف أحد عملائك جلسة معك؟',
+'a.length': 'مدة القراءة المعتادة (بالدقائق)',
+'a.price': 'سعرك المعتاد، مع العملة',
+'a.sample': 'عيّنة من عملك',
+'a.sample.hint': 'رابط لقراءة مسجّلة (بإذن العميل)، أو قراءة مكتوبة، أو فيديو تشرح فيه خريطة',
+'a.why': 'لماذا Human by Design؟',
+'a.consent': 'أوافق على أن تحتفظ Human by Design بهذه البيانات لدراسة طلبي والتواصل معي بشأنه.',
+'a.submit': 'أرسل طلبي',
+'a.thanks.h': 'شكرًا لك. وصلنا طلبك.',
+'a.thanks.p': 'نقرأ كل طلب بأنفسنا، وسنردّ عليك بالبريد الإلكتروني خلال أسبوعين. وإلى ذلك الحين، تعال وقل مرحبًا على إنستغرام.',
+'a.thanks.btn': 'تابع <bdi dir="ltr">@humanbydesign.global</bdi>',
+'a.home': 'humanbydesign.global',
+'a.err': 'لم يُرسَل الطلب. تحقّق من اتصالك وحاول مرة أخرى.',
+'foot.disc': 'هيومان ديزاين أداة لفهم الذات والتأمّل فيها، وليس بديلًا عن أي استشارة طبية أو نفسية أو مالية.'
+};
+(function(){
+var f=document.getElementById('af');
+f.addEventListener('submit',function(e){
+  e.preventDefault();
+  document.getElementById('lng').value=window.HBDL?HBDL():'en';
+  var body=new URLSearchParams(new FormData(f)).toString();
+  var err=document.getElementById('aerr');err.textContent='';
+  fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:body})
+  .then(function(r){if(!r.ok)throw 0;document.getElementById('intro').hidden=true;document.getElementById('thanks').hidden=false;window.scrollTo(0,0);})
+  .catch(function(){err.textContent=(window.HBDL&&HBDL()==='ar')?HBD_I18N['a.err']:'Your application didn’t send. Please check your connection and try again.';});
+});
+})();
+</script>
+</body>
+</html>
