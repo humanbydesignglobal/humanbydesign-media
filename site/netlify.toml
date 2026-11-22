@@ -1,0 +1,4 @@
+# Netlify settings for humanbydesign.global (base directory: site)
+[build]
+  publish = "."
+  functions = "netlify/functions"

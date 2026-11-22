@@ -301,8 +301,8 @@ document.title=U('docTitle')+': '+r.n+' | Human by Design';}
 // ---------- locked view: offer + form ----------
 var sel=null,timer=null;
 function offer(prefill){state.view='offer';var L=U('lockedList');
-var h='<section class="cover"><p class="eyebrow">'+U('price')+'</p><h1>'+U('lockedH')+'</h1><p class="lead" style="margin-top:18px">'+U('lockedLead')+'</p></section>';
-h+='<div class="offer"><ul>'+L.map(function(x){return '<li>'+x+'</li>';}).join('')+'</ul><p class="price">'+U('price')+'</p><p class="small-note">'+U('buyNote')+'</p></div>';
+var h='<section class="cover"><p class="eyebrow">'+U('launch')+' · '+U('price')+'</p><h1>'+U('lockedH')+'</h1><p class="lead" style="margin-top:18px">'+U('lockedLead')+'</p></section>';
+h+='<div class="offer"><ul>'+L.map(function(x){return '<li>'+x+'</li>';}).join('')+'</ul><p class="price">'+U('price')+'</p><p class="small-note" style="margin-top:0">'+U('launch')+'</p><p class="small-note">'+U('buyNote')+'</p></div>';
 h+='<form class="mf" id="f" autocomplete="on"><h3>'+U('formH')+'</h3>';
 h+='<label>'+U('name')+'<input id="nm" autocomplete="given-name" required></label><label>'+U('email')+'<input id="em" type="email" autocomplete="email" required dir="ltr"></label>';
 h+='<div class="row"><label>'+U('date')+'<input id="bd" type="date" required></label><label>'+U('time')+'<input id="bt" type="time" required></label></div>';

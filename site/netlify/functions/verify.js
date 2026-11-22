@@ -1,6 +1,6 @@
 // Confirms a Ziina payment is completed, for the right amount, and for this exact chart (the ref in the message).
 const crypto = require('crypto');
-const PRICE_FILS = 17700;
+const PRICE_FILS = 11100;
 
 exports.handler = async (event) => {
   const q = event.queryStringParameters || {};
