@@ -1,12 +1,12 @@
-// "Your Design, Written": the paid personal report. English library.
+// "Your Design, Decoded": the paid personal report. English library.
 // Original wording for Human by Design. Facts checked against content/reference.md.
 // Human Design was originated by Ra Uru Hu. Gene Keys language is a different system and is never used here.
 (function () {
 window.HBR_EN = {
 
 UI: {
-  docTitle: 'Your Design, Written',
-  forName: function (n) { return 'Your Design, Written<br><i>for ' + n + '</i>'; },
+  docTitle: 'Your Design, Decoded',
+  forName: function (n) { return 'Your Design, Decoded<br><i>for ' + n + '</i>'; },
   born: function (d, t, p) { return 'Born ' + d + ' at ' + t + ', ' + p; },
   intro: 'This is your chart read all the way through, from the big picture down to the 26 small switches that make you you. Read it slowly. Come back to it. Nothing here is a rule to obey: it is a map to test against your own life. Keep what feels true, and notice what you want to argue with, because that is often where the good stuff is.',
   howH: 'How to read this',
@@ -30,7 +30,7 @@ UI: {
   love: 'With love, Cici',
   disc: 'Human Design is a tool for self-reflection. It is not medical, psychological or financial advice. Human Design was originated by Ra Uru Hu. This report is written by Human by Design in its own words.',
   pdf: 'Save as PDF', keep: 'Keep this link to open your report again:', copy: 'Copy link', copied: 'Copied',
-  lockedH: 'Your Design, Written',
+  lockedH: 'Your Design, Decoded',
   lockedLead: 'Your whole chart, read for you, all the way down. More than twenty pages, written for your exact design.',
   lockedList: ['Your type in depth: your aura, work and money, love, and rest', 'Your authority in real decisions, and what gets in its way', 'Your full profile, and how your energy connects', 'All nine centres, defined and open, with the wisdom each one grows', 'Every channel and hanging gate in your chart', 'All 26 planetary activations, explained one by one', 'Experiments to carry, made for your chart'],
   price: 'AED 111', launch: 'Launch price', buy: 'Get my report', buyNote: 'Pay by card, Apple Pay or Google Pay. Your report opens straight after payment, and you can save it as a PDF.',

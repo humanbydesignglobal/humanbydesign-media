@@ -1,4 +1,4 @@
-// Creates a Ziina payment for "Your Design, Written" (AED 177) and returns the hosted payment page.
+// Creates a Ziina payment for "Your Design, Decoded" (AED 177) and returns the hosted payment page.
 // Needs the environment variable ZIINA_API_KEY (set by Cici in Netlify). ZIINA_TEST=true makes test payments.
 const crypto = require('crypto');
 const PRICE_FILS = 11100; // AED 111.00 (launch price)
@@ -18,7 +18,7 @@ exports.handler = async (event) => {
     headers: { 'Authorization': 'Bearer ' + process.env.ZIINA_API_KEY, 'Content-Type': 'application/json' },
     body: JSON.stringify({
       amount: PRICE_FILS, currency_code: 'AED',
-      message: 'Your Design, Written · ref ' + ref,
+      message: 'Your Design, Decoded · ref ' + ref,
       success_url: back + '&pi={PAYMENT_INTENT_ID}',
       cancel_url: back, failure_url: back,
       test: process.env.ZIINA_TEST === 'true'

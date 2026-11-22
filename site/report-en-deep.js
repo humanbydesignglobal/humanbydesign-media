@@ -1,4 +1,4 @@
-// "Your Design, Written": the deeper layer (English). Merged into window.HBR_EN.
+// "Your Design, Decoded": the deeper layer (English). Merged into window.HBR_EN.
 (function () {
 var D = {
 UI: {

@@ -1,4 +1,4 @@
-// "Your Design, Written": the deeper layer (Lebanese Arabic). Merged into window.HBR_AR.
+// "Your Design, Decoded": the deeper layer (Lebanese Arabic). Merged into window.HBR_AR.
 (function () {
 function n(x) { return '<bdi dir="ltr">' + x + '</bdi>'; }
 var D = {
