@@ -235,3 +235,7 @@ html[lang=ar] .guide p,html[lang=ar] .guide li{line-height:1.95}
 html[lang=ar] .art-caption{line-height:1.45;font-size:24px}
 .reader-body>p.tagline{color:var(--red);font-size:12px;line-height:1.4}
 .price{white-space:nowrap}
+
+.reader-body .note{font-size:30px;line-height:1.05;margin:-2px 0 12px;transform:rotate(-2deg);display:block}
+html[lang=ar] .reader-body .note{font-size:22px;line-height:1.5}
+.reader-body p.note{color:var(--red)}
