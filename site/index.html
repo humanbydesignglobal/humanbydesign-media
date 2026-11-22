@@ -14,16 +14,17 @@
 <link rel="alternate" hreflang="ar" href="https://humanbydesign.global/?lang=ar">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Inter:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=Readex+Pro:wght@500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&family=Reenie+Beanie&family=Amiri:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Sans+Arabic:wght@300;400;500&family=Aref+Ruqaa:wght@400;700&display=swap">
 <link rel="stylesheet" href="style.css">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'%3E%3Cpath d='M14 2 L26 14 L14 26 L2 14 Z' fill='%23D7261E' stroke='%23111' stroke-width='2'/%3E%3C/svg%3E">
+<link rel="icon" href="seal-64.png" type="image/png">
 <script src="i18n.js"></script>
 </head>
 <body>
+<div class="topband dark">
 <div class="wrap">
 <header class="nav">
   <a class="logo" href="#top" id="top">
-    <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><path d="M14 2 L26 14 L14 26 L2 14 Z" fill="#D7261E" stroke="#111" stroke-width="2"/></svg>
+    <img src="seal.png" alt="" width="38" height="37">
     <span dir="ltr">Human by Design</span>
   </a>
   <nav class="nav-links">
@@ -36,10 +37,11 @@
 <section class="hero">
   <div class="hero-text">
     <p class="eyebrow" data-i18n="hero.eyebrow">Human Design, in plain language</p>
-    <h1 data-i18n="hero.h1">You're not lazy. You're not too much. You might just be living someone else's design.</h1>
+    <h1 data-i18n="hero.h1">You're not lazy. You're not too much. You might just be living <i class="u">someone else's design.</i></h1>
     <p class="lead" data-i18n="hero.lead">Human Design shows how your energy actually works: when to say yes, when to rest, how you're meant to make decisions. I'm Cici, a Projector who spent years trying to hustle like everyone else. Let me show you yours.</p>
     <div class="signup" id="signup">
-      <p style="font-weight:600" data-i18n="signup.title">Get your free guide: <em>Meeting Your Design</em>, your own chart, read for you</p>
+      <p data-i18n="signup.title">Get your free guide: <em>Meeting Your Design</em>, your own chart, read for you</p>
+      <p class="note" data-i18n="note.hero">start here ↓</p>
       <form class="signup-form" id="sf" name="signup" method="POST" data-netlify="true" netlify-honeypot="bot-field">
         <input type="hidden" name="form-name" value="signup">
         <p hidden><label>Leave this empty <input name="bot-field"></label></p>
@@ -49,13 +51,13 @@
         <input id="sf-email" type="email" name="email" required autocomplete="email" dir="ltr" placeholder="you@email.com">
         <button class="btn" type="submit" data-i18n="signup.btn">Get my free chart</button>
       </form>
-      <p class="note" data-i18n="signup.note">Plus one short, honest email a week. Leave whenever you like.</p>
+      <p class="note-text small" data-i18n="signup.note">Plus one short, honest email a week. Leave whenever you like.</p>
     </div>
   </div>
   <div class="hero-art">
     <div class="art-card">
       <svg viewBox="0 0 300 450" style="width:100%;height:100%" role="img" aria-label="Cici's bodygraph: a 2/4 Projector with the Ajna, Throat and G centres defined" data-i18n-attr="aria-label:hero.art">
-        <g stroke="#C9C9C9" stroke-width="2" stroke-linecap="round">
+        <g stroke="#D9CFC4" stroke-width="2" stroke-linecap="round">
           <line x1="150" y1="80" x2="150" y2="95"/>
           <line x1="150" y1="303" x2="150" y2="325"/>
           <line x1="150" y1="380" x2="150" y2="395"/><line x1="125" y1="215" x2="55" y2="325"/>
@@ -63,15 +65,15 @@
           <line x1="88" y1="355" x2="120" y2="352"/><line x1="212" y1="355" x2="180" y2="352"/>
           <line x1="60" y1="380" x2="122" y2="412"/><line x1="240" y1="380" x2="178" y2="412"/>
         </g>
-        <g stroke="#111" stroke-width="7" stroke-linecap="round">
+        <g stroke="#1A1410" stroke-width="7" stroke-linecap="round">
           <line x1="150" y1="150" x2="150" y2="170"/>
           <line x1="150" y1="225" x2="150" y2="229"/>
         </g>
-        <g stroke="#111" stroke-width="2.5" stroke-linejoin="round">
+        <g stroke="#1A1410" stroke-width="2.5" stroke-linejoin="round">
           <path d="M150 20 L190 80 L110 80 Z" fill="#fff"/>
-          <path d="M110 95 L190 95 L150 150 Z" fill="#D7261E"/>
-          <rect x="120" y="170" width="60" height="55" rx="6" fill="#D7261E"/>
-          <path d="M150 227 L188 265 L150 303 L112 265 Z" fill="#D7261E"/>
+          <path d="M110 95 L190 95 L150 150 Z" fill="#B8231B"/>
+          <rect x="120" y="170" width="60" height="55" rx="6" fill="#B8231B"/>
+          <path d="M150 227 L188 265 L150 303 L112 265 Z" fill="#B8231B"/>
           <path d="M204 276 L240 296 L202 312 Z" fill="#fff"/>
           <path d="M28 320 L90 355 L28 390 Z" fill="#fff"/>
           <path d="M272 320 L210 355 L272 390 Z" fill="#fff"/>
@@ -79,16 +81,19 @@
           <rect x="120" y="395" width="60" height="42" rx="6" fill="#fff"/>
         </g>
       </svg>
+      <p class="art-caption" data-i18n="hero.caption">my design:<br>Projector <span dir="ltr">2/4</span>, Self-Projected</p>
     </div>
-    <p class="art-caption" data-i18n="hero.caption">My design: Projector <span dir="ltr">2/4</span>, Self-Projected</p>
+
   </div>
 </section>
 </div>
-<section class="band-dark">
+</div>
+<section class="band-paper">
   <div class="wrap section">
     <div class="section-head">
-      <h2 data-i18n="types.h2">Does any of this sound like you?</h2>
-      <p class="lead" style="color:#D6D6D6" data-i18n="types.lead">There are five Human Design types. Most people recognise themselves in one line before they ever see their chart.</p>
+      <h2 data-i18n="types.h2">Does any of this sound <i>like you?</i></h2>
+      <p class="lead" data-i18n="types.lead">There are five Human Design types. Most people recognise themselves in one line before they ever see their chart.</p>
+      <p class="note tilt-r" data-i18n="note.types">one of these is you.</p>
     </div>
     <div class="types">
       <div class="type"><p class="quote" data-i18n="t.gen.q">"I say yes to everything, then quietly resent all of it."</p><div><p class="name" data-i18n="t.gen.n">Generator</p><p class="desc" data-i18n="t.gen.d">Built to respond. Your gut knows before your head does.</p></div></div>
@@ -102,7 +107,7 @@
 <div class="wrap section">
   <div class="section-head">
     <p class="eyebrow" data-i18n="learn.eyebrow">Learn at your own pace</p>
-    <h2 data-i18n="learn.h2">The language of your design</h2>
+    <h2 data-i18n="learn.h2">The language of <i>your design</i></h2>
     <p class="lead" data-i18n="learn.lead">Human Design isn't something to rush through. Take one idea at a time, notice where it lives in your own life, and come back whenever you're ready. There's no order and no deadline.</p>
   </div>
   <div class="concepts">
@@ -113,12 +118,12 @@
     <div class="concept"><p class="cname" data-i18n="c.prof.n">Profile</p><p data-i18n="c.prof.d">The role you play in your own story: how you learn, how you connect, and how you grow over a lifetime.</p><p class="q" data-i18n="c.prof.q"><span>Sit with</span>What do people naturally come to you for?</p></div>
   </div>
 </div>
-<section class="band-dark">
+<section class="band-dark dark">
   <div class="wrap about">
-    <img src="cici.jpg" alt="Cici smiling in a black jacket against a weathered wall" data-i18n-attr="alt:about.alt">
+    <figure><img src="cici.jpg" alt="Cici smiling in a black jacket against a weathered wall" data-i18n-attr="alt:about.alt"><span class="note" data-i18n="note.about">(that's me)</span></figure>
     <div class="about-text">
       <p class="eyebrow" data-i18n="about.eyebrow">Hi, I'm Cici</p>
-      <h2 data-i18n="about.h2">I'm a 2/4 Projector. For years I thought I was just bad at being productive.</h2>
+      <h2 data-i18n="about.h2">I'm a 2/4 Projector. For years I thought I was just <i>bad at being productive.</i></h2>
       <p data-i18n="about.p1">I pushed, I chased, I burned out, and I called it ambition. Learning my design gave me permission to rest, to wait for the right invitations, and to trust what I hear myself say out loud.</p>
       <p data-i18n="about.p2">Knowing my design changed my life, and I want it to do the same for you. Fair warning: I'm the friend who asks for your birth time before your surname.</p>
       <p class="joke" data-i18n="about.joke">Yes, I will read your chart at a dinner party. Usually before dessert.</p>
@@ -128,10 +133,10 @@
 <div class="wrap">
 <section class="reading" id="book">
   <div class="reading-intro">
-    <h2 data-i18n="book.h2">Want me to read your chart with you?</h2>
+    <h2 data-i18n="book.h2">Want me to read your chart <i>with you?</i></h2>
     <p class="lead" data-i18n="book.lead">A one-to-one reading is a conversation, not a lecture. We look at your chart together and connect it to your actual life: your work, your relationships, the places you keep getting stuck.</p>
   </div>
-  <div class="offer">
+  <div class="offer dark">
     <div class="offer-head"><h3 data-i18n="book.h3">Your Chart, Explained</h3><p class="price" data-i18n="book.price">AED 777</p></div>
     <p class="meta" data-i18n="book.meta">75 minutes · one-to-one on video call · recording included</p>
     <ul>
@@ -142,14 +147,16 @@
       <li data-i18n="book.li5">One experiment to start with straight away</li>
     </ul>
     <a class="btn" href="https://calendly.com/cynthia-khourym/your-chart-explained" target="_blank" rel="noopener" data-i18n="book.btn">Book your reading</a>
+    <p class="note" data-i18n="note.book">(yes, you need your birth time)</p>
     <p class="small" data-i18n="book.small">You'll need your birth date, time and place.</p>
     <p class="reading-more"><a href="readers.html" data-i18n="book.more">Meet our other readers</a></p>
   </div>
 </section>
 </div>
-<section class="final">
+<section class="final dark">
   <div class="inner">
-    <h2 data-i18n="final.h2">Not ready for a reading? Start with the free guide.</h2>
+    <img class="seal" src="seal.png" alt="" width="118" height="116">
+    <h2 data-i18n="final.h2">Not ready for a reading? Start with <i class="u">the free guide.</i></h2>
     <p class="lead" data-i18n="final.lead">Meeting Your Design: your own chart, calculated from your birth date, time and place, and explained in plain language.</p>
     <a class="btn" href="#signup" data-i18n="final.btn">Send me the free guide</a>
   </div>
@@ -165,18 +172,22 @@ window.HBD_I18N = {
 'meta.title': 'Human by Design | هيومان ديزاين ببساطة، مع سيسي',
 'meta.desc': 'لستَ كسولًا، ولا «زيادة عن اللزوم». ربما كنتَ طوال الوقت تعيش بتصميمٍ ليس لك. اكتشف هيومان ديزاين على راحتك، أو احجز قراءة لخريطتك مع سيسي.',
 'nav.book': 'احجز قراءتك',
+'note.hero': 'بلّش من هون ↓',
+'note.types': 'واحد منهن إنت.',
+'note.about': '(هيدي أنا)',
+'note.book': '(إيه، بدّك ساعة ولادتك)',
 'nav.readers': 'قرّاؤنا',
 'book.more': 'تعرّف إلى قرّائنا الآخرين',
 'hero.eyebrow': 'هيومان ديزاين، ببساطة',
-'hero.h1': 'لستَ كسولًا. ولستَ «زيادة عن اللزوم». ربما كنتَ فقط تعيش بتصميمٍ ليس لك.',
+'hero.h1': 'لستَ كسولًا. ولستَ «زيادة عن اللزوم». ربما كنتَ فقط تعيش <i class="u">بتصميمٍ ليس لك.</i>',
 'hero.lead': 'هيومان ديزاين (التصميم البشري) يشرح لك كيف تعمل طاقتك فعلًا: متى تقول نعم، ومتى تحتاج إلى الراحة، وكيف تتّخذ قراراتك بالطريقة التي خُلقتَ لها. أنا سيسي، بروجكتور، وأمضيتُ سنوات أحاول أن ألحق بإيقاع الجميع. دعني أُريك تصميمك أنت.',
 'signup.title': 'دليلك المجاني: <em>تعرّف إلى تصميمك</em>. خريطتك أنت، وقراءتها مكتوبة لك.',
 'signup.label': 'بريدك الإلكتروني',
 'signup.btn': 'أريد خريطتي المجانية',
 'signup.note': 'ومعه رسالة قصيرة وصادقة كل أسبوع، وتستطيع إلغاء الاشتراك متى أردت.',
 'hero.art': 'خريطة جسد سيسي: بروجكتور 2/4، ومراكز الأجنا والحلق وG معرَّفة',
-'hero.caption': 'تصميمي: بروجكتور <bdi dir="ltr">2/4</bdi>، وبوصلتي صوتي حين أتكلّم',
-'types.h2': 'هل تجد نفسك هنا؟',
+'hero.caption': 'تصميمي: بروجكتور <bdi dir="ltr">2/4</bdi><br>وبوصلتي صوتي حين أتكلّم',
+'types.h2': 'هل تجد نفسك <i>هنا؟</i>',
 'types.lead': 'في هيومان ديزاين خمسة أنواع، ومعظم الناس يعرفون أنفسهم من جملة واحدة، حتى قبل أن يروا خريطتهم.',
 't.gen.q': '«أقول نعم لكل شيء، وبعدها أتضايق من كل شيء بصمت.»',
 't.gen.n': 'الجنريتر',
@@ -194,7 +205,7 @@ window.HBD_I18N = {
 't.ref.n': 'الرفلكتور',
 't.ref.d': 'مرآة لكل من حولك. والمكان الذي تكون فيه يصنع الفرق كله.',
 'learn.eyebrow': 'تعلّم على راحتك',
-'learn.h2': 'لغة تصميمك',
+'learn.h2': 'لغة <i>تصميمك</i>',
 'learn.lead': 'هيومان ديزاين لا يُفهَم على عجل. خذ فكرة واحدة، وراقب أين تظهر في حياتك، وارجع إليها متى شعرت بذلك. لا ترتيب يلزمك، ولا موعد ينتظرك.',
 'c.type.n': 'النوع',
 'c.type.d': 'الطريقة التي تتحرّك بها طاقتك في العالم. ولهذا تختلف علاقتك بالراحة والعمل والناس عن علاقة من حولك بها.',
@@ -213,11 +224,11 @@ window.HBD_I18N = {
 'c.prof.q': '<span>تأمّل:</span>لماذا يلجأ إليك الناس عادةً؟',
 'about.alt': 'سيسي تبتسم بسترة سوداء أمام جدار قديم',
 'about.eyebrow': 'أهلًا، أنا سيسي',
-'about.h2': 'أنا بروجكتور <bdi dir="ltr">2/4</bdi>. ولسنوات ظننتُ أن المشكلة فيّ، وأنني ببساطة لا أعرف كيف أكون منتِجة.',
+'about.h2': 'أنا بروجكتور <bdi dir="ltr">2/4</bdi>. ولسنوات ظننتُ أن المشكلة فيّ، وأنني ببساطة <i>لا أعرف كيف أكون منتِجة.</i>',
 'about.p1': 'ضغطتُ على نفسي، وركضتُ خلف كل شيء، ثم احترقت، وكنتُ أسمّي ذلك طموحًا. حين فهمتُ تصميمي، سمحتُ لنفسي أخيرًا أن أرتاح، وأن أنتظر الدعوات التي تشبهني، وأن أثق بما أسمعه حين أتكلّم بصوت عالٍ.',
 'about.p2': 'معرفة تصميمي غيّرت حياتي، وأريدها أن تفعل الشيء نفسه معك. وأعترف لك مسبقًا: أنا الصديقة التي تسألك عن ساعة ولادتك قبل أن تعرف اسم عائلتك.',
 'about.joke': 'نعم، سأقرأ خريطتك على العشاء. وغالبًا قبل أن تصل الحلوى.',
-'book.h2': 'نقرأ خريطتك معًا؟',
+'book.h2': 'نقرأ خريطتك <i>معًا؟</i>',
 'book.lead': 'القراءة الفردية حديث بيننا، لا محاضرة. نفتح خريطتك معًا ونربطها بحياتك كما هي: عملك، وعلاقاتك، والأماكن التي تجد نفسك عالقًا فيها في كل مرة.',
 'book.h3': 'خريطتك، بوضوح',
 'book.price': '<bdi dir="ltr">AED 777</bdi>',
@@ -229,7 +240,7 @@ window.HBD_I18N = {
 'book.li5': 'تجربة صغيرة تبدأ بها من اليوم نفسه',
 'book.btn': 'احجز قراءتك',
 'book.small': 'كل ما تحتاجه: تاريخ ولادتك، ووقتها، ومكانها.',
-'final.h2': 'لستَ جاهزًا لقراءة بعد؟ ابدأ بالدليل المجاني.',
+'final.h2': 'لستَ جاهزًا لقراءة بعد؟ ابدأ <i class="u">بالدليل المجاني.</i>',
 'final.lead': '«تعرّف إلى تصميمك»: خريطتك أنت، محسوبة من تاريخ ولادتك ووقتها ومكانها، ومشروحة بكلام بسيط.',
 'final.btn': 'أريد دليلي المجاني',
 'foot.disc': 'هيومان ديزاين أداة لفهم الذات والتأمّل فيها، وليس بديلًا عن أي استشارة طبية أو نفسية أو مالية.',
