@@ -1,5 +1,7 @@
 // Confirms a Ziina payment is completed, for the right amount, and for this exact chart (the ref in the message).
 const crypto = require('crypto');
+const { sendReportEmail, fromIntent } = require('../lib/mail');
+const SITE = process.env.SITE_URL || 'https://humanbydesign.global';
 const PRICE_FILS = 11100;
 
 exports.handler = async (event) => {
@@ -15,5 +17,9 @@ exports.handler = async (event) => {
   const ref = crypto.createHash('sha256').update(r).digest('hex').slice(0, 12);
   const paid = j.status === 'completed' && Number(j.amount) === PRICE_FILS && j.currency_code === 'AED'
     && typeof j.message === 'string' && j.message.indexOf('ref ' + ref) >= 0;
+  if (paid) {
+    // Email the report link (one email per payment, however many times this runs).
+    try { const m = fromIntent(j, SITE); if (m) await sendReportEmail(Object.assign({ pi }, m)); } catch (e) {}
+  }
   return { statusCode: 200, headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' }, body: JSON.stringify({ paid }) };
 };
