@@ -1,6 +1,6 @@
 // Starts a Ziina payment for a reading and returns Ziina's payment page.
 // Needs ZIINA_API_KEY in Netlify (Project configuration > Environment variables). ZIINA_TEST=true makes test payments.
-const READERS = { cici: 'Cici', rayjai: 'Rayjai' };
+const READERS = { cici: 'Cici', rayjai: 'Ram' };
 const PRICE_FILS = 77700; // AED 777.00
 const SITE = process.env.SITE_URL || 'https://humanbydesign.global';
 

@@ -1,7 +1,7 @@
 // Confirms a reading was paid on Ziina, then hands back that reader's private booking calendar.
 const READERS = {
   cici:   { name: 'Cici',   cal: process.env.CAL_CICI   || 'https://calendly.com/cynthia-khourym/your-chart-explained' },
-  rayjai: { name: 'Rayjai', cal: process.env.CAL_RAYJAI || '' }
+  rayjai: { name: 'Ram', cal: process.env.CAL_RAYJAI || '' }
 };
 const PRICE_FILS = 77700;
 exports.handler = async (event) => {
