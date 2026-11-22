@@ -71,10 +71,11 @@ header.nav{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-
 .hero-text{flex:1 1 460px;min-width:0;display:flex;flex-direction:column;gap:26px}
 .hero h1{font-size:clamp(46px,6vw,82px);line-height:1}
 .hero-art{flex:1 1 300px;min-width:0;display:flex;flex-direction:column;align-items:center}
-.art-card{position:relative;width:100%;max-width:360px;aspect-ratio:4/5;padding:34px 34px 70px;background:var(--card);box-shadow:0 30px 60px rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center}
+.art-card{position:relative;width:100%;max-width:360px;padding:30px 30px 22px;background:var(--card);box-shadow:0 30px 60px rgba(0,0,0,.45);display:flex;flex-direction:column;align-items:center;gap:14px}
+.art-card svg{display:block;width:100%;max-width:250px;height:auto}
 .art-card::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 40%,#fffdf9 55%,#efe6da 100%)}
 .art-card>*{position:relative}
-.art-caption{position:absolute!important;left:20px;right:20px;bottom:16px;font-family:var(--hand);font-size:31px;line-height:1;color:var(--red)!important;text-align:center}
+.art-caption{margin:0;font-family:var(--hand);font-size:31px;line-height:1;color:var(--red)!important;text-align:center}
 .signup{display:flex;flex-direction:column;gap:12px;max-width:600px;margin-top:6px}
 .signup>p:first-of-type{font-weight:400;color:var(--cream)}
 .signup .note{align-self:flex-start;margin:0 0 0 6px}
