@@ -9,6 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&family=Reenie+Beanie&family=Amiri:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Sans+Arabic:wght@300;400;500&family=Aref+Ruqaa:wght@400;700&display=swap">
+<link rel="stylesheet" href="fonts.css">
 <link rel="stylesheet" href="style.css?v=1122f">
 <link rel="icon" href="seal-64.png" type="image/png">
 <script src="i18n.js"></script>
@@ -57,6 +58,34 @@
 html[lang=ar] .guide h3,html[lang=ar] .crossname,html[lang=ar] .fact .v,html[lang=ar] .cl li strong,html[lang=ar] .cl .ask{font-family:'Amiri',serif}
 html[lang=ar] .cl .meta,html[lang=ar] .fact .k,html[lang=ar] .pcol .ph{letter-spacing:0;text-transform:none}
 @media print{body::after{display:none}.chartbox{break-inside:avoid}header.nav,.mf,.acts,.intro-only{display:none!important}.guide{padding-top:0}.fact,.mf{break-inside:avoid}}
+
+/* paid report offer, in the brand (espresso + candlelight, seal, red underline, red handwriting) */
+.up{position:relative;overflow:hidden;background:var(--esp);color:var(--cream);margin:56px 0 0;padding:48px 44px;display:grid;grid-template-columns:1.3fr .8fr;gap:34px;align-items:center}
+.up::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 28% 20%,rgba(255,180,110,.2),rgba(0,0,0,0) 60%);pointer-events:none}
+.up::after{content:"";position:absolute;inset:0;background:var(--grain);opacity:.16;mix-blend-mode:screen;pointer-events:none}
+.up>*{position:relative;z-index:1}
+.up .eyebrow{color:var(--muted-d)}
+.up h2{font-family:var(--serif);font-weight:400;font-size:50px;line-height:1.02;color:var(--cream);margin:14px 0 0}
+.up h2 i.u{background-image:var(--ul-d)}
+.up .hand{display:block;font-family:var(--hand);color:var(--red-d);font-size:36px;margin-top:12px}
+.up p.ul{color:var(--muted-d);font-size:16.5px;line-height:1.7;margin-top:16px;max-width:520px}
+.up a.go{white-space:nowrap;display:inline-block;line-height:60px;min-height:60px;padding:0 34px;border-radius:999px;background:var(--cream);color:var(--esp);font:500 17px var(--sans);text-decoration:none;margin-top:26px;box-shadow:0 14px 30px rgba(0,0,0,.35)}
+.up a.go{line-height:60px}
+.up a.go:hover{background:var(--red-d);color:var(--cream)}
+.up .us{font-size:13px;color:var(--muted-d);margin-top:12px}
+.up .mini{position:relative;width:100%;max-width:240px;aspect-ratio:210/297;margin:0 auto;background:var(--esp2);border-radius:3px;box-shadow:0 30px 60px rgba(0,0,0,.55);transform:rotate(3deg);overflow:hidden;padding:22px 18px;display:flex;flex-direction:column;justify-content:space-between}
+.up .mini .mt{font:400 28px/1 var(--serif);color:var(--cream)}
+.up .mini .mt i{background:var(--ul-d) no-repeat left bottom/100% .26em;padding-bottom:.1em}
+.up .mini .mn{font-family:var(--hand);color:var(--red-d);font-size:26px;margin-top:8px}
+.up .mini img{width:44%;align-self:flex-end;filter:drop-shadow(0 10px 16px rgba(0,0,0,.5))}
+.up .mini .ms{font:400 7px var(--sans);letter-spacing:.18em;color:var(--muted-d)}
+.upbar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 20px;margin:22px 0 0;padding:16px 22px;background:var(--esp);color:var(--cream)}
+.upbar span{font-family:var(--serif);font-size:22px}
+.upbar a{color:var(--cream);font:500 15px var(--sans);text-decoration:none;border-bottom:2px solid var(--red-d);padding-bottom:2px}
+html[lang=ar] .up h2,html[lang=ar] .upbar span,html[lang=ar] .up .mini .mt{font-family:'Amiri',serif;line-height:1.3}
+html[lang=ar] .up .hand,html[lang=ar] .up .mini .mn{font-family:'Aref Ruqaa',serif;font-size:26px}
+@media (max-width:820px){.up{grid-template-columns:1fr;padding:36px 24px}.up h2{font-size:38px}.up .mini{max-width:170px}.up a.go{padding:0 22px;font-size:15px}}
+@media print{.up,.upbar{display:none!important}}
 </style>
 </head>
 <body>
@@ -95,6 +124,10 @@ html[lang=ar] .cl .meta,html[lang=ar] .fact .k,html[lang=ar] .pcol .ph{letter-sp
 <script src="https://cdn.jsdelivr.net/npm/astronomy-engine@2.1.19/astronomy.browser.min.js"></script>
 <script src="hd-engine.js"></script>
 <script src="ar-guide.js"></script>
+<script src="report-en.js"></script>
+<script src="report-ar.js"></script>
+<script src="report-en-deep.js"></script>
+<script src="report-ar-deep.js"></script>
 <script>
 (function(){
 var T={
@@ -393,6 +426,8 @@ var d=D(),t=d.T[c.type],dn=ORDER.filter(function(k){return c.defined[k];}),op=OR
 var tn=tr('TN',c.type),au=tr('AUN',c.authority);
 var h='<p class="lead" style="margin-top:8px">'+S('hello')(esc(name),esc(place))+'</p>';
 h+=chartBlock(c)+'<div class="top"><div class="facts">'+[[S('fType'),esc(tn)],[S('fStrat'),esc(t.s)],[S('fAuth'),esc(au)],[S('fProf'),n(c.profile)+' '+esc(d.LN[c.pLine][0]+' / '+d.LN[c.dLine][0])],[S('fSig'),esc(t.sig)],[S('fNs'),esc(t.ns)]].map(function(f){return '<div class="fact"><div class="k">'+f[0]+'</div><div class="v">'+f[1]+'</div></div>';}).join('')+'</div></div>';
+var UO0=((lang()==='ar'?window.HBR_AR:window.HBR_EN)||{UI:{}}).UI.offer;
+if(UO0){h+='<div class="upbar"><span>'+UO0.barTxt+'</span><a href="#upblock">'+UO0.barCta+' · <bdi dir="ltr">AED 111</bdi></a></div>';}
 h+='<h2>'+S('youAre')(esc(tn))+'</h2><p>'+t.d+'</p><p class="callout">'+S('sigCallout')(t.sig,t.ns)+'</p>';
 h+='<h2>'+S('stratH')(t.s)+'</h2><p>'+t.x+'</p>';
 h+='<h2>'+S('authH')(au)+'</h2><p>'+d.AU[c.authority]+'</p>';
@@ -402,7 +437,9 @@ h+='<h2>'+S('openH')+'</h2><p>'+S('openIntro')+'</p><ul class="cl">'+op.map(func
 h+=channelsHtml(c)+crossHtml(c);
 h+='<h2>'+S('liveH')+'</h2><p>'+S('liveIntro')+'</p><ul class="cl"><li><strong>'+S('liveStrat')+'</strong>'+t.x+'</li><li><strong>'+S('liveAuth')+'</strong>'+S('liveAuthT')(c.authority)+'</li>'+(op[0]?'<li><strong>'+S('liveOpen')(d.CEN[op[0]][0])+'</strong>'+d.CEN[op[0]][3]+'</li>':'')+'</ul>';
 h+='<h2>'+S('deepH')+'</h2><p>'+S('deepT')+'</p>';
-h+='<div class="upsell" style="margin-top:40px;padding:32px;background:var(--card);border:1px solid var(--line)"><p class="eyebrow">'+(lang()==='ar'?'سعر الإطلاق · <bdi dir="ltr">AED 111</bdi>':'Launch price · AED 111')+'</p><h3 style="margin-top:6px">'+(lang()==='ar'?'تصميمك، بالتفصيل':'Your Design, Decoded')+'</h3><p>'+(lang()==='ar'?'خريطتك كلها، مقروءة إلك للآخر: نوعك بالشغل والحب والراحة، سلطتك بقرارات حقيقية، المراكز التسعة، كل قناة، والتفعيلات الـ26 وحدة وحدة. أكتر من عشرين صفحة لتصميمك إنت.':'Your whole chart, read all the way down: your type in work, love and rest, your authority in real decisions, all nine centres, every channel, and all 26 activations one by one. More than twenty pages, written for your exact design.')+'</p><a class="btn" href="report.html?lang='+lang()+'&r='+(window.HBR_IN?b64u(JSON.stringify(window.HBR_IN)):'')+'" id="upsell" style="margin-top:18px">'+(lang()==='ar'?'بدي تقريري':'Get my full report')+'</a></div>';
+var UO=((lang()==='ar'?window.HBR_AR:window.HBR_EN)||{UI:{}}).UI.offer,UL='report.html?lang='+lang()+'&r='+(window.HBR_IN?b64u(JSON.stringify(window.HBR_IN)):'');
+if(UO){h+='<div class="up" id="upblock"><div><p class="eyebrow">'+UO.eyebrow+'</p><h2>'+UO.upH+'</h2><span class="hand">'+UO.note+'</span><p class="ul">'+UO.upLead+'</p><a class="go" id="upsell" href="'+UL+'">'+UO.upCta+'</a><p class="us">'+UO.upSub+'</p></div>';
+h+='<div class="mini"><div><div class="ms">HUMAN BY DESIGN</div><div class="mt" style="margin-top:12px">'+(lang()==='ar'?'تصميمك،<br><i>بالتفصيل.</i>':'your design,<br><i>decoded.</i>')+'</div><div class="mn">'+(lang()==='ar'?'لـ':'for ')+'<bdi>'+esc(name)+'</bdi></div></div><img src="seal.png" alt=""></div></div>';}
 h+='<div class="acts"><a class="btn" href="index.html#book">'+S('bookBtn')+'</a><button class="btn btn-ghost" type="button" onclick="window.print()">'+S('pdf')+'</button><button class="btn btn-ghost" type="button" id="again">'+S('again')+'</button></div>';
 h+='<p style="margin-top:40px">'+S('love')+'</p><p style="margin-top:24px;font-size:14px;color:#555"><em>'+S('disc')+'</em></p>';
 var r=document.getElementById('res');r.innerHTML=h;r.classList.add('on');document.querySelector('.intro-only').style.display='none';

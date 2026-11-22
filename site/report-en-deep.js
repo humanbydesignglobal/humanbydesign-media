@@ -154,4 +154,33 @@ E.UI = Object.assign(E.UI, D.UI); E.GIFT = D.GIFT; E.LINE_DEEP = D.LINE_DEEP; E.
 Object.keys(D.TYPE).forEach(function (k) { Object.assign(E.TYPE[k], D.TYPE[k]); });
 Object.keys(D.AUTH).forEach(function (k) { Object.assign(E.AUTH[k], D.AUTH[k]); });
 Object.keys(D.CENTRE).forEach(function (k) { Object.assign(E.CENTRE[k], D.CENTRE[k]); });
+
+E.UI.offer = {
+  eyebrow: 'Launch price · AED 111',
+  h: 'your design,<br><i class="u">decoded.</i>',
+  note: '(40 pages, all about you)',
+  lead: 'Your free chart was the beginning. This is the whole of it: every part of your design, read for you and explained in real life, all the way down.',
+  cta: 'Get my report · AED 111',
+  ctaSub: 'Opens the moment you pay, and lands in your inbox too.',
+  insideH: 'what\'s <i class="u">inside</i>',
+  inside: [
+    ['Your type, in depth', 'Your aura, work and money, love, family and rest, and how you meet the other four types.'],
+    ['Your authority, in practice', 'How it feels in your body, real decisions, and what gets in its way.'],
+    ['Your profile', 'Both of your lines, explained for work and for love.'],
+    ['Your nine centres', 'Where you are steady, where you take in the world, and the wisdom each one grows.'],
+    ['Your channels and gates', 'Your fixed gifts, and the people who make you click.'],
+    ['All 26 activations', 'Every planet in your chart, one by one, including what it looks like off balance.'],
+    ['Your life theme', 'Your incarnation cross, and the four gates that hold it.'],
+    ['Experiments to carry', 'No schedule, no checklist. Things to try, made for your chart.']
+  ],
+  formH: 'whose <i class="u">chart?</i>',
+  formNote: 'Use the email where you want your report sent.',
+  trust: 'Secure payment by Ziina · card, Apple Pay or Google Pay · AED 111',
+  upH: 'there\'s <i class="u">so much more</i> in your chart.',
+  upLead: 'This was your chart\'s first layer. Your full report reads all of it for you: forty pages on your type, your decisions, all nine centres, every channel and all 26 activations, in plain words.',
+  upCta: 'Get my full report · AED 111',
+  upSub: 'Launch price. Opens instantly, and arrives in your inbox.',
+  barTxt: 'Your full report is ready to be written.',
+  barCta: 'See what\'s inside'
+};
 })();
