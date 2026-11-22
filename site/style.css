@@ -241,3 +241,10 @@ html[lang=ar] .reader-body .note{font-size:22px;line-height:1.5}
 .reader-body p.note{color:var(--red)}
 .step2{margin:12px 0 4px!important}.step2 a{font-weight:500;text-decoration:underline;text-underline-offset:3px}
 .reader-body .step2+.small,.offer .step2+.small{opacity:.75;margin-top:0}
+.payform{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:4px}
+.payform input[type=email]{flex:1 1 190px;min-width:0;height:52px;padding:0 20px;border:1px solid var(--line);border-radius:999px;font:inherit;font-size:15px;font-weight:400;background:#fff;color:var(--ink)}
+.dark .payform input[type=email]{border-color:rgba(244,238,230,.45);background:rgba(244,238,230,.06);color:var(--cream)}
+.dark .payform input[type=email]::placeholder{color:rgba(244,238,230,.5)}
+.payform .btn{flex:0 0 auto}
+.payform button:disabled{opacity:.6;cursor:wait}
+.booked-state[hidden]{display:none}

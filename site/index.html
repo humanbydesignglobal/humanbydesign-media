@@ -15,9 +15,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&family=Reenie+Beanie&family=Amiri:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Sans+Arabic:wght@300;400;500&family=Aref+Ruqaa:wght@400;700&display=swap">
-<link rel="stylesheet" href="style.css?v=1122e">
+<link rel="stylesheet" href="style.css?v=1122f">
 <link rel="icon" href="seal-64.png" type="image/png">
 <script src="i18n.js"></script>
+<script src="book.js" defer></script>
 </head>
 <body>
 <div class="topband dark">
@@ -148,9 +149,12 @@
       <li data-i18n="book.li4">Your open centres: where you absorb other people's energy</li>
       <li data-i18n="book.li5">One experiment to start with straight away</li>
     </ul>
-    <a class="btn" href="https://pay.ziina.com/humanbydesign/qIDSUkCom" target="_blank" rel="noopener" data-i18n="book.pay">1. Pay AED 777</a>
-    <p class="small step2" data-i18n="book.after">2. Once your payment is in, we email you a private link to pick your time.</p>
-    <p class="small" data-i18n="book.paynote">In the payment note, write "Cici" and your email.</p>
+    <form class="payform" name="booking" data-netlify="true" data-reader="cici">
+      <input type="hidden" name="form-name" value="booking"><input type="hidden" name="reader" value="cici">
+      <input type="email" name="email" required autocomplete="email" placeholder="your email" aria-label="Your email" data-i18n-attr="placeholder:pay.ph;aria-label:pay.ph">
+      <button class="btn" type="submit" data-i18n="book.pay">Pay AED 777</button>
+    </form>
+    <p class="small step2" data-i18n="pay.after">Straight after paying, you pick your time.</p>
     <p class="note" data-i18n="note.book">(yes, you need your birth time)</p>
     <p class="small" data-i18n="book.small">You'll need your birth date, time and place.</p>
     <p class="reading-more"><a href="readers.html" data-i18n="book.more">Meet our other readers</a></p>
@@ -244,9 +248,9 @@ window.HBD_I18N = {
 'book.li4': 'مراكزك المفتوحة: أين تمتصّ طاقة الآخرين',
 'book.li5': 'تجربة صغيرة تبدأ بها من اليوم نفسه',
 'book.btn': 'احجز قراءتك',
-'book.pay': '١. ادفع&nbsp;<bdi dir="ltr">AED 777</bdi>',
-'book.after': '٢. بعد وصول الدفعة، نرسل لك رابطًا خاصًا لتختار موعدك.',
-'book.paynote': 'في ملاحظة الدفع، اكتب «سيسي» وبريدك الإلكتروني.',
+'book.pay': 'ادفع&nbsp;<bdi dir="ltr">AED 777</bdi>',
+'pay.ph': 'بريدك الإلكتروني',
+'pay.after': 'بعد الدفع مباشرة، تختار موعدك.',
 'book.small': 'كل ما تحتاجه: تاريخ ولادتك، ووقتها، ومكانها.',
 'final.h2': 'لستَ جاهزًا لقراءة بعد؟ ابدأ <i class="u">بالدليل المجاني.</i>',
 'final.lead': '«تعرّف إلى تصميمك»: خريطتك أنت، محسوبة من تاريخ ولادتك ووقتها ومكانها، ومشروحة بكلام بسيط.',

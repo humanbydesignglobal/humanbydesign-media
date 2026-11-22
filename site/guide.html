@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&family=Reenie+Beanie&family=Amiri:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Sans+Arabic:wght@300;400;500&family=Aref+Ruqaa:wght@400;700&display=swap">
-<link rel="stylesheet" href="style.css?v=1122e">
+<link rel="stylesheet" href="style.css?v=1122f">
 <link rel="icon" href="seal-64.png" type="image/png">
 <script src="i18n.js"></script>
 <style>
@@ -402,7 +402,6 @@ h+='<h2>'+S('openH')+'</h2><p>'+S('openIntro')+'</p><ul class="cl">'+op.map(func
 h+=channelsHtml(c)+crossHtml(c);
 h+='<h2>'+S('liveH')+'</h2><p>'+S('liveIntro')+'</p><ul class="cl"><li><strong>'+S('liveStrat')+'</strong>'+t.x+'</li><li><strong>'+S('liveAuth')+'</strong>'+S('liveAuthT')(c.authority)+'</li>'+(op[0]?'<li><strong>'+S('liveOpen')(d.CEN[op[0]][0])+'</strong>'+d.CEN[op[0]][3]+'</li>':'')+'</ul>';
 h+='<h2>'+S('deepH')+'</h2><p>'+S('deepT')+'</p>';
-h+='<div class="upsell" style="margin-top:40px;padding:32px;background:var(--card);border:1px solid var(--line)"><p class="eyebrow">'+(lang()==='ar'?'<bdi dir="ltr">AED 177</bdi>':'AED 177')+'</p><h3 style="margin-top:6px">'+(lang()==='ar'?'تصميمك، مكتوب':'Your Design, Written')+'</h3><p>'+(lang()==='ar'?'خريطتك كلها، مقروءة إلك للآخر: نوعك بالشغل والحب والراحة، سلطتك بقرارات حقيقية، المراكز التسعة، كل قناة، والتفعيلات الـ26 وحدة وحدة. أكتر من عشرين صفحة لتصميمك إنت.':'Your whole chart, read all the way down: your type in work, love and rest, your authority in real decisions, all nine centres, every channel, and all 26 activations one by one. More than twenty pages, written for your exact design.')+'</p><a class="btn" href="report.html?lang='+lang()+'&r='+(window.HBR_IN?b64u(JSON.stringify(window.HBR_IN)):'')+'" id="upsell" style="margin-top:18px">'+(lang()==='ar'?'بدي تقريري':'Get my full report')+'</a></div>';
 h+='<div class="acts"><a class="btn" href="index.html#book">'+S('bookBtn')+'</a><button class="btn btn-ghost" type="button" onclick="window.print()">'+S('pdf')+'</button><button class="btn btn-ghost" type="button" id="again">'+S('again')+'</button></div>';
 h+='<p style="margin-top:40px">'+S('love')+'</p><p style="margin-top:24px;font-size:14px;color:#555"><em>'+S('disc')+'</em></p>';
 var r=document.getElementById('res');r.innerHTML=h;r.classList.add('on');document.querySelector('.intro-only').style.display='none';
@@ -431,7 +430,7 @@ fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlenco
 }catch(e){}}
 window.HBD_onLang=function(){if(last)render(last.name,last.c,last.place,true);else document.getElementById('title').textContent=S('title');};
 window.HBD_onLang();
-try{if(location.hash.indexOf('#r=')===0){var R=JSON.parse(unb64u(location.hash.slice(3)));window.HBR_IN=R;var dp=R.d.split('-').map(Number),tp=R.t.split(':').map(Number);
+try{if(location.hash.indexOf('#r=')===0){var R=JSON.parse(unb64u(location.hash.slice(3)));var dp=R.d.split('-').map(Number),tp=R.t.split(':').map(Number);
 render(R.n||S('friend'),HD.chart(HD.localToUtc(dp[0],dp[1],dp[2],tp[0],tp[1],R.z)),R.p||'');}}catch(x){}
 try{var se=sessionStorage.getItem('hbd-email');if(se){document.getElementById('em').value=se;}}catch(x){}
 document.getElementById('f').addEventListener('submit',function(e){e.preventDefault();er.textContent='';
@@ -439,7 +438,7 @@ var name=document.getElementById('nm').value.trim(),d=document.getElementById('b
 if(!sel){er.textContent=S('pick');return;}
 if(!d||!t){er.textContent=S('needDT');return;}
 try{var dp=d.split('-').map(Number),tp=t.split(':').map(Number);
-var utc=HD.localToUtc(dp[0],dp[1],dp[2],tp[0],tp[1],sel.timezone);var c=HD.chart(utc);window.HBR_IN={n:name||S('friend'),e:document.getElementById('em').value.trim(),d:d,t:t,z:sel.timezone,p:bp.value};render(name||S('friend'),c,bp.value);save(name,document.getElementById('em').value.trim(),d,t,c);}
+var utc=HD.localToUtc(dp[0],dp[1],dp[2],tp[0],tp[1],sel.timezone);var c=HD.chart(utc);render(name||S('friend'),c,bp.value);save(name,document.getElementById('em').value.trim(),d,t,c);}
 catch(x){er.textContent=S('calcErr');}});
 })();
 </script>

@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en" translate="no">
+<head>
+<meta charset="utf-8">
+<meta name="google" content="notranslate">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Your reading | Human by Design</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&family=Reenie+Beanie&family=Amiri:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Sans+Arabic:wght@300;400;500&family=Aref+Ruqaa:wght@400;700&display=swap">
+<link rel="stylesheet" href="style.css?v=1122f">
+<link rel="icon" href="seal-64.png" type="image/png">
+<script src="i18n.js"></script>
+</head>
+<body>
+<div class="wrap">
+<header class="nav">
+  <a class="logo" href="/">
+    <img src="seal.png" alt="" width="38" height="37">
+    <span dir="ltr">Human by Design</span>
+  </a>
+  <nav class="nav-links">
+    <a class="plain" href="readers.html" data-i18n="b.nav.readers">Our readers</a>
+    <button class="lang-btn" type="button" data-lang-toggle lang="ar" dir="rtl" aria-label="التبديل إلى العربية">عربي</button>
+  </nav>
+</header>
+
+<main class="narrow">
+  <div class="booked-state" id="s-wait">
+    <p class="eyebrow" data-i18n="b.eyebrow">Your reading</p>
+    <h1 data-i18n="b.wait.h">One <i class="u">moment.</i></h1>
+    <p class="lead" data-i18n="b.wait.p">We're checking your payment with Ziina.</p>
+  </div>
+  <div class="booked-state" id="s-cal" hidden>
+    <p class="eyebrow" data-i18n="b.eyebrow">Your reading</p>
+    <h1 data-i18n="b.cal.h">You're in. Now pick <i class="u">your time.</i></h1>
+    <p class="lead" data-i18n="b.cal.p">Your payment went through. Choose the time that suits you, and the video link will land in your inbox.</p>
+    <p><a class="btn" id="cal" href="#" target="_blank" rel="noopener" data-i18n="b.cal.btn">Pick your time</a></p>
+    <p class="note" data-i18n="b.cal.note">(have your birth time ready)</p>
+  </div>
+  <div class="booked-state" id="s-mail" hidden>
+    <p class="eyebrow" data-i18n="b.eyebrow">Your reading</p>
+    <h1 data-i18n="b.mail.h">You're <i class="u">in.</i></h1>
+    <p class="lead" data-i18n="b.mail.p">Your payment went through. Your reader will email you within a day to set a time that suits you both.</p>
+  </div>
+  <div class="booked-state" id="s-no" hidden>
+    <p class="eyebrow" data-i18n="b.eyebrow">Your reading</p>
+    <h1 data-i18n="b.no.h">We couldn't confirm <i class="u">your payment.</i></h1>
+    <p class="lead" data-i18n="b.no.p">If you've paid, don't worry: we'll email you your booking link. Any questions, write to cici@humanbydesign.global.</p>
+    <p><a class="btn btn-ghost" href="readers.html" data-i18n="b.no.btn">Back to our readers</a></p>
+  </div>
+</main>
+
+<footer>
+  <p data-i18n="foot.disc">Human Design is a tool for self-reflection. It is not medical, psychological or financial advice.</p>
+  <a href="/" style="font-weight:600" dir="ltr">humanbydesign.global</a>
+</footer>
+</div>
+<script>
+window.HBD_I18N = {
+'meta.title': 'قراءتك | Human by Design',
+'b.nav.readers': 'قرّاؤنا',
+'b.eyebrow': 'قراءتك',
+'b.wait.h': 'لحظة <i class="u">صغيرة.</i>',
+'b.wait.p': 'نتأكّد من دفعتك مع Ziina.',
+'b.cal.h': 'تمّ. اختر الآن <i class="u">موعدك.</i>',
+'b.cal.p': 'وصلت دفعتك. اختر الوقت الذي يناسبك، وسيصلك رابط مكالمة الفيديو على بريدك.',
+'b.cal.btn': 'اختر موعدك',
+'b.cal.note': '(جهّز ساعة ولادتك)',
+'b.mail.h': '<i class="u">تمّ.</i>',
+'b.mail.p': 'وصلت دفعتك. سيراسلك قارئك خلال يوم ليحدّد معك وقتًا يناسبكما.',
+'b.no.h': 'ما قدرنا نتأكّد <i class="u">من دفعتك.</i>',
+'b.no.p': 'إن كنتَ دفعت، فلا تقلق: سنرسل لك رابط الحجز على بريدك. لأي سؤال، راسلنا على cici@humanbydesign.global.',
+'b.no.btn': 'العودة إلى قرّائنا',
+'foot.disc': 'هيومان ديزاين أداة لفهم الذات والتأمّل فيها، وليس بديلًا عن أي استشارة طبية أو نفسية أو مالية.'
+};
+(function(){
+  var q = new URLSearchParams(location.search), pi = q.get('pi'), reader = q.get('reader');
+  function show(id){ document.querySelectorAll('.booked-state').forEach(function(e){ e.hidden = e.id !== id; }); }
+  if (!pi || !reader) { show('s-no'); return; }
+  fetch('/.netlify/functions/book-verify?reader=' + encodeURIComponent(reader) + '&pi=' + encodeURIComponent(pi), {cache:'no-store'})
+    .then(function(r){ return r.json(); })
+    .then(function(j){
+      if (!j || !j.paid) return show('s-no');
+      if (j.cal) { document.getElementById('cal').href = j.cal; show('s-cal'); } else show('s-mail');
+    })
+    .catch(function(){ show('s-no'); });
+})();
+</script>
+</body>
+</html>

@@ -11,9 +11,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&family=Reenie+Beanie&family=Amiri:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Sans+Arabic:wght@300;400;500&family=Aref+Ruqaa:wght@400;700&display=swap">
-<link rel="stylesheet" href="style.css?v=1122e">
+<link rel="stylesheet" href="style.css?v=1122f">
 <link rel="icon" href="seal-64.png" type="image/png">
 <script src="i18n.js"></script>
+<script src="book.js" defer></script>
 </head>
 <body>
 <div class="wrap">
@@ -53,9 +54,12 @@
         <div><p class="offer-name" data-i18n="r.cici.offer">Your Chart, Explained</p><p class="meta" data-i18n="r.cici.meta">75 minutes · for beginners · video call · recording included</p></div>
         <p class="price" data-i18n="r.cici.price">AED 777</p>
       </div>
-      <a class="btn" href="https://pay.ziina.com/humanbydesign/qIDSUkCom" target="_blank" rel="noopener" data-i18n="r.pay">1. Pay AED 777</a>
-      <p class="small step2" data-i18n="r.after">2. Once your payment is in, we email you a private link to pick your time.</p>
-      <p class="small" data-i18n="r.cici.paynote">In the payment note, write "Cici" and your email.</p>
+      <form class="payform" name="booking" data-netlify="true" data-reader="cici">
+        <input type="hidden" name="form-name" value="booking"><input type="hidden" name="reader" value="cici">
+        <input type="email" name="email" required autocomplete="email" placeholder="your email" aria-label="Your email" data-i18n-attr="placeholder:pay.ph;aria-label:pay.ph">
+        <button class="btn" type="submit" data-i18n="r.pay">Pay AED 777</button>
+      </form>
+      <p class="small step2" data-i18n="pay.after">Straight after paying, you pick your time.</p>
     </div>
   </article>
 
@@ -76,9 +80,12 @@
         <div><p class="offer-name" data-i18n="r.ray.offer">Your Chart, Explained</p><p class="meta" data-i18n="r.ray.meta">75 minutes · video call · recording included</p></div>
         <p class="price" data-i18n="r.cici.price">AED 777</p>
       </div>
-      <a class="btn" href="https://pay.ziina.com/humanbydesign/qIDSUkCom" target="_blank" rel="noopener" data-i18n="r.pay">1. Pay AED 777</a>
-      <p class="small step2" data-i18n="r.after">2. Once your payment is in, we email you a private link to pick your time.</p>
-      <p class="small" data-i18n="r.ray.paynote">In the payment note, write "Rayjai" and your email.</p>
+      <form class="payform" name="booking" data-netlify="true" data-reader="rayjai">
+        <input type="hidden" name="form-name" value="booking"><input type="hidden" name="reader" value="rayjai">
+        <input type="email" name="email" required autocomplete="email" placeholder="your email" aria-label="Your email" data-i18n-attr="placeholder:pay.ph;aria-label:pay.ph">
+        <button class="btn" type="submit" data-i18n="r.pay">Pay AED 777</button>
+      </form>
+      <p class="small step2" data-i18n="pay.after">Straight after paying, you pick your time.</p>
     </div>
   </article>
 
@@ -121,10 +128,9 @@ window.HBD_I18N = {
 'r.ray.meta': '75 دقيقة · مكالمة فيديو · مع تسجيل الجلسة',
 'r.cici.price': '<bdi dir="ltr">AED 777</bdi>',
 'r.book': 'احجز قراءتك',
-'r.pay': '١. ادفع&nbsp;<bdi dir="ltr">AED 777</bdi>',
-'r.after': '٢. بعد وصول الدفعة، نرسل لك رابطًا خاصًا لتختار موعدك.',
-'r.cici.paynote': 'في ملاحظة الدفع، اكتب «سيسي» وبريدك الإلكتروني.',
-'r.ray.paynote': 'في ملاحظة الدفع، اكتب «رايجاي» وبريدك الإلكتروني.',
+'r.pay': 'ادفع&nbsp;<bdi dir="ltr">AED 777</bdi>',
+'pay.ph': 'بريدك الإلكتروني',
+'pay.after': 'بعد الدفع مباشرة، تختار موعدك.',
 'r.ray.alt': 'رايجاي بقبّعة من القشّ وقميص بنقشة النخيل أمام جدار إسمنتي',
 'r.ray.tag': 'قارئ · مانيفستور <bdi dir="ltr">4/6</bdi>',
 'r.ray.name': 'رايجاي',
