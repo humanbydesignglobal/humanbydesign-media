@@ -1,0 +1,376 @@
+[
+ {
+  "n": 1,
+  "day": 1,
+  "en": {
+   "subject": "{name}, the one habit your design is built around",
+   "preview": "start here, before anything else on your chart",
+   "blocks": [
+    {
+     "p": "Hi {name},"
+    },
+    {
+     "p": "Your chart has a lot on it. Ignore almost all of it for now. There's one thing that matters more than the rest: your strategy. It's the one habit your type is built to live by. When you follow it, life tends to get lighter. When you ignore it, you get your warning feeling."
+    },
+    {
+     "p": "You're a **{type}**. Here's yours:"
+    },
+    {
+     "only": "Manifestor",
+     "p": "**Your habit: inform before you act.** You're the starter. Your energy is built to begin things, often before anyone else sees the idea. You don't need permission. A quick \"here's what I'm doing\" to the people it affects just clears the way, so you meet less pushback. Your warning feeling is anger. Your green light is peace."
+    },
+    {
+     "only": "Generator",
+     "p": "**Your habit: respond.** You're the builder. Your Sacral, the square low in the middle of your chart, is a deep, steady battery that lights up for the right things. Instead of chasing, notice what life puts in front of you and listen for your gut's \"uh-huh\" or \"uh-uh\". Your warning feeling is frustration. Your green light is satisfaction."
+    },
+    {
+     "only": "Manifesting Generator",
+     "p": "**Your habit: respond, then inform.** You're the sprinter. You have the builder's battery and the speed to skip steps. Wait for your gut's yes, then tell people what you're doing before you move. Skipping steps and changing direction is part of how you work, not a flaw. Your warning feelings are frustration and anger. Your green lights are satisfaction and peace."
+    },
+    {
+     "only": "Projector",
+     "p": "**Your habit: wait for the invitation.** You're the guide. You read people and systems deeply, and you're built to guide energy, not to grind it out. Your advice lands best when someone has asked for it, especially for the big things: work, love, where you live. Your warning feeling is bitterness. Your green light is success, the feeling of being seen and recognised."
+    },
+    {
+     "only": "Reflector",
+     "p": "**Your habit: wait about a month before big decisions.** You're the mirror. All nine shapes on your chart are white, so you take in and reflect the energy around you. The Moon moves through every part of your chart in about 28 days, so big choices get clearer when you give them a full cycle and talk them through. Your warning feeling is disappointment. Your green light is surprise."
+    },
+    {
+     "p": "Next time you're choosing something, just notice: did I follow my habit, or skip it? That's it. Noticing is how it starts."
+    },
+    {
+     "p": "With love,<br>Cici"
+    }
+   ]
+  },
+  "ar": {
+   "subject": "{name}، العادة وحدة يلي تصميمك مبني عليها",
+   "preview": "بلّش من هون، قبل أي شي تاني",
+   "blocks": [
+    {
+     "p": "أهلين {name}،"
+    },
+    {
+     "p": "خريطتك فيها كتير شغلات. انسى معظمها هلّق. في شي واحد أهم من كل الباقي: الاستراتيجية تبعك. هيدي العادة وحدة يلي نوعك معمول ليعيش فيها. لما تمشي فيها، الحياة بتخفّ. ولما تتجاهلها، بيجيك الإحساس يلي بيحذّرك."
+    },
+    {
+     "p": "إنت **{type_ar}**. هيدي تبعك:"
+    },
+    {
+     "only": "Manifestor",
+     "p": "**عادتك: خبّر قبل ما تتحرّك.** إنت المبادر. طاقتك معمولة لتبلّش شغلات، وكتير مرات قبل ما حدا يشوف الفكرة. ما بدك إذن من حدا. بس قول \"هيدا يلي رح أعملو\" للناس يلي بيتأثّرو، وهيك الطريق بيفتح وبتلاقي مقاومة أقل. إحساسك المحذّر هو الغضب، والضو الأخضر هو السلام."
+    },
+    {
+     "only": "Generator",
+     "p": "**عادتك: تجاوب.** إنت البنّاء. السكرال تبعك، المربّع تحت بالنص، هو بطارية قوية وثابتة بتضوّي للشغلات الصح. بدل ما تركض ورا الأشيا، انتبه لشو الحياة عم تحطّ قدّامك واسمع \"إيه\" أو \"لأ\" يلي بتطلع من جوّا. إحساسك المحذّر هو الإحباط، والضو الأخضر هو الرضا."
+    },
+    {
+     "only": "Manifesting Generator",
+     "p": "**عادتك: جاوب، بعدين خبّر.** إنت البنّاء السريع. عندك بطارية البنّاء وسرعة بتخلّيك تقفز خطوات. استنّى الـ\"إيه\" من جوّا، وبعدين خبّر الناس قبل ما تتحرّك. إنك تقفز خطوات وتغيّر اتجاهك هيدا جزء من طريقتك، مش عيب. إحساسك المحذّر هو الإحباط والغضب، والضو الأخضر هو الرضا والسلام."
+    },
+    {
+     "only": "Projector",
+     "p": "**عادتك: استنّى الدعوة.** إنت المرشد. بتقرا الناس والأنظمة بعمق، ومعمول لتوجّه الطاقة، مش لتطحن حالك. نصيحتك بتوصل أحلى لما حدا يطلبها، خصوصاً بالشغلات الكبيرة: الشغل، الحب، وين تسكن. إحساسك المحذّر هو المرارة، والضو الأخضر هو النجاح، يعني إنك تحسّ حالك مشوف ومقدَّر."
+    },
+    {
+     "only": "Reflector",
+     "p": "**عادتك: استنّى شي شهر قبل القرارات الكبيرة.** إنت المراية. كل المراكز التسعة عندك بيض، فإنت بتاخد وبتعكس الطاقة يلي حواليك. القمر بيمرق عكل خريطتك بشي ٢٨ يوم، فالقرارات الكبيرة بتوضح أكتر لما تعطيها دورة كاملة وتحكي فيها مع حدا بتثق فيه. إحساسك المحذّر هو خيبة الأمل، والضو الأخضر هو المفاجأة."
+    },
+    {
+     "p": "المرة الجاية لما تختار شي، بس انتبه: مشيت بعادتي ولّا قفزت عنها؟ بس هيك. الانتباه هو البداية."
+    },
+    {
+     "p": "بكل حب،<br>سيسي"
+    }
+   ]
+  }
+ },
+ {
+  "n": 2,
+  "day": 3,
+  "en": {
+   "subject": "you're not bad at decisions, you're using the wrong part of you",
+   "preview": "your authority, in plain words",
+   "blocks": [
+    {
+     "p": "Hi {name},"
+    },
+    {
+     "p": "Most of us were taught to decide with our heads: lists, pros and cons, what makes sense. In Human Design, your head is brilliant for thinking, but it isn't where your best decisions come from. That's your **authority**: the place in your body your clear yes and no come from. There are seven kinds, and each one is equally valid."
+    },
+    {
+     "p": "Yours is **{authority}**:"
+    },
+    {
+     "only": "Emotional",
+     "p": "**Emotional (Solar Plexus).** Your feelings move in waves, up and down. Your clarity comes over time, not in the moment. For anything big, sleep on it, maybe more than once. If it's still a yes when you're calm, trust it."
+    },
+    {
+     "only": "Sacral",
+     "p": "**Sacral.** Your gut answers in the moment with a sound or a pull: \"uh-huh\" or \"uh-uh\". It's fastest when someone asks you a yes/no question. Trust the first sound, before your head starts arguing with it."
+    },
+    {
+     "only": "Splenic",
+     "p": "**Splenic (Spleen).** Your instinct speaks once, quietly, right now. It's a soft knowing (\"not this\", \"yes, go\") that doesn't repeat itself. Learning to catch it the first time is your whole practice."
+    },
+    {
+     "only": "Ego",
+     "p": "**Ego (the Heart).** Your truth comes through what you actually want and what you're willing to commit to. Listen to what you say when you talk about it: \"I want this\" or \"I don't\". Your willpower is real, so promise only what your heart is in."
+    },
+    {
+     "only": "Self-Projected",
+     "p": "**Self-Projected (G Centre).** Your clarity comes through hearing yourself speak. Talk it out with someone you trust. Not for their advice, just to hear your own voice. Does it sound like you? Does it point in your direction?"
+    },
+    {
+     "only": "Mental/Environmental",
+     "p": "**Mental, also called Environmental.** You get clear by talking things through with a few trusted people, and by noticing how different places feel. Your answer isn't a gut hit. It shows up in the right conversation, in the right space."
+    },
+    {
+     "only": "Lunar",
+     "p": "**Lunar (Reflectors).** Your clarity follows the Moon's cycle of about 28 days. Give big decisions a full month, talk them over, and watch how you feel about them on different days. What stays true across the month is your answer."
+    },
+    {
+     "p": "Next time a choice comes up, before you think it through, ask: what does my authority say?"
+    },
+    {
+     "p": "With love,<br>Cici"
+    }
+   ]
+  },
+  "ar": {
+   "subject": "مش إنك ما بتعرف تقرّر، إنت عم تستعمل الجزء الغلط منك",
+   "preview": "سلطتك الداخلية، بكلام بسيط",
+   "blocks": [
+    {
+     "p": "أهلين {name}،"
+    },
+    {
+     "p": "معظمنا تعلّمنا ناخد القرارات براسنا: لوائح، إيجابيات وسلبيات، شو منطقي. بالهيومان ديزاين، راسك عبقري بالتفكير، بس مش هوّي مصدر أحلى قراراتك. مصدرها هو **السلطة الداخلية**: المطرح بجسمك يلي بتطلع منّو الـ\"إيه\" والـ\"لأ\" الواضحين. في سبع أنواع، وكلّن صح ومتساويين."
+    },
+    {
+     "p": "تبعك هي **{authority_ar}**:"
+    },
+    {
+     "only": "Emotional",
+     "p": "**السلطة العاطفية (السولار بلكسس).** مشاعرك بتجي موجات، بتطلع وبتنزل. الوضوح عندك بيجي مع الوقت، مش بلحظتها. بأي شي كبير، نام عليه، يمكن أكتر من مرة. إذا بعدو \"إيه\" لما تكون هادي، ثق فيه."
+    },
+    {
+     "only": "Sacral",
+     "p": "**سلطة السكرال.** معدتك بتجاوب بلحظتها بصوت أو بشدّة: \"أه\" أو \"إمم لأ\". بتطلع أسرع لما حدا يسألك سؤال جوابو إيه أو لأ. صدّق أول صوت، قبل ما راسك يبلّش يجادل."
+    },
+    {
+     "only": "Splenic",
+     "p": "**سلطة السبلين.** غريزتك بتحكي مرة وحدة، بهدوء، هلّق. معرفة ناعمة (\"مش هيدا\"، \"إيه، روح\") وما بتعيد حالها. كل تمرينك هو إنك تلقطها من أول مرة."
+    },
+    {
+     "only": "Ego",
+     "p": "**سلطة الإيغو أو الهارت.** حقيقتك بتطلع من شو بدك فعلاً وشو مستعدّ تلتزم فيه. اسمع حالك وإنت عم تحكي: \"بدي هيدا\" أو \"ما بدي\". إرادتك حقيقية، فوعِد بس بالشي يلي قلبك فيه."
+    },
+    {
+     "only": "Self-Projected",
+     "p": "**سلطة الجي سنتر (السلطة الذاتية).** الوضوح عندك بيجي لما تسمع حالك عم تحكي. احكي فيها مع حدا بتثق فيه، مش لتاخد نصيحتو، بس لتسمع صوتك. بيشبهك؟ بياخدك باتجاهك؟"
+    },
+    {
+     "only": "Mental/Environmental",
+     "p": "**السلطة الذهنية أو البيئية.** بتوضح الأمور عندك لما تحكي فيها مع كم حدا بتثق فيهن، ولما تنتبه كيف بتحسّ بأماكن مختلفة. جوابك مش ضربة بالمعدة. بيطلع بالحديث الصح، بالمكان الصح."
+    },
+    {
+     "only": "Lunar",
+     "p": "**السلطة القمرية (الرفلكتور).** وضوحك بيمشي مع دورة القمر، شي ٢٨ يوم. عطي القرارات الكبيرة شهر كامل، احكي فيها، وانتبه كيف بتحسّ فيها بأيام مختلفة. الشي يلي بيضل صح عطول الشهر هوّي جوابك."
+    },
+    {
+     "p": "المرة الجاية لما يجي قرار، قبل ما تفكّر فيه، اسأل حالك: شو بتقول سلطتي؟"
+    },
+    {
+     "p": "بكل حب،<br>سيسي"
+    }
+   ]
+  }
+ },
+ {
+  "n": 3,
+  "day": 5,
+  "en": {
+   "subject": "the parts of you that aren't actually you",
+   "preview": "why you feel things that aren't yours",
+   "blocks": [
+    {
+     "p": "Hi {name},"
+    },
+    {
+     "p": "Look at your chart. Some of the nine shapes (centres) are coloured in and some are white."
+    },
+    {
+     "ul": [
+      "**Coloured (defined)** means that energy is steady and yours. It works the same way whoever you're with.",
+      "**White (open)** means you take in that energy from the people around you, and often feel it even more strongly than they do."
+     ]
+    },
+    {
+     "p": "Here's what that looks like in real life. Someone with a white emotional triangle (the Solar Plexus) walks into a tense room and feels the tension as if it were theirs. Someone with a white Head feels pressure to answer every question, even ones that don't matter to them. Someone with a white Sacral (the square low in the middle) borrows the builders' energy and works far past their own limit."
+    },
+    {
+     "p": "White shapes aren't weak spots. They're where you're wise about other people. The trick is knowing which feelings you're simply picking up, so you stop trying to fix what isn't yours."
+    },
+    {
+     "p": "Next time a feeling hits you out of nowhere, ask: is this mine, or am I picking it up from the room?"
+    },
+    {
+     "p": "With love,<br>Cici"
+    },
+    {
+     "p": "P.S. If you ever want every one of your nine shapes explained for your own chart, [that's here]({report_link})."
+    }
+   ]
+  },
+  "ar": {
+   "subject": "الأجزاء منك يلي مش إنت فعلاً",
+   "preview": "ليش بتحسّ بشغلات مش إلك",
+   "blocks": [
+    {
+     "p": "أهلين {name}،"
+    },
+    {
+     "p": "اطّلع عخريطتك. في من المراكز التسعة ملوّنين، وفي بيض."
+    },
+    {
+     "ul": [
+      "**الملوّن** يعني هالطاقة ثابتة وإلك. بتشتغل نفس الشي مهما كان مين معك.",
+      "**الأبيض** يعني إنت بتاخد هالطاقة من الناس يلي حواليك، وكتير مرات بتحسّها أقوى منّن كمان."
+     ]
+    },
+    {
+     "p": "هيك بتبيّن بالحياة: حدا عندو السولار بلكسس أبيض بيفوت عغرفة فيها توتر وبيحسّ التوتر كأنو تبعو. حدا عندو الهيد أبيض بيحسّ إنو لازم يلاقي جواب لكل سؤال، حتى الأسئلة يلي ما بتهمّو. وحدا عندو السكرال أبيض، المربّع تحت بالنص، بيستعير طاقة البنّائين وبيشتغل أكتر بكتير من حدّو."
+    },
+    {
+     "p": "المراكز البيض مش نقاط ضعف. هيي المطارح يلي إنت فيها حكيم بالناس. الشطارة إنك تعرف أيّا مشاعر إنت عم تلقطها بس، تتوقّف تحاول تصلّح شي مش إلك."
+    },
+    {
+     "p": "المرة الجاية لما يضربك إحساس من ولا مكان، اسأل حالك: هيدا إلي، ولّا عم ألقطو من الجو؟"
+    },
+    {
+     "p": "بكل حب،<br>سيسي"
+    },
+    {
+     "p": "ملاحظة: إذا حبّيت يوماً تشوف كل مركز من التسعة مشروح لخريطتك إنت، [هون]({report_link})."
+    }
+   ]
+  }
+ },
+ {
+  "n": 4,
+  "day": 7,
+  "en": {
+   "subject": "why two people with the same type can feel so different",
+   "preview": "your chart is a combination, not a label",
+   "blocks": [
+    {
+     "p": "Hi {name},"
+    },
+    {
+     "p": "Type is the first thing everyone learns, and it's a great start. But your type is only one piece. Your chart is a combination, and the pieces change how each other feel."
+    },
+    {
+     "p": "Take two Projectors. One has Emotional authority, so their best decisions come after the feeling settles, sometimes days later. The other has Splenic authority, so their clearest answer comes in a quiet flash, right now. Same type, opposite rhythm."
+    },
+    {
+     "p": "Or take your profile, the two numbers on your chart. A 2/4 tends to need time alone to recharge and finds their opportunities through people they already know. A 6/2 often spends their early years learning by trial and error, then grows into the one others look to as an example. Two people can share a type and a profile line and still live very different lives."
+    },
+    {
+     "p": "That's why your design makes the most sense read all together: your type, your authority, your profile and your white shapes, side by side."
+    },
+    {
+     "p": "Next time you read about your type, notice which parts fit you perfectly and which don't. The parts that don't usually come from something else on your chart."
+    },
+    {
+     "p": "With love,<br>Cici"
+    },
+    {
+     "p": "P.S. Your whole chart read together, in one place, [lives here]({report_link})."
+    }
+   ]
+  },
+  "ar": {
+   "subject": "ليش اتنين من نفس النوع بيحسّو مختلفين كتير",
+   "preview": "خريطتك تركيبة، مش لقب",
+   "blocks": [
+    {
+     "p": "أهلين {name}،"
+    },
+    {
+     "p": "النوع هوّي أول شي بيتعلّمو الكل، وبداية حلوة. بس نوعك هوّي قطعة وحدة بس. خريطتك هيي تركيبة، والقطع بتغيّر كيف بتحسّ ببعضها."
+    },
+    {
+     "p": "خود اتنين بروجكتور. واحد سلطتو عاطفية، فأحلى قراراتو بتجي بعد ما يهدا الإحساس، أحياناً بعد كم يوم. والتاني سلطتو السبلين، فأوضح جواب عندو بيجي بلمحة هادية، هلّق. نفس النوع، وإيقاع معاكس."
+    },
+    {
+     "p": "أو خود البروفايل، الرقمين يلي عخريطتك. الـ2/4 عادةً بدّو وقت لحالو ليشحن، وفرصو بتجيه من ناس بيعرفن أصلاً. والـ6/2 كتير مرات بيقضّي أول سنينو عم يتعلّم بالتجربة والغلط، وبعدين بيصير الشخص يلي الناس بتطّلع عليه كمثال. فيك تلاقي اتنين من نفس النوع وعندن رقم مشترك بالبروفايل، وعايشين حياة مختلفة كتير."
+    },
+    {
+     "p": "لهيك تصميمك بينفهم أحلى لما ينقرا كلّو سوا: نوعك، سلطتك، البروفايل، ومراكزك البيض، حدّ بعض."
+    },
+    {
+     "p": "المرة الجاية لما تقرا عن نوعك، انتبه شو الأجزاء يلي بتشبهك تماماً، وشو يلي لأ. يلي ما بيشبهك عادةً جايي من شي تاني عخريطتك."
+    },
+    {
+     "p": "بكل حب،<br>سيسي"
+    },
+    {
+     "p": "ملاحظة: خريطتك كلّها منقرية سوا، بمطرح واحد، [هون]({report_link})."
+    }
+   ]
+  }
+ },
+ {
+  "n": 5,
+  "day": 9,
+  "en": {
+   "subject": "from here on, it's a letter a week",
+   "preview": "one last thing about living your design",
+   "blocks": [
+    {
+     "p": "Hi {name},"
+    },
+    {
+     "p": "This is the last of my welcome notes. From here on you'll get my letter every Thursday: one Human Design idea explained properly, with something in it for each of the five types."
+    },
+    {
+     "p": "Before that, one thing worth knowing. Your design doesn't work like a switch you flip. It works more like a muscle. The change comes from noticing small moments: the yes that came from your gut instead of your head, the tiredness that turned out not to be yours, the time you waited and things came to you. That noticing is the whole practice, and you've already started."
+    },
+    {
+     "p": "And if a question about your chart ever comes up, just reply to this email. I read every one."
+    },
+    {
+     "p": "With love,<br>Cici"
+    },
+    {
+     "p": "P.S. Whenever you want to go deeper into your own chart, [it's all here]({report_link})."
+    }
+   ]
+  },
+  "ar": {
+   "subject": "من هلّق ورايح، مكتوب واحد كل خميس",
+   "preview": "شغلة أخيرة عن كيف تعيش تصميمك",
+   "blocks": [
+    {
+     "p": "أهلين {name}،"
+    },
+    {
+     "p": "هيدا آخر إيميل ترحيب. من هلّق ورايح رح يوصلك مكتوبي كل خميس: فكرة وحدة من الهيومان ديزاين مشروحة منيح، وفيها شي لكل نوع من الخمسة."
+    },
+    {
+     "p": "قبل هيك، شغلة وحدة حلو تعرفها. تصميمك ما بيشتغل متل زر بتكبسو. بيشتغل أكتر متل عضلة. التغيير بيجي من إنك تلاحظ اللحظات الصغيرة: الـ\"إيه\" يلي طلعت من جوّا مش من راسك، التعب يلي طلع إنو مش تبعك، المرة يلي استنّيت فيها والشغلات إجت لعندك. هالانتباه هوّي كل التمرين، وإنت أصلاً بلّشت."
+    },
+    {
+     "p": "وإذا يوماً خطرلك سؤال عن خريطتك، بس ردّ على هالإيميل. بقرا كل واحد."
+    },
+    {
+     "p": "بكل حب،<br>سيسي"
+    },
+    {
+     "p": "ملاحظة: كل ما حبّيت تفوت أعمق بخريطتك، [كلّو هون]({report_link})."
+    }
+   ]
+  }
+ }
+]
