@@ -12,7 +12,7 @@ if (!KEY) { console.log('No ELEVENLABS_API_KEY secret yet. Nothing to do.'); pro
 
 const api = (p, init = {}) => fetch('https://api.elevenlabs.io' + p, { ...init, headers: { 'xi-api-key': KEY, 'content-type': 'application/json', ...(init.headers || {}) } });
 
-process.on('unhandledRejection', (e) => { console.log('::error::' + String(e?.message || e).replace(/\n/g, ' ').slice(0, 900)); process.exit(1); });
+try {
 const vr = await api('/v1/voices');
 if (!vr.ok) throw new Error('voices ' + vr.status + ' ' + (await vr.text()));
 const voices = (await vr.json()).voices;
@@ -45,3 +45,7 @@ for (const s of scripts) {
 man.voice = voice.name; man.model = MODEL; man.updated = new Date().toISOString();
 writeFileSync(manPath, JSON.stringify(man, null, 1) + '\n');
 console.log(`Done: ${made} new clips, ${used} characters.`);
+} catch (e) {
+  console.log('::error::' + String(e?.message || e).replace(/\n/g, ' ').slice(0, 900));
+  process.exit(1);
+}
