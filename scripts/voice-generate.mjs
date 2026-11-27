@@ -8,6 +8,8 @@ const KEY = process.env.ELEVENLABS_API_KEY;
 const SITE = process.env.SITE_DIR; // e.g. site-repo/site
 const VOICE_NAME = (process.env.VOICE_NAME || 'Cici').toLowerCase();
 const MODEL = process.env.VOICE_MODEL || 'eleven_multilingual_v2';
+// Arabic mixes in English Human Design terms: eleven_v3 switches languages mid-sentence and keeps Cici's English accent.
+const MODEL_AR = process.env.VOICE_MODEL_AR || 'eleven_v3';
 if (!KEY) { console.log('No ELEVENLABS_API_KEY secret yet. Nothing to do.'); process.exit(0); }
 
 const api = (p, init = {}) => fetch('https://api.elevenlabs.io' + p, { ...init, headers: { 'xi-api-key': KEY, 'content-type': 'application/json', ...(init.headers || {}) } });
@@ -27,12 +29,15 @@ const man = existsSync(manPath) ? JSON.parse(readFileSync(manPath, 'utf8')) : { 
 const limit = Number(process.env.MAX_CHARS || 40000);
 let used = 0, made = 0;
 for (const s of scripts) {
-  const hash = createHash('sha1').update([voice.voice_id, MODEL, s.text].join('|')).digest('hex').slice(0, 10);
+  const model = s.lang === 'ar' ? MODEL_AR : MODEL;
+  const hash = createHash('sha1').update([voice.voice_id, model, s.text].join('|')).digest('hex').slice(0, 10);
   if (man.clips[s.key]?.hash === hash) continue;
   if (used + s.text.length > limit) { console.log('Stopping at the character limit for this run:', limit); break; }
   const r = await api(`/v1/text-to-speech/${voice.voice_id}?output_format=mp3_44100_64`, {
     method: 'POST',
-    body: JSON.stringify({ text: s.text, model_id: MODEL, language_code: s.lang, voice_settings: { stability: 0.5, similarity_boost: 0.85, style: 0.15, use_speaker_boost: true } }),
+    body: JSON.stringify(s.lang === 'ar'
+      ? { text: s.text, model_id: model, voice_settings: { stability: 0.5, similarity_boost: 0.85, use_speaker_boost: true } }
+      : { text: s.text, model_id: model, language_code: 'en', voice_settings: { stability: 0.5, similarity_boost: 0.85, style: 0.15, use_speaker_boost: true } }),
   });
   if (!r.ok) throw new Error(s.key + ' ' + r.status + ' ' + (await r.text()));
   const file = `${s.key}-${hash}.mp3`;
@@ -42,7 +47,7 @@ for (const s of scripts) {
   used += s.text.length; made++;
   console.log('made', file);
 }
-man.voice = voice.name; man.model = MODEL; man.updated = new Date().toISOString();
+man.voice = voice.name; man.model = MODEL; man.modelAr = MODEL_AR; man.updated = new Date().toISOString();
 writeFileSync(manPath, JSON.stringify(man, null, 1) + '\n');
 console.log(`Done: ${made} new clips, ${used} characters.`);
 } catch (e) {
