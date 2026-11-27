@@ -1,0 +1,367 @@
+{
+ "clips": {
+  "en/lesson-what": {
+   "hash": "3fd88d385a",
+   "file": "en/lesson-what-3fd88d385a.mp3"
+  },
+  "en/lesson-two": {
+   "hash": "603e80a3c3",
+   "file": "en/lesson-two-603e80a3c3.mp3"
+  },
+  "en/lesson-centres": {
+   "hash": "9bb81b5cdb",
+   "file": "en/lesson-centres-9bb81b5cdb.mp3"
+  },
+  "en/lesson-types": {
+   "hash": "92fc8f4bd6",
+   "file": "en/lesson-types-92fc8f4bd6.mp3"
+  },
+  "en/lesson-strategy": {
+   "hash": "a06de53f35",
+   "file": "en/lesson-strategy-a06de53f35.mp3"
+  },
+  "en/lesson-authority": {
+   "hash": "4dc9516447",
+   "file": "en/lesson-authority-4dc9516447.mp3"
+  },
+  "en/lesson-signature": {
+   "hash": "4f0476e935",
+   "file": "en/lesson-signature-4f0476e935.mp3"
+  },
+  "en/lesson-profile": {
+   "hash": "15e93d2c57",
+   "file": "en/lesson-profile-15e93d2c57.mp3"
+  },
+  "en/lesson-conditioning": {
+   "hash": "e81ce9829b",
+   "file": "en/lesson-conditioning-e81ce9829b.mp3"
+  },
+  "en/lesson-experiment": {
+   "hash": "4201af4f68",
+   "file": "en/lesson-experiment-4201af4f68.mp3"
+  },
+  "en/daily-Generator-0": {
+   "hash": "e9743371bf",
+   "file": "en/daily-Generator-0-e9743371bf.mp3"
+  },
+  "en/daily-Generator-1": {
+   "hash": "40a1b87149",
+   "file": "en/daily-Generator-1-40a1b87149.mp3"
+  },
+  "en/daily-Generator-2": {
+   "hash": "1b65387a23",
+   "file": "en/daily-Generator-2-1b65387a23.mp3"
+  },
+  "en/daily-Generator-3": {
+   "hash": "68ab1ee4f1",
+   "file": "en/daily-Generator-3-68ab1ee4f1.mp3"
+  },
+  "en/daily-Generator-4": {
+   "hash": "b41c1c55f7",
+   "file": "en/daily-Generator-4-b41c1c55f7.mp3"
+  },
+  "en/daily-Generator-5": {
+   "hash": "ecbcddd206",
+   "file": "en/daily-Generator-5-ecbcddd206.mp3"
+  },
+  "en/daily-Generator-6": {
+   "hash": "7e4661cef6",
+   "file": "en/daily-Generator-6-7e4661cef6.mp3"
+  },
+  "en/daily-ManifestingGenerator-0": {
+   "hash": "8b61c02ec6",
+   "file": "en/daily-ManifestingGenerator-0-8b61c02ec6.mp3"
+  },
+  "en/daily-ManifestingGenerator-1": {
+   "hash": "ada2c592e3",
+   "file": "en/daily-ManifestingGenerator-1-ada2c592e3.mp3"
+  },
+  "en/daily-ManifestingGenerator-2": {
+   "hash": "fb76429da0",
+   "file": "en/daily-ManifestingGenerator-2-fb76429da0.mp3"
+  },
+  "en/daily-ManifestingGenerator-3": {
+   "hash": "bc06667a5e",
+   "file": "en/daily-ManifestingGenerator-3-bc06667a5e.mp3"
+  },
+  "en/daily-ManifestingGenerator-4": {
+   "hash": "a9046dec55",
+   "file": "en/daily-ManifestingGenerator-4-a9046dec55.mp3"
+  },
+  "en/daily-ManifestingGenerator-5": {
+   "hash": "eb95b21af3",
+   "file": "en/daily-ManifestingGenerator-5-eb95b21af3.mp3"
+  },
+  "en/daily-ManifestingGenerator-6": {
+   "hash": "362e522ffc",
+   "file": "en/daily-ManifestingGenerator-6-362e522ffc.mp3"
+  },
+  "en/daily-Projector-0": {
+   "hash": "6b00030fab",
+   "file": "en/daily-Projector-0-6b00030fab.mp3"
+  },
+  "en/daily-Projector-1": {
+   "hash": "d4fa748870",
+   "file": "en/daily-Projector-1-d4fa748870.mp3"
+  },
+  "en/daily-Projector-2": {
+   "hash": "f1da7c4ba3",
+   "file": "en/daily-Projector-2-f1da7c4ba3.mp3"
+  },
+  "en/daily-Projector-3": {
+   "hash": "10250db61f",
+   "file": "en/daily-Projector-3-10250db61f.mp3"
+  },
+  "en/daily-Projector-4": {
+   "hash": "e2a7fcfaa8",
+   "file": "en/daily-Projector-4-e2a7fcfaa8.mp3"
+  },
+  "en/daily-Projector-5": {
+   "hash": "105b0f1fd3",
+   "file": "en/daily-Projector-5-105b0f1fd3.mp3"
+  },
+  "en/daily-Projector-6": {
+   "hash": "b75c3cdb00",
+   "file": "en/daily-Projector-6-b75c3cdb00.mp3"
+  },
+  "en/daily-Manifestor-0": {
+   "hash": "2d27e2a89c",
+   "file": "en/daily-Manifestor-0-2d27e2a89c.mp3"
+  },
+  "en/daily-Manifestor-1": {
+   "hash": "68f4fc6076",
+   "file": "en/daily-Manifestor-1-68f4fc6076.mp3"
+  },
+  "en/daily-Manifestor-2": {
+   "hash": "5e60ca5aaa",
+   "file": "en/daily-Manifestor-2-5e60ca5aaa.mp3"
+  },
+  "en/daily-Manifestor-3": {
+   "hash": "9d76c7a006",
+   "file": "en/daily-Manifestor-3-9d76c7a006.mp3"
+  },
+  "en/daily-Manifestor-4": {
+   "hash": "ca85dd0679",
+   "file": "en/daily-Manifestor-4-ca85dd0679.mp3"
+  },
+  "en/daily-Manifestor-5": {
+   "hash": "bd74258be4",
+   "file": "en/daily-Manifestor-5-bd74258be4.mp3"
+  },
+  "en/daily-Manifestor-6": {
+   "hash": "bad5581ef8",
+   "file": "en/daily-Manifestor-6-bad5581ef8.mp3"
+  },
+  "en/daily-Reflector-0": {
+   "hash": "a0c1d0cd0c",
+   "file": "en/daily-Reflector-0-a0c1d0cd0c.mp3"
+  },
+  "en/daily-Reflector-1": {
+   "hash": "b4e5ac6506",
+   "file": "en/daily-Reflector-1-b4e5ac6506.mp3"
+  },
+  "en/daily-Reflector-2": {
+   "hash": "7ca52c3cd9",
+   "file": "en/daily-Reflector-2-7ca52c3cd9.mp3"
+  },
+  "en/daily-Reflector-3": {
+   "hash": "3fed45d9a6",
+   "file": "en/daily-Reflector-3-3fed45d9a6.mp3"
+  },
+  "en/daily-Reflector-4": {
+   "hash": "07bdaf6d3f",
+   "file": "en/daily-Reflector-4-07bdaf6d3f.mp3"
+  },
+  "en/daily-Reflector-5": {
+   "hash": "67e8d9cbd2",
+   "file": "en/daily-Reflector-5-67e8d9cbd2.mp3"
+  },
+  "en/daily-Reflector-6": {
+   "hash": "149cda9e7f",
+   "file": "en/daily-Reflector-6-149cda9e7f.mp3"
+  },
+  "ar/lesson-what": {
+   "hash": "18b851eb1d",
+   "file": "ar/lesson-what-18b851eb1d.mp3"
+  },
+  "ar/lesson-two": {
+   "hash": "f6fe96ad22",
+   "file": "ar/lesson-two-f6fe96ad22.mp3"
+  },
+  "ar/lesson-centres": {
+   "hash": "d13c054958",
+   "file": "ar/lesson-centres-d13c054958.mp3"
+  },
+  "ar/lesson-types": {
+   "hash": "643e71794d",
+   "file": "ar/lesson-types-643e71794d.mp3"
+  },
+  "ar/lesson-strategy": {
+   "hash": "58b5097c39",
+   "file": "ar/lesson-strategy-58b5097c39.mp3"
+  },
+  "ar/lesson-authority": {
+   "hash": "2bc570bfba",
+   "file": "ar/lesson-authority-2bc570bfba.mp3"
+  },
+  "ar/lesson-signature": {
+   "hash": "f12dc195d3",
+   "file": "ar/lesson-signature-f12dc195d3.mp3"
+  },
+  "ar/lesson-profile": {
+   "hash": "4f6fdd554c",
+   "file": "ar/lesson-profile-4f6fdd554c.mp3"
+  },
+  "ar/lesson-conditioning": {
+   "hash": "012f0597f6",
+   "file": "ar/lesson-conditioning-012f0597f6.mp3"
+  },
+  "ar/lesson-experiment": {
+   "hash": "c160684ddd",
+   "file": "ar/lesson-experiment-c160684ddd.mp3"
+  },
+  "ar/daily-Generator-0": {
+   "hash": "9764409b10",
+   "file": "ar/daily-Generator-0-9764409b10.mp3"
+  },
+  "ar/daily-Generator-1": {
+   "hash": "7942d9a05b",
+   "file": "ar/daily-Generator-1-7942d9a05b.mp3"
+  },
+  "ar/daily-Generator-2": {
+   "hash": "6e68687f99",
+   "file": "ar/daily-Generator-2-6e68687f99.mp3"
+  },
+  "ar/daily-Generator-3": {
+   "hash": "292af32006",
+   "file": "ar/daily-Generator-3-292af32006.mp3"
+  },
+  "ar/daily-Generator-4": {
+   "hash": "c2a5ea1c5b",
+   "file": "ar/daily-Generator-4-c2a5ea1c5b.mp3"
+  },
+  "ar/daily-Generator-5": {
+   "hash": "dfd99ea7e8",
+   "file": "ar/daily-Generator-5-dfd99ea7e8.mp3"
+  },
+  "ar/daily-Generator-6": {
+   "hash": "aad76127d1",
+   "file": "ar/daily-Generator-6-aad76127d1.mp3"
+  },
+  "ar/daily-ManifestingGenerator-0": {
+   "hash": "a1e34d2be2",
+   "file": "ar/daily-ManifestingGenerator-0-a1e34d2be2.mp3"
+  },
+  "ar/daily-ManifestingGenerator-1": {
+   "hash": "a2496185c0",
+   "file": "ar/daily-ManifestingGenerator-1-a2496185c0.mp3"
+  },
+  "ar/daily-ManifestingGenerator-2": {
+   "hash": "28ec1a74b2",
+   "file": "ar/daily-ManifestingGenerator-2-28ec1a74b2.mp3"
+  },
+  "ar/daily-ManifestingGenerator-3": {
+   "hash": "be90bd4ecc",
+   "file": "ar/daily-ManifestingGenerator-3-be90bd4ecc.mp3"
+  },
+  "ar/daily-ManifestingGenerator-4": {
+   "hash": "ef5d0a7fc2",
+   "file": "ar/daily-ManifestingGenerator-4-ef5d0a7fc2.mp3"
+  },
+  "ar/daily-ManifestingGenerator-5": {
+   "hash": "01a3e6fa7a",
+   "file": "ar/daily-ManifestingGenerator-5-01a3e6fa7a.mp3"
+  },
+  "ar/daily-ManifestingGenerator-6": {
+   "hash": "3b0827487d",
+   "file": "ar/daily-ManifestingGenerator-6-3b0827487d.mp3"
+  },
+  "ar/daily-Projector-0": {
+   "hash": "76caeb292e",
+   "file": "ar/daily-Projector-0-76caeb292e.mp3"
+  },
+  "ar/daily-Projector-1": {
+   "hash": "3a72115f72",
+   "file": "ar/daily-Projector-1-3a72115f72.mp3"
+  },
+  "ar/daily-Projector-2": {
+   "hash": "be3b31353b",
+   "file": "ar/daily-Projector-2-be3b31353b.mp3"
+  },
+  "ar/daily-Projector-3": {
+   "hash": "57d761898b",
+   "file": "ar/daily-Projector-3-57d761898b.mp3"
+  },
+  "ar/daily-Projector-4": {
+   "hash": "6b48a770d6",
+   "file": "ar/daily-Projector-4-6b48a770d6.mp3"
+  },
+  "ar/daily-Projector-5": {
+   "hash": "4e1cb430b9",
+   "file": "ar/daily-Projector-5-4e1cb430b9.mp3"
+  },
+  "ar/daily-Projector-6": {
+   "hash": "4f420f7d27",
+   "file": "ar/daily-Projector-6-4f420f7d27.mp3"
+  },
+  "ar/daily-Manifestor-0": {
+   "hash": "25328109ef",
+   "file": "ar/daily-Manifestor-0-25328109ef.mp3"
+  },
+  "ar/daily-Manifestor-1": {
+   "hash": "67efb4dd7a",
+   "file": "ar/daily-Manifestor-1-67efb4dd7a.mp3"
+  },
+  "ar/daily-Manifestor-2": {
+   "hash": "e84ce6e381",
+   "file": "ar/daily-Manifestor-2-e84ce6e381.mp3"
+  },
+  "ar/daily-Manifestor-3": {
+   "hash": "2edcf26fbc",
+   "file": "ar/daily-Manifestor-3-2edcf26fbc.mp3"
+  },
+  "ar/daily-Manifestor-4": {
+   "hash": "07bb36553c",
+   "file": "ar/daily-Manifestor-4-07bb36553c.mp3"
+  },
+  "ar/daily-Manifestor-5": {
+   "hash": "f566a67bc2",
+   "file": "ar/daily-Manifestor-5-f566a67bc2.mp3"
+  },
+  "ar/daily-Manifestor-6": {
+   "hash": "6a25e7950a",
+   "file": "ar/daily-Manifestor-6-6a25e7950a.mp3"
+  },
+  "ar/daily-Reflector-0": {
+   "hash": "68b0464f13",
+   "file": "ar/daily-Reflector-0-68b0464f13.mp3"
+  },
+  "ar/daily-Reflector-1": {
+   "hash": "e3bd5cda9c",
+   "file": "ar/daily-Reflector-1-e3bd5cda9c.mp3"
+  },
+  "ar/daily-Reflector-2": {
+   "hash": "cd395f705f",
+   "file": "ar/daily-Reflector-2-cd395f705f.mp3"
+  },
+  "ar/daily-Reflector-3": {
+   "hash": "68f5f94fce",
+   "file": "ar/daily-Reflector-3-68f5f94fce.mp3"
+  },
+  "ar/daily-Reflector-4": {
+   "hash": "c45222cb1c",
+   "file": "ar/daily-Reflector-4-c45222cb1c.mp3"
+  },
+  "ar/daily-Reflector-5": {
+   "hash": "680ea4f96e",
+   "file": "ar/daily-Reflector-5-680ea4f96e.mp3"
+  },
+  "ar/daily-Reflector-6": {
+   "hash": "0fca53b586",
+   "file": "ar/daily-Reflector-6-0fca53b586.mp3"
+  }
+ },
+ "voice": "Cici",
+ "model": "eleven_multilingual_v2",
+ "updated": "2026-11-27T13:02:37.866Z"
+}
