@@ -1,0 +1,37 @@
+name: Voice (ElevenLabs)
+on:
+  push:
+    branches: [app]
+    paths: ['voice/**', 'scripts/voice-generate.mjs', '.github/workflows/voice.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency: voice
+jobs:
+  voice:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          ref: website-arabic
+          path: site-repo
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Make the audio
+        env:
+          ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+          VOICE_NAME: ${{ vars.VOICE_NAME }}
+          VOICE_MODEL: ${{ vars.VOICE_MODEL }}
+          SITE_DIR: site-repo/site
+        run: node scripts/voice-generate.mjs
+      - name: Publish to the website
+        working-directory: site-repo
+        run: |
+          git config user.name "Human by Design voice"
+          git config user.email "cici@humanbydesign.global"
+          git add site/voice
+          git diff --cached --quiet && echo "No new audio" && exit 0
+          git commit -m "Voice: new audio in Cici's voice"
+          git push origin HEAD:website-arabic

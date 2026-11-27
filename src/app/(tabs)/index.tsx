@@ -3,6 +3,7 @@ import { router } from 'expo-router';
 import { Pressable, View } from 'react-native';
 import { IconGear } from '../../components/icons';
 import { useLabels } from '../../components/ChartView';
+import { Listen } from '../../components/Listen';
 import { Lock } from '../../components/Lock';
 import { TypeSeal } from '../../components/TypeSeal';
 import { Card, Section, Screen, Txt, useDir } from '../../components/ui';
@@ -25,7 +26,8 @@ export default function Today() {
   const hour = now.getHours();
   const hello = hour < 12 ? t.goodMorning : hour < 18 ? t.goodAfternoon : t.goodEvening;
   const tips = DAILY[lang][chart.type];
-  const tip = tips[dayOfYear(now) % tips.length];
+  const tipIdx = dayOfYear(now) % tips.length;
+  const tip = tips[tipIdx];
   const sun = sky.find((a) => a.planet === 'Sun')!;
   const moon = sky.find((a) => a.planet === 'Moon')!;
   const sunGate = L.gate(sun.gate);
@@ -53,6 +55,7 @@ export default function Today() {
               <Txt v="label" color={C.redDark}>{L.type(chart.type).name}</Txt>
             </View>
             <Txt v="italic" color={C.cream} style={{ fontSize: 25, lineHeight: lang === 'ar' ? 40 : 31 }}>{tip}</Txt>
+            <View style={{ marginTop: 16 }}><Listen dark compact voiceKey={`${lang}/daily-${chart.type.replace(/\s+/g, '')}-${tipIdx}`} /></View>
           </Card>
         ) : (
           <Lock text={t.tipsLocked} cta={t.managePlan} />

@@ -3,6 +3,7 @@ import React from 'react';
 import { Pressable, View } from 'react-native';
 import { BackLink } from '../../../components/BackLink';
 import { useLabels } from '../../../components/ChartView';
+import { Listen } from '../../../components/Listen';
 import { TypeSeal } from '../../../components/TypeSeal';
 import { Button, Card, Pill, Screen, Section, Txt, useDir } from '../../../components/ui';
 import { CENTRE_LABELS, TYPE_LABELS, WITH_TYPE } from '../../../content/extra';
@@ -54,6 +55,7 @@ function LessonView({ id }: { id: string }) {
       <Txt v="label">{`${t.startHere} · ${i + 1}/${list.length}`}</Txt>
       <Txt v="display" style={{ fontSize: 40, lineHeight: lang === 'ar' ? 60 : 42 }}>{l.title}</Txt>
       <Txt v="hand">{l.note}</Txt>
+      <Listen voiceKey={`${lang}/lesson-${l.id}`} />
       {l.body.map((p, k) => <Txt key={k} style={{ fontSize: 17.5, lineHeight: lang === 'ar' ? 31 : 28 }}>{p}</Txt>)}
       <Card dark style={{ marginTop: 6 }}>
         <Txt v="hand" color={C.redDark}>{t.experiment}</Txt>
