@@ -2,7 +2,7 @@ name: Voice (ElevenLabs)
 on:
   push:
     branches: [app]
-    paths: ['voice/**', 'scripts/voice-generate.mjs', '.github/workflows/voice.yml']
+    paths: ['voice/**', 'scripts/voice-generate.mjs', 'scripts/voice-test.mjs', '.github/workflows/voice.yml']
   workflow_dispatch:
 permissions:
   contents: write
@@ -25,7 +25,7 @@ jobs:
           VOICE_NAME: ${{ vars.VOICE_NAME }}
           VOICE_MODEL: ${{ vars.VOICE_MODEL }}
           SITE_DIR: site-repo/site
-        run: node scripts/voice-generate.mjs
+        run: node scripts/voice-generate.mjs && node scripts/voice-test.mjs
       - name: Publish to the website
         working-directory: site-repo
         run: |
