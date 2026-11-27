@@ -9,7 +9,7 @@
     "userInterfaceStyle": "light",
     "ios": {
       "bundleIdentifier": "global.humanbydesign.app",
-      "supportsTablet": true,
+      "supportsTablet": false,
       "infoPlist": {
         "ITSAppUsesNonExemptEncryption": false
       }
