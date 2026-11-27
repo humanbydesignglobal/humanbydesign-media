@@ -27,16 +27,13 @@
   }
   function sunLon(date) { return Astronomy.SunPosition(date).elon; }
   function bodyLon(body, date) { return Astronomy.Ecliptic(Astronomy.GeoVector(body, date, true)).elon; }
+  // True (osculating) lunar node from the Moon's state vector, ecliptic of date (matches the app).
   function trueNode(date) {
-    var T = (Astronomy.MakeTime(date).tt) / 36525;
-    var D = 297.8501921 + 445267.1114034 * T - 0.0018819 * T * T;
-    var M = 357.5291092 + 35999.0502909 * T;
-    var Mp = 134.9633964 + 477198.8675055 * T;
-    var F = 93.2720950 + 483202.0175233 * T - 0.0036539 * T * T;
-    var Om = 125.0445479 - 1934.1362891 * T + 0.0020754 * T * T;
-    Om = Om - 1.4979 * Math.sin(d2r(2 * (D - F))) - 0.1500 * Math.sin(d2r(M)) - 0.1226 * Math.sin(d2r(2 * D))
-      + 0.1176 * Math.sin(d2r(2 * F)) - 0.0801 * Math.sin(d2r(2 * (Mp - F)));
-    return norm(Om);
+    var t = Astronomy.MakeTime(date), st = Astronomy.GeoMoonState(t), rot = Astronomy.Rotation_EQJ_ECT(t);
+    var r = Astronomy.RotateVector(rot, new Astronomy.Vector(st.x, st.y, st.z, t));
+    var v = Astronomy.RotateVector(rot, new Astronomy.Vector(st.vx, st.vy, st.vz, t));
+    var hx = r.y * v.z - r.z * v.y, hy = r.z * v.x - r.x * v.z;
+    return norm(Math.atan2(hx, -hy) * 180 / Math.PI);
   }
   function activations(date) {
     var B = Astronomy.Body, s = sunLon(date), n = trueNode(date);
