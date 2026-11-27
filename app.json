@@ -52,7 +52,14 @@
       "revenuecat": {
         "ios": "",
         "android": ""
+      },
+      "eas": {
+        "projectId": "33494578-2dd4-409b-924c-e2f84ee904bf"
       }
+    },
+    "owner": "human-by-design",
+    "runtimeVersion": {
+      "policy": "appVersion"
     }
   }
 }
