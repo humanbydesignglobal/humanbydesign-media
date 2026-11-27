@@ -1,25 +1,58 @@
 {
   "expo": {
-    "name": "hbd-app",
-    "slug": "hbd-app",
+    "name": "Human by Design",
+    "slug": "human-by-design",
     "version": "1.0.0",
+    "scheme": "humanbydesign",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "ios": {
-      "supportsTablet": true
+      "bundleIdentifier": "global.humanbydesign.app",
+      "supportsTablet": true,
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "android": {
+      "package": "global.humanbydesign.app",
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
+        "backgroundColor": "#1C1511",
         "foregroundImage": "./assets/android-icon-foreground.png",
-        "backgroundImage": "./assets/android-icon-background.png",
-        "monochromeImage": "./assets/android-icon-monochrome.png"
+        "backgroundImage": "./assets/android-icon-background.png"
       },
       "predictiveBackGestureEnabled": false
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/favicon.png",
+      "output": "single",
+      "name": "Human by Design",
+      "backgroundColor": "#FBF7F1",
+      "themeColor": "#1C1511"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-font",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/splash-icon.png",
+          "imageWidth": 180,
+          "backgroundColor": "#1C1511"
+        }
+      ],
+      "expo-localization"
+    ],
+    "experiments": {
+      "typedRoutes": true,
+      "baseUrl": "/app"
+    },
+    "extra": {
+      "askUrl": "",
+      "revenuecat": {
+        "ios": "",
+        "android": ""
+      }
     }
   }
 }

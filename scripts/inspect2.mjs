@@ -1,0 +1,14 @@
+import vm from 'node:vm'; import fs from 'node:fs';
+const dir='/home/claude/humanbydesign-media/site/';
+const ctx={window:{},console}; ctx.globalThis=ctx; vm.createContext(ctx);
+for (const f of ['hbd-data.js','ar-guide.js','report-en.js','report-ar.js']) vm.runInContext(fs.readFileSync(dir+f,'utf8'),ctx);
+const W=ctx.window;
+console.log(JSON.stringify(W.HBR_AR.AUTH.Splenic).slice(0,300));
+console.log(JSON.stringify(W.HBR_AR.CENTRE.Spleen).slice(0,500));
+console.log(JSON.stringify(W.HBR_AR.EXP.Projector));
+console.log(JSON.stringify(W.HBR_AR.PROFILE['2/4']).slice(0,300));
+console.log(JSON.stringify(W.HBR_AR.DEF).slice(0,300));
+console.log(JSON.stringify(W.HBD_AR.GN[1]), JSON.stringify(W.HBD_AR.JXN[1]), JSON.stringify(W.HBD_AR.CHD['34-57'][0]));
+console.log(Object.keys(W.HBR_EN.AUTH.Emotional), Object.keys(W.HBR_EN.CENTRE.Head), Object.keys(W.HBR_EN.TYPE.Generator));
+console.log(JSON.stringify(W.HBD_AR.LN));
+console.log(JSON.stringify(W.HBD_EN.CNAME), JSON.stringify(W.HBD_EN.TN), JSON.stringify(W.HBD_EN.LN[1]));
