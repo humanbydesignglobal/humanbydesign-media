@@ -2,7 +2,8 @@ import React, { useMemo } from 'react';
 import { View } from 'react-native';
 import { useLabels } from '../../components/ChartView';
 import { Lock } from '../../components/Lock';
-import { Card, Section, Screen, Txt } from '../../components/ui';
+import { TypeSeal } from '../../components/TypeSeal';
+import { Card, Section, Screen, Txt, useDir } from '../../components/ui';
 import { DAILY } from '../../content/extra';
 import { GATE_CENTRE, hangingGates, transits } from '../../engine/hd';
 import { useApp } from '../../state/AppState';
@@ -13,6 +14,7 @@ const dayOfYear = (d: Date) => Math.floor((d.getTime() - new Date(d.getFullYear(
 export default function Today() {
   const { me, t, lang, chartOf, can } = useApp();
   const L = useLabels();
+  const { row: rowDir } = useDir();
   const now = useMemo(() => new Date(), []);
   const chart = me ? chartOf(me) : null;
   const sky = useMemo(() => transits(now), [now]);
@@ -39,7 +41,10 @@ export default function Today() {
       <Section label={t.todayFor}>
         {can.dailyTips ? (
           <Card dark style={{ paddingVertical: 28 }}>
-            <Txt v="label" color={C.redDark}>{L.type(chart.type).name}</Txt>
+            <View style={{ flexDirection: rowDir, alignItems: 'center', gap: 10 }}>
+              <TypeSeal type={chart.type} size={34} />
+              <Txt v="label" color={C.redDark}>{L.type(chart.type).name}</Txt>
+            </View>
             <Txt v="italic" color={C.cream} style={{ fontSize: 25, lineHeight: lang === 'ar' ? 40 : 31 }}>{tip}</Txt>
           </Card>
         ) : (

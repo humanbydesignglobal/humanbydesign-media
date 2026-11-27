@@ -5,6 +5,7 @@ import { CENTRES, type Chart, type CentreId } from '../engine/hd';
 import { useApp } from '../state/AppState';
 import { C, F } from '../theme';
 import { Bodygraph } from './Bodygraph';
+import { TypeSeal } from './TypeSeal';
 import { Card, Pill, Section, Txt, useDir } from './ui';
 
 export function useLabels() {
@@ -31,7 +32,10 @@ export function ChartHeader({ chart, name, other }: { chart: Chart; name?: strin
     <View style={{ gap: 14 }}>
       {name ? <Txt v="hand">{name}</Txt> : null}
       <Txt v="label">{other && name ? t.theyAre(name) : t.youAre}</Txt>
-      <Txt v="display">{T.name}</Txt>
+      <View style={{ flexDirection: row, alignItems: 'center', gap: 14 }}>
+        <TypeSeal type={chart.type} size={72} />
+        <Txt v="display" style={{ flex: 1 }}>{T.name}</Txt>
+      </View>
       <Txt v="italic" color={C.muted}>{T.gift}</Txt>
       <View style={{ flexDirection: row, flexWrap: 'wrap', gap: 8, marginTop: 4 }}>
         <Pill text={chart.profile} red />

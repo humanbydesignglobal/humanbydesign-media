@@ -3,6 +3,7 @@ import React from 'react';
 import { View } from 'react-native';
 import { priceOf } from '../../billing/store';
 import { useLabels } from '../../components/ChartView';
+import { TypeSeal } from '../../components/TypeSeal';
 import { Button, Card, Screen, Txt, useDir } from '../../components/ui';
 import { useApp } from '../../state/AppState';
 import { C } from '../../theme';
@@ -33,9 +34,7 @@ export default function People() {
           return (
             <Card key={p.id} onPress={() => router.push({ pathname: '/person/[id]', params: { id: p.id } })}>
               <View style={{ flexDirection: row, alignItems: 'center', gap: 14 }}>
-                <View style={{ width: 46, height: 46, borderRadius: 23, backgroundColor: C.esp, alignItems: 'center', justifyContent: 'center' }}>
-                  <Txt v="title" center color={C.cream} style={{ fontSize: 22, lineHeight: 30 }}>{p.name.slice(0, 1).toUpperCase()}</Txt>
-                </View>
+                <TypeSeal type={c.type} size={54} />
                 <View style={{ flex: 1, gap: 2 }}>
                   <Txt v="medium">{p.name}</Txt>
                   <Txt v="small">{[L.type(c.type).name, L.auth(c.authority), c.profile].join(' · ')}</Txt>
