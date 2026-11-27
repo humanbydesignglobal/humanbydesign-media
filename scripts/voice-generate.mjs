@@ -12,6 +12,7 @@ if (!KEY) { console.log('No ELEVENLABS_API_KEY secret yet. Nothing to do.'); pro
 
 const api = (p, init = {}) => fetch('https://api.elevenlabs.io' + p, { ...init, headers: { 'xi-api-key': KEY, 'content-type': 'application/json', ...(init.headers || {}) } });
 
+process.on('unhandledRejection', (e) => { console.log('::error::' + String(e?.message || e).replace(/\n/g, ' ').slice(0, 900)); process.exit(1); });
 const vr = await api('/v1/voices');
 if (!vr.ok) throw new Error('voices ' + vr.status + ' ' + (await vr.text()));
 const voices = (await vr.json()).voices;
