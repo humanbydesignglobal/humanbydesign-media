@@ -1,8 +1,8 @@
 import { router, useLocalSearchParams } from 'expo-router';
 import React, { useState } from 'react';
-import { View } from 'react-native';
+import { Pressable, View } from 'react-native';
 import { BackLink } from '../../components/BackLink';
-import { ChartBody, ChartHeader, useLabels } from '../../components/ChartView';
+import { ChartBody, ChartHeader, GateList, useLabels } from '../../components/ChartView';
 import { FullReading } from '../../components/FullReading';
 import { Button, Card, Section, Screen, Txt, useDir } from '../../components/ui';
 import { CONNECTION_TEXT, WITH_TYPE } from '../../content/extra';
@@ -18,6 +18,7 @@ export default function Person() {
   const L = useLabels();
   const { row } = useDir();
   const [confirm, setConfirm] = useState(false);
+  const [tab, setTab] = useState<'design' | 'together'>('design');
   const p = people.find((x) => x.id === id);
   const chart = p ? chartOf(p) : null;
   const mine = me ? chartOf(me) : null;
@@ -31,7 +32,25 @@ export default function Person() {
         <ChartHeader chart={chart} name={p.name} other />
       </View>
 
-      {conn ? (
+      <View style={{ flexDirection: row, marginTop: 24, backgroundColor: C.paper2, borderRadius: 999, padding: 4 }}>
+        {(['design', 'together'] as const).map((k) => (
+          <Pressable
+            key={k}
+            onPress={() => setTab(k)}
+            accessibilityRole="tab"
+            accessibilityState={{ selected: tab === k }}
+            style={{ flex: 1, minHeight: 44, borderRadius: 999, alignItems: 'center', justifyContent: 'center', backgroundColor: tab === k ? C.esp : 'transparent' }}
+          >
+            <Txt v="medium" center color={tab === k ? C.cream : C.ink} style={{ fontSize: 14 }}>
+              {k === 'design' ? t.theirDesign(p.name) : t.youTwo}
+            </Txt>
+          </Pressable>
+        ))}
+      </View>
+
+      {tab === 'together' ? (
+        <View>
+          {conn ? (
         <Section label={t.together} title={t.togetherType(L.type(conn.together.type).name)}>
           <Card dark>
             <Txt v="hand" color={C.redDark}>{t.beingWith(p.name)}</Txt>
@@ -64,9 +83,14 @@ export default function Person() {
         </Section>
       ) : null}
 
-      <ChartBody chart={chart} />
-      <FullReading chart={chart} unlocked={can.peopleFullReading} lockedText={t.peopleReadingLocked(p.name)} />
-
+        </View>
+      ) : (
+        <View>
+          <ChartBody chart={chart} />
+          <FullReading chart={chart} unlocked={can.peopleFullReading} lockedText={t.peopleReadingLocked(p.name)} />
+          <GateList chart={chart} />
+        </View>
+      )}
       <View style={{ marginTop: 40, gap: 10 }}>
         {confirm ? (
           <>

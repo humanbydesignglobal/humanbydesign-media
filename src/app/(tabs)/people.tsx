@@ -38,7 +38,8 @@ export default function People() {
                 </View>
                 <View style={{ flex: 1, gap: 2 }}>
                   <Txt v="medium">{p.name}</Txt>
-                  <Txt v="small">{[p.relation, `${L.type(c.type).name} ${c.profile}`].filter(Boolean).join(' · ')}</Txt>
+                  <Txt v="small">{[L.type(c.type).name, L.auth(c.authority), c.profile].join(' · ')}</Txt>
+                  {p.relation ? <Txt v="small" style={{ fontSize: 12.5 }}>{p.relation}</Txt> : null}
                 </View>
               </View>
             </Card>

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { Pressable, View, useWindowDimensions } from 'react-native';
+import { Pressable, Text, View, useWindowDimensions } from 'react-native';
 import { AUTH_LABELS, CENTRE_LABELS, CHANNEL_AR, DEF_LABELS, TYPE_LABELS } from '../content/extra';
 import { CENTRES, type Chart, type CentreId } from '../engine/hd';
 import { useApp } from '../state/AppState';
-import { C } from '../theme';
+import { C, F } from '../theme';
 import { Bodygraph } from './Bodygraph';
 import { Card, Pill, Section, Txt, useDir } from './ui';
 
@@ -55,7 +55,7 @@ export function ChartBody({ chart }: { chart: Chart }) {
   return (
     <View>
       <View style={{ alignItems: 'center', marginTop: 28 }}>
-        <Bodygraph chart={chart} width={Math.min(width - 48, 340)} />
+        <ChartWithColumns chart={chart} width={Math.min(width - 48, 460)} />
         <View style={{ flexDirection: row, gap: 16, marginTop: 10, flexWrap: 'wrap', justifyContent: 'center' }}>
           <Legend color={C.red} text={t.legendDes} />
           <Legend color={C.ink} text={t.legendPer} />
@@ -132,6 +132,52 @@ export function ChartBody({ chart }: { chart: Chart }) {
           );
         })}
       </Section>
+    </View>
+  );
+}
+
+const GLY = ['☉', '⊕', '☊', '☋', '☽', '☿', '♀', '♂', '♃', '♄', '♅', '♆', '♇'];
+
+/** Bodygraph with the Design (red) and Personality (black) activations beside it, like a printed chart. */
+export function ChartWithColumns({ chart, width }: { chart: Chart; width: number }) {
+  const { t, c } = useApp();
+  const colW = Math.max(52, Math.round(width * 0.16));
+  const bgW = width - colW * 2 - 8;
+  const planets = c.planets as Record<string, { name: string }>;
+  const col = (side: 'design' | 'personality') => {
+    const color = side === 'design' ? C.red : C.ink;
+    return (
+      <View style={{ width: colW, paddingTop: 2 }}>
+        {chart[side].map((a, i) => (
+          <View
+            key={a.planet}
+            accessible
+            accessibilityLabel={`${planets[a.planet]?.name ?? a.planet} ${a.gate}.${a.line}`}
+            style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', height: (bgW * 852) / 500 / 14.2, borderBottomWidth: i < 12 ? 1 : 0, borderColor: C.line, paddingHorizontal: 2 }}
+          >
+            <Text style={{ fontSize: 12, lineHeight: 15, color, width: 16, textAlign: 'center' }}>{GLY[i] + '\uFE0E'}</Text>
+            <Text style={{ fontFamily: F.sansMedium, fontSize: 12.5, color, writingDirection: 'ltr' }}>{`${a.gate}.${a.line}`}</Text>
+          </View>
+        ))}
+      </View>
+    );
+  };
+  const label = (side: 'design' | 'personality') => (
+    <Text style={{ fontFamily: F.sansMedium, fontSize: 11, letterSpacing: 0.4, color: side === 'design' ? C.red : C.ink }}>
+      {side === 'design' ? t.design : t.personality}
+    </Text>
+  );
+  return (
+    <View style={{ direction: 'ltr', width }}>
+      <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginBottom: 6, paddingHorizontal: 2 }}>
+        {label('design')}
+        {label('personality')}
+      </View>
+      <View style={{ flexDirection: 'row', alignItems: 'flex-start', gap: 4 }}>
+        {col('design')}
+        <Bodygraph chart={chart} width={bgW} />
+        {col('personality')}
+      </View>
     </View>
   );
 }
