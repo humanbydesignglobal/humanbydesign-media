@@ -44,6 +44,12 @@ export default function Ask() {
         headers: { 'content-type': 'application/json' },
         body: JSON.stringify({ lang, name: me!.name, chart: summary, messages: next }),
       });
+      if (r.status === 503) {
+        setErr(t.askNotLive);
+        setMsgs(msgs);
+        setText(question);
+        return;
+      }
       const j = await r.json();
       if (!r.ok || !j.text) throw new Error('ask failed');
       setMsgs([...next, { role: 'assistant', content: j.text }]);

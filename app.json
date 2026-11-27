@@ -48,7 +48,7 @@
       "baseUrl": "/app"
     },
     "extra": {
-      "askUrl": "",
+      "askUrl": "https://humanbydesign.global/.netlify/functions/ask",
       "revenuecat": {
         "ios": "",
         "android": ""

@@ -18,6 +18,7 @@ function system(lang, chart, name) {
 
 exports.handler = async (event) => {
   if (event.httpMethod !== 'POST') return { statusCode: 405, body: 'POST only' };
+  if (!process.env.ANTHROPIC_API_KEY) return { statusCode: 503, headers: { 'content-type': 'application/json' }, body: JSON.stringify({ error: 'not_ready' }) };
   const ip = event.headers['x-nf-client-connection-ip'] || 'x';
   const day = new Date().toISOString().slice(0, 10);
   const k = ip + day;
