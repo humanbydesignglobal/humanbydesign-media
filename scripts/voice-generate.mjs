@@ -21,6 +21,10 @@ const voices = (await vr.json()).voices;
 const voice = voices.find((v) => v.name.toLowerCase() === VOICE_NAME) || voices.find((v) => v.name.toLowerCase().includes(VOICE_NAME));
 if (!voice) throw new Error('No voice named like "' + VOICE_NAME + '". Voices: ' + voices.map((v) => v.name).join(', '));
 console.log('Voice:', voice.name, voice.voice_id, 'model', MODEL);
+// Arabic needs a voice cloned from Cici speaking Lebanese. Until it exists, no Arabic audio is published.
+const AR_NAME = (process.env.VOICE_NAME_AR || 'Cici Lebanese').toLowerCase();
+const voiceAr = voices.find((v) => v.name.toLowerCase() === AR_NAME) || null;
+console.log(voiceAr ? 'Arabic voice: ' + voiceAr.name : '::warning::No "' + AR_NAME + '" voice yet, so Arabic audio is off.');
 
 const scripts = JSON.parse(readFileSync('voice/scripts.json', 'utf8'));
 const dir = join(SITE, 'voice');
@@ -29,11 +33,13 @@ const man = existsSync(manPath) ? JSON.parse(readFileSync(manPath, 'utf8')) : { 
 const limit = Number(process.env.MAX_CHARS || 40000);
 let used = 0, made = 0;
 for (const s of scripts) {
+  if (s.lang === 'ar' && !voiceAr) { delete man.clips[s.key]; continue; }
+  const vo = s.lang === 'ar' ? voiceAr : voice;
   const model = s.lang === 'ar' ? MODEL_AR : MODEL;
-  const hash = createHash('sha1').update([voice.voice_id, model, s.text].join('|')).digest('hex').slice(0, 10);
+  const hash = createHash('sha1').update([vo.voice_id, model, s.text].join('|')).digest('hex').slice(0, 10);
   if (man.clips[s.key]?.hash === hash) continue;
   if (used + s.text.length > limit) { console.log('Stopping at the character limit for this run:', limit); break; }
-  const r = await api(`/v1/text-to-speech/${voice.voice_id}?output_format=mp3_44100_64`, {
+  const r = await api(`/v1/text-to-speech/${vo.voice_id}?output_format=mp3_44100_64`, {
     method: 'POST',
     body: JSON.stringify(s.lang === 'ar'
       ? { text: s.text, model_id: model, voice_settings: { stability: 0.5, similarity_boost: 0.85, use_speaker_boost: true } }
