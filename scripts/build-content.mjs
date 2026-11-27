@@ -71,6 +71,14 @@ function build(lang) {
   out.channels = {};
   for (const k of Object.keys(G.CHD)) out.channels[k] = { name: fx(G.CHD[k][0]), text: lang === 'en' ? fx(G.CHD[k][1]) : '' };
   out.circuitOf = W.HBR_EN.CH_CIRCUIT;
+  // Incarnation cross: names and themes (Arabic right-angle themes are rewritten in Lebanese in src/content/purpose.ts)
+  out.cross = {
+    raxName: lang === 'en' ? Object.fromEntries(Object.keys(G.RAXN).map((k) => [k, k])) : Object.fromEntries(Object.entries(G.RAXNM).map(([k, v]) => [k, fx(v)])),
+    laxName: lang === 'en' ? Object.fromEntries(Object.keys(G.LAXN).map((k) => [k, k])) : Object.fromEntries(Object.entries(G.LAXNM).map(([k, v]) => [k, fx(v)])),
+    raxTheme: Object.fromEntries(Object.entries(G.RAXN).map(([k, v]) => [k, fx(v)])),
+    laxTheme: Object.fromEntries(Object.entries(G.LAXN).map(([k, v]) => [k, fx(v)])),
+    jxName: Object.fromEntries(Object.entries(G.JXN).map(([k, v]) => [k, fx(v)])),
+  };
   return out;
 }
 
@@ -80,6 +88,6 @@ fs.writeFileSync(path.join(outDir, 'en.json'), JSON.stringify(build('en'), null,
 fs.writeFileSync(path.join(outDir, 'ar.json'), JSON.stringify(build('ar'), null, 1));
 fs.writeFileSync(
   path.join(outDir, 'draw.json'),
-  JSON.stringify({ GP: W.HBD_DRAW.GP, CTRL: W.HBD_DRAW.CTRL, CH: W.HBD_DRAW.CH, SHP: W.HBD_DRAW.SHP, GLY: W.HBD_DRAW.GLY })
+  JSON.stringify({ GP: W.HBD_DRAW.GP, CTRL: W.HBD_DRAW.CTRL, CH: W.HBD_DRAW.CH, SHP: W.HBD_DRAW.SHP, GLY: W.HBD_DRAW.GLY, RAXG: W.HBD_DRAW.RAXG, LAXG: W.HBD_DRAW.LAXG })
 );
 console.log('content written to', outDir);

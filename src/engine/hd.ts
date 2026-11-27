@@ -10,7 +10,7 @@ export type PlanetId =
   | 'Sun' | 'Earth' | 'North Node' | 'South Node' | 'Moon' | 'Mercury' | 'Venus' | 'Mars'
   | 'Jupiter' | 'Saturn' | 'Uranus' | 'Neptune' | 'Pluto';
 
-export interface Activation { planet: PlanetId; gate: number; line: number; lon: number }
+export interface Activation { planet: PlanetId; gate: number; line: number; color: number; tone: number; lon: number }
 export interface Channel { a: number; b: number; key: string; name: string; from: CentreId; to: CentreId }
 export interface Chart {
   type: TypeId;
@@ -47,26 +47,31 @@ export const GATE_CENTRE: Record<number, CentreId> = {};
 (Object.keys(CENTRE_GATES) as CentreId[]).forEach((c) => CENTRE_GATES[c].forEach((g) => { GATE_CENTRE[g] = c; }));
 
 const norm = (x: number) => { x %= 360; return x < 0 ? x + 360 : x; };
-const d2r = (x: number) => (x * Math.PI) / 180;
 
 function gateLine(lon: number) {
   const x = norm(lon - 302);
   const idx = Math.floor(x / 5.625);
-  return { gate: ORDER[idx], line: Math.floor((x - idx * 5.625) / 0.9375) + 1, lon };
+  const inGate = x - idx * 5.625;
+  const line = Math.floor(inGate / 0.9375) + 1;
+  const inLine = inGate - (line - 1) * 0.9375;
+  const color = Math.min(6, Math.floor(inLine / 0.15625) + 1);
+  const inColor = inLine - (color - 1) * 0.15625;
+  const tone = Math.min(6, Math.floor(inColor / (0.15625 / 6)) + 1);
+  return { gate: ORDER[idx], line, color, tone, lon };
 }
 const sunLon = (date: Date) => Astronomy.SunPosition(date).elon;
 const bodyLon = (body: Astronomy.Body, date: Date) => Astronomy.Ecliptic(Astronomy.GeoVector(body, date, true)).elon;
 
+/** True (osculating) lunar node: from the Moon's position and velocity, in ecliptic coordinates of date. */
 function trueNode(date: Date) {
-  const T = Astronomy.MakeTime(date).tt / 36525;
-  const D = 297.8501921 + 445267.1114034 * T - 0.0018819 * T * T;
-  const M = 357.5291092 + 35999.0502909 * T;
-  const Mp = 134.9633964 + 477198.8675055 * T;
-  const F = 93.272095 + 483202.0175233 * T - 0.0036539 * T * T;
-  let Om = 125.0445479 - 1934.1362891 * T + 0.0020754 * T * T;
-  Om = Om - 1.4979 * Math.sin(d2r(2 * (D - F))) - 0.15 * Math.sin(d2r(M)) - 0.1226 * Math.sin(d2r(2 * D))
-    + 0.1176 * Math.sin(d2r(2 * F)) - 0.0801 * Math.sin(d2r(2 * (Mp - F)));
-  return norm(Om);
+  const t = Astronomy.MakeTime(date);
+  const st = Astronomy.GeoMoonState(t);
+  const rot = Astronomy.Rotation_EQJ_ECT(t);
+  const r = Astronomy.RotateVector(rot, new Astronomy.Vector(st.x, st.y, st.z, t));
+  const v = Astronomy.RotateVector(rot, new Astronomy.Vector(st.vx, st.vy, st.vz, t));
+  const hx = r.y * v.z - r.z * v.y;
+  const hy = r.z * v.x - r.x * v.z;
+  return norm((Math.atan2(hx, -hy) * 180) / Math.PI);
 }
 
 export function activations(date: Date): Activation[] {
@@ -232,4 +237,29 @@ export function parseBirth(dateStr: string, timeStr: string) {
   const [y, mo, d, h, mi] = [+dm[1], +dm[2], +dm[3], +tm[1], +tm[2]];
   if (mo < 1 || mo > 12 || d < 1 || d > 31 || h > 23 || mi > 59 || y < 1900 || y > 2100) return null;
   return { y, mo, d, h, mi };
+}
+
+/**
+ * The four "variables" (the arrows beside a chart), from the Sun and North Node
+ * colors and tones. Tones 1-3 point left, 4-6 point right.
+ */
+export function variables(c: Chart) {
+  const dSun = c.design[0], pSun = c.personality[0];
+  const dNode = c.design.find((a) => a.planet === 'North Node')!;
+  const pNode = c.personality.find((a) => a.planet === 'North Node')!;
+  const side = (t: number) => (t <= 3 ? 'left' : 'right') as 'left' | 'right';
+  return {
+    digestion: { color: dSun.color, side: side(dSun.tone) },
+    sense: { tone: dSun.tone },
+    environment: { color: dNode.color, side: side(dNode.tone) },
+    perspective: { color: pNode.color, side: side(pNode.tone) },
+    motivation: { color: pSun.color, side: side(pSun.tone) },
+  };
+}
+
+export type CrossAngle = 'right' | 'left' | 'jux';
+export function crossAngle(c: Chart): CrossAngle {
+  const [p, d] = c.profile.split('/').map(Number);
+  if (p === 4 && d === 1) return 'jux';
+  return p >= 5 ? 'left' : 'right';
 }

@@ -4,6 +4,7 @@ import { Pressable, View } from 'react-native';
 import { BackLink } from '../../components/BackLink';
 import { ChartBody, ChartHeader, GateList, useLabels } from '../../components/ChartView';
 import { FullReading } from '../../components/FullReading';
+import { LifeTheme, Segmented, WorkBest, useChartTabs, type ChartTab } from '../../components/Purpose';
 import { Button, Card, Section, Screen, Txt, useDir } from '../../components/ui';
 import { CONNECTION_TEXT, WITH_TYPE } from '../../content/extra';
 import { connection, type ConnectionKind } from '../../engine/hd';
@@ -19,6 +20,8 @@ export default function Person() {
   const { row } = useDir();
   const [confirm, setConfirm] = useState(false);
   const [tab, setTab] = useState<'design' | 'together'>('design');
+  const [sub, setSub] = useState<ChartTab>('design');
+  const chartTabs = useChartTabs();
   const p = people.find((x) => x.id === id);
   const chart = p ? chartOf(p) : null;
   const mine = me ? chartOf(me) : null;
@@ -86,9 +89,18 @@ export default function Person() {
         </View>
       ) : (
         <View>
-          <ChartBody chart={chart} />
-          <FullReading chart={chart} unlocked={can.peopleFullReading} lockedText={t.peopleReadingLocked(p.name)} />
-          <GateList chart={chart} />
+          <Segmented value={sub} options={chartTabs} onChange={setSub} />
+          {sub === 'design' ? (
+            <>
+              <ChartBody chart={chart} />
+              <FullReading chart={chart} unlocked={can.peopleFullReading} lockedText={t.peopleReadingLocked(p.name)} />
+              <GateList chart={chart} />
+            </>
+          ) : sub === 'theme' ? (
+            <LifeTheme chart={chart} />
+          ) : (
+            <WorkBest chart={chart} />
+          )}
         </View>
       )}
       <View style={{ marginTop: 40, gap: 10 }}>
