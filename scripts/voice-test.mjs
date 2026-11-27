@@ -11,7 +11,7 @@ try {
   for (const t of JSON.parse(readFileSync('voice/tests.json', 'utf8'))) {
     const v = voices.find((x) => x.name === t.voice);
     if (!v) { console.log('::warning::no voice ' + t.voice); continue; }
-    const r = await api(`/v1/text-to-speech/${v.voice_id}?output_format=mp3_44100_64`, { method: 'POST', body: JSON.stringify({ text: t.text, model_id: t.model, ...(t.language_code ? { language_code: t.language_code } : {}), voice_settings: { stability: t.stability ?? 0.5, similarity_boost: 0.9, use_speaker_boost: true } }) });
+    const r = await api(`/v1/text-to-speech/${v.voice_id}?output_format=mp3_44100_64`, { method: 'POST', body: JSON.stringify({ text: t.text, model_id: t.model, ...(t.language_code ? { language_code: t.language_code } : {}), voice_settings: { stability: t.stability ?? 0.5, similarity_boost: 0.9, use_speaker_boost: true, ...(t.speed ? { speed: t.speed } : {}) } }) });
     if (!r.ok) { console.log('::warning::' + t.name + ' ' + r.status + ' ' + (await r.text()).slice(0, 300)); continue; }
     writeFileSync(join(dir, t.name + '.mp3'), Buffer.from(await r.arrayBuffer()));
     console.log('made', t.name);
