@@ -2,7 +2,8 @@
 const crypto = require('crypto');
 const { sendReportEmail, fromIntent } = require('../lib/mail');
 const SITE = process.env.SITE_URL || 'https://humanbydesign.global';
-const PRICE_FILS = 11100;
+// AED 55.00 now; AED 111.00 kept so earlier buyers' report links keep opening.
+const PRICES_FILS = [5500, 11100];
 
 exports.handler = async (event) => {
   const q = event.queryStringParameters || {};
@@ -15,7 +16,7 @@ exports.handler = async (event) => {
   if (!res.ok) return no;
   const j = await res.json().catch(() => ({}));
   const ref = crypto.createHash('sha256').update(r).digest('hex').slice(0, 12);
-  const paid = j.status === 'completed' && Number(j.amount) === PRICE_FILS && j.currency_code === 'AED'
+  const paid = j.status === 'completed' && PRICES_FILS.includes(Number(j.amount)) && j.currency_code === 'AED'
     && typeof j.message === 'string' && j.message.indexOf('ref ' + ref) >= 0;
   if (paid) {
     // Email the report link (one email per payment, however many times this runs).

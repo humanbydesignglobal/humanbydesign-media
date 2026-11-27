@@ -33,7 +33,7 @@ UI: {
   lockedH: 'Your Design, Decoded',
   lockedLead: 'Your whole chart, read for you, all the way down. More than twenty pages, written for your exact design.',
   lockedList: ['Your type in depth: your aura, work and money, love, and rest', 'Your authority in real decisions, and what gets in its way', 'Your full profile, and how your energy connects', 'All nine centres, defined and open, with the wisdom each one grows', 'Every channel and hanging gate in your chart', 'All 26 planetary activations, explained one by one', 'Experiments to carry, made for your chart'],
-  price: 'AED 111', launch: 'Launch price', buy: 'Get my report', buyNote: 'Pay by card, Apple Pay or Google Pay. Your report opens straight after payment, and you can save it as a PDF.',
+  price: 'AED 55', launch: 'Launch price', buy: 'Get my report', buyNote: 'Pay by card, Apple Pay or Google Pay. Your report opens straight after payment, and you can save it as a PDF.',
   formH: 'Whose chart?', name: 'First name', email: 'Email', date: 'Birth date', time: 'Birth time', place: 'Birth place', placeph: 'Type your city',
   checking: 'Confirming your payment...', notPaid: 'We could not confirm this payment yet. If you have just paid, wait a moment and refresh. If it still does not open, write to cici@humanbydesign.global and I will sort it out.',
   pick: 'Please choose your birth place from the list.', need: 'Please fill in every field.', geo: 'We could not look up places right now. Please try again.', err: 'Something went wrong. Please try again.'

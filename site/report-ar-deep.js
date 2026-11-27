@@ -157,11 +157,11 @@ Object.keys(D.AUTH).forEach(function (k) { Object.assign(A.AUTH[k], D.AUTH[k]); 
 Object.keys(D.CENTRE).forEach(function (k) { Object.assign(A.CENTRE[k], D.CENTRE[k]); });
 
 A.UI.offer = {
-  eyebrow: 'سعر الإطلاق · <bdi dir="ltr">AED 111</bdi>',
+  eyebrow: 'سعر الإطلاق · <bdi dir="ltr">AED 55</bdi>',
   h: 'تصميمك،<br><i class="u">بالتفصيل.</i>',
   note: '(40 صفحة، كلها عنك)',
   lead: 'خريطتك المجانية كانت البداية. هون كل شي: كل جزء من تصميمك، مقروء إلك ومشروح بالحياة الحقيقية، للآخر.',
-  cta: 'بدي تقريري · <bdi dir="ltr">AED 111</bdi>',
+  cta: 'بدي تقريري · <bdi dir="ltr">AED 55</bdi>',
   ctaSub: 'بيفتح دغري بعد الدفع، وبيوصلك عالإيميل كمان.',
   insideH: 'شو <i class="u">في جوّا</i>',
   inside: [
@@ -176,10 +176,10 @@ A.UI.offer = {
   ],
   formH: 'خريطة <i class="u">مين؟</i>',
   formNote: 'حط الإيميل يلي بدك يوصلك عليه التقرير.',
-  trust: 'دفع آمن عبر Ziina · بطاقة أو Apple Pay أو Google Pay · <bdi dir="ltr">AED 111</bdi>',
+  trust: 'دفع آمن عبر Ziina · بطاقة أو Apple Pay أو Google Pay · <bdi dir="ltr">AED 55</bdi>',
   upH: 'بخريطتك <i class="u">أكتر بكتير.</i>',
   upLead: 'هيدي كانت أول طبقة من خريطتك. تقريرك الكامل بيقرالك كل شي: أربعين صفحة عن نوعك، قراراتك، المراكز التسعة، كل قناة، والتفعيلات الـ26، بكلام بسيط.',
-  upCta: 'بدي تقريري الكامل · <bdi dir="ltr">AED 111</bdi>',
+  upCta: 'بدي تقريري الكامل · <bdi dir="ltr">AED 55</bdi>',
   upSub: 'سعر الإطلاق. بيفتح دغري، وبيوصلك عالإيميل.',
   barTxt: 'تقريرك الكامل جاهز ينكتب.',
   barCta: 'شوف شو في جوّا'

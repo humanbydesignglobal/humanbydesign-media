@@ -427,7 +427,7 @@ var tn=tr('TN',c.type),au=tr('AUN',c.authority);
 var h='<p class="lead" style="margin-top:8px">'+S('hello')(esc(name),esc(place))+'</p>';
 h+=chartBlock(c)+'<div class="top"><div class="facts">'+[[S('fType'),esc(tn)],[S('fStrat'),esc(t.s)],[S('fAuth'),esc(au)],[S('fProf'),n(c.profile)+' '+esc(d.LN[c.pLine][0]+' / '+d.LN[c.dLine][0])],[S('fSig'),esc(t.sig)],[S('fNs'),esc(t.ns)]].map(function(f){return '<div class="fact"><div class="k">'+f[0]+'</div><div class="v">'+f[1]+'</div></div>';}).join('')+'</div></div>';
 var UO0=((lang()==='ar'?window.HBR_AR:window.HBR_EN)||{UI:{}}).UI.offer;
-if(UO0){h+='<div class="upbar"><span>'+UO0.barTxt+'</span><a href="#upblock">'+UO0.barCta+' · <bdi dir="ltr">AED 111</bdi></a></div>';}
+if(UO0){h+='<div class="upbar"><span>'+UO0.barTxt+'</span><a href="#upblock">'+UO0.barCta+' · <bdi dir="ltr">AED 55</bdi></a></div>';}
 h+='<h2>'+S('youAre')(esc(tn))+'</h2><p>'+t.d+'</p><p class="callout">'+S('sigCallout')(t.sig,t.ns)+'</p>';
 h+='<h2>'+S('stratH')(t.s)+'</h2><p>'+t.x+'</p>';
 h+='<h2>'+S('authH')(au)+'</h2><p>'+d.AU[c.authority]+'</p>';

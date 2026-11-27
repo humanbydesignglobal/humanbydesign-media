@@ -1,7 +1,7 @@
 // Creates a Ziina payment for "Your Design, Decoded" (AED 177) and returns the hosted payment page.
 // Needs the environment variable ZIINA_API_KEY (set by Cici in Netlify). ZIINA_TEST=true makes test payments.
 const crypto = require('crypto');
-const PRICE_FILS = 11100; // AED 111.00 (launch price)
+const PRICE_FILS = 5500; // AED 55.00 (matches the app's full reading, $14.99)
 const SITE = process.env.SITE_URL || 'https://humanbydesign.global';
 
 exports.handler = async (event) => {

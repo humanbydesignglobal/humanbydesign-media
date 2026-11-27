@@ -156,11 +156,11 @@ Object.keys(D.AUTH).forEach(function (k) { Object.assign(E.AUTH[k], D.AUTH[k]); 
 Object.keys(D.CENTRE).forEach(function (k) { Object.assign(E.CENTRE[k], D.CENTRE[k]); });
 
 E.UI.offer = {
-  eyebrow: 'Launch price · AED 111',
+  eyebrow: 'Launch price · AED 55',
   h: 'your design,<br><i class="u">decoded.</i>',
   note: '(40 pages, all about you)',
   lead: 'Your free chart was the beginning. This is the whole of it: every part of your design, read for you and explained in real life, all the way down.',
-  cta: 'Get my report · AED 111',
+  cta: 'Get my report · AED 55',
   ctaSub: 'Opens the moment you pay, and lands in your inbox too.',
   insideH: 'what\'s <i class="u">inside</i>',
   inside: [
@@ -175,10 +175,10 @@ E.UI.offer = {
   ],
   formH: 'whose <i class="u">chart?</i>',
   formNote: 'Use the email where you want your report sent.',
-  trust: 'Secure payment by Ziina · card, Apple Pay or Google Pay · AED 111',
+  trust: 'Secure payment by Ziina · card, Apple Pay or Google Pay · AED 55',
   upH: 'there\'s <i class="u">so much more</i> in your chart.',
   upLead: 'This was your chart\'s first layer. Your full report reads all of it for you: forty pages on your type, your decisions, all nine centres, every channel and all 26 activations, in plain words.',
-  upCta: 'Get my full report · AED 111',
+  upCta: 'Get my full report · AED 55',
   upSub: 'Launch price. Opens instantly, and arrives in your inbox.',
   barTxt: 'Your full report is ready to be written.',
   barCta: 'See what\'s inside'

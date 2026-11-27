@@ -2,3 +2,9 @@
 [build]
   publish = "."
   functions = "netlify/functions"
+
+# The Human by Design app (web version), built from the app code (branch "app").
+[[redirects]]
+  from = "/app/*"
+  to = "/app/index.html"
+  status = 200

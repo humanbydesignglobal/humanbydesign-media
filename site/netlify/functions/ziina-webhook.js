@@ -3,7 +3,8 @@
 // The payload is never trusted: the payment is re-read from Ziina's API with our key.
 const { sendReportEmail, fromIntent } = require('../lib/mail');
 const SITE = process.env.SITE_URL || 'https://humanbydesign.global';
-const PRICE_FILS = 11100;
+// AED 55.00 now; AED 111.00 kept so earlier buyers' report links keep opening.
+const PRICES_FILS = [5500, 11100];
 exports.handler = async (event) => {
   if (event.httpMethod !== 'POST') return { statusCode: 405, body: '' };
   let id = '';
@@ -12,7 +13,7 @@ exports.handler = async (event) => {
   const res = await fetch('https://api-v2.ziina.com/api/payment_intent/' + encodeURIComponent(id), { headers: { 'Authorization': 'Bearer ' + process.env.ZIINA_API_KEY } });
   if (!res.ok) return { statusCode: 502, body: 'retry' };
   const j = await res.json().catch(() => ({}));
-  const isReport = typeof j.message === 'string' && j.message.indexOf('· ref ') > 0 && Number(j.amount) === PRICE_FILS && j.currency_code === 'AED';
+  const isReport = typeof j.message === 'string' && j.message.indexOf('· ref ') > 0 && PRICES_FILS.includes(Number(j.amount)) && j.currency_code === 'AED';
   if (j.status !== 'completed' || !isReport) return { statusCode: 200, body: 'ok' };
   const m = fromIntent(j, SITE);
   if (!m) return { statusCode: 200, body: 'ok' };
