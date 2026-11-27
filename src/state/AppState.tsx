@@ -42,6 +42,8 @@ interface Ctx {
   restorePurchases: () => Promise<boolean>;
   aiUsed: number;
   noteAiUsed: () => void;
+  learned: string[];
+  markLearned: (id: string) => void;
 }
 
 const KEY = 'hbd.v1';
@@ -69,6 +71,7 @@ export function AppStateProvider({ children }: { children: React.ReactNode }) {
   const [openedAt] = useState<number>(() => Date.now());
   const [startedAt, setStartedAt] = useState<number>(openedAt);
   const [aiUsed, setAiUsed] = useState(0);
+  const [learned, setLearned] = useState<string[]>([]);
   const [storeEnt, setStoreEnt] = useState<Entitlements>(NO_ENTITLEMENTS);
   // Development preview only: purchases made while the store isn't connected.
   const [previewEnt, setPreviewEnt] = useState<Entitlements>(NO_ENTITLEMENTS);
@@ -85,6 +88,7 @@ export function AppStateProvider({ children }: { children: React.ReactNode }) {
         if (Array.isArray(s.people)) setPeople(s.people);
         if (s.startedAt) setStartedAt(s.startedAt);
         if (s.aiUsed) setAiUsed(s.aiUsed);
+        if (Array.isArray(s.learned)) setLearned(s.learned);
         if (__DEV__ && s.previewEnt) setPreviewEnt(s.previewEnt);
       })
       .catch(() => {})
@@ -93,8 +97,8 @@ export function AppStateProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     if (!ready) return;
-    AsyncStorage.setItem(KEY, JSON.stringify({ v: 1, lang, me, people, startedAt, aiUsed, previewEnt: __DEV__ ? previewEnt : undefined })).catch(() => {});
-  }, [ready, lang, me, people, startedAt, aiUsed, previewEnt]);
+    AsyncStorage.setItem(KEY, JSON.stringify({ v: 1, lang, me, people, startedAt, aiUsed, learned, previewEnt: __DEV__ ? previewEnt : undefined })).catch(() => {});
+  }, [ready, lang, me, people, startedAt, aiUsed, learned, previewEnt]);
 
   const saveMe = useCallback((p: Omit<Profile, 'id' | 'createdAt'>) => {
     setMe((old) => ({ ...p, id: old?.id ?? uid(), createdAt: old?.createdAt ?? Date.now() }));
@@ -133,11 +137,12 @@ export function AppStateProvider({ children }: { children: React.ReactNode }) {
     return !!e;
   }, []);
   const noteAiUsed = useCallback(() => setAiUsed((n) => n + 1), []);
+  const markLearned = useCallback((id: string) => setLearned((l) => (l.includes(id) ? l : [...l, id])), []);
 
   const value: Ctx = {
     ready, lang, rtl: lang === 'ar', t: STRINGS[lang], c: (lang === 'ar' ? AR : EN) as Content,
     setLang: setLangState, me, people, saveMe, addPerson, removePerson, chartOf: computeChart,
-    ent, can, purchase, restorePurchases, aiUsed, noteAiUsed,
+    ent, can, purchase, restorePurchases, aiUsed, noteAiUsed, learned, markLearned,
   };
   return <AppCtx.Provider value={value}>{children}</AppCtx.Provider>;
 }

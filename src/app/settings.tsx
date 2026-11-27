@@ -2,16 +2,18 @@ import Constants from 'expo-constants';
 import { router } from 'expo-router';
 import React from 'react';
 import { Image, Linking, Pressable, View } from 'react-native';
-import { Button, Card, Divider, Screen, Txt, useDir } from '../../components/ui';
-import { useApp } from '../../state/AppState';
-import { C } from '../../theme';
+import { BackLink } from '../components/BackLink';
+import { Button, Card, Divider, Screen, Txt, useDir } from '../components/ui';
+import { useApp } from '../state/AppState';
+import { C } from '../theme';
 
 export default function Settings() {
   const { t, lang, setLang, ent } = useApp();
   const { row } = useDir();
   return (
     <Screen>
-      <Txt v="display">{t.meTitle}</Txt>
+      <BackLink />
+      <Txt v="display" style={{ marginTop: 8 }}>{t.meTitle}</Txt>
 
       <Txt v="label" style={{ marginTop: 30, marginBottom: 12 }}>{t.language}</Txt>
       <View style={{ flexDirection: row, gap: 10 }}>
@@ -44,7 +46,7 @@ export default function Settings() {
       <Divider />
       <Card>
         <View style={{ flexDirection: row, alignItems: 'center', gap: 12 }}>
-          <Image source={require('../../../assets/seal.png')} style={{ width: 40, height: 40 }} />
+          <Image source={require('../../assets/seal.png')} style={{ width: 40, height: 40 }} />
           <Txt v="title" style={{ fontSize: 24, lineHeight: 34 }}>{t.brand}</Txt>
         </View>
         <Txt>{t.aboutText}</Txt>

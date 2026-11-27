@@ -36,3 +36,15 @@ export const IconAsk = ({ color, size = 24 }: P) => (
     <Circle cx={12} cy={13.6} r={0.6} fill={color} />
   </Svg>
 );
+export const IconLearn = ({ color, size = 24 }: P) => (
+  <Svg width={size} height={size} viewBox="0 0 24 24" fill="none">
+    <Path d="M3.5 6.5c3-1.4 5.8-1.4 8.5.4 2.7-1.8 5.5-1.8 8.5-.4v12c-3-1.4-5.8-1.4-8.5.4-2.7-1.8-5.5-1.8-8.5-.4z" stroke={color} strokeWidth={sw} strokeLinejoin="round" />
+    <Path d="M12 6.9v12" stroke={color} strokeWidth={sw} />
+  </Svg>
+);
+export const IconGear = ({ color, size = 22 }: P) => (
+  <Svg width={size} height={size} viewBox="0 0 24 24" fill="none">
+    <Circle cx={12} cy={12} r={3.2} stroke={color} strokeWidth={sw} />
+    <Path d="M12 2.8v2.4M12 18.8v2.4M2.8 12h2.4M18.8 12h2.4M5.5 5.5l1.7 1.7M16.8 16.8l1.7 1.7M5.5 18.5l1.7-1.7M16.8 7.2l1.7-1.7" stroke={color} strokeWidth={sw} strokeLinecap="round" />
+  </Svg>
+);

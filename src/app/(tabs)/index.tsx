@@ -1,5 +1,7 @@
 import React, { useMemo } from 'react';
-import { View } from 'react-native';
+import { router } from 'expo-router';
+import { Pressable, View } from 'react-native';
+import { IconGear } from '../../components/icons';
 import { useLabels } from '../../components/ChartView';
 import { Lock } from '../../components/Lock';
 import { TypeSeal } from '../../components/TypeSeal';
@@ -34,7 +36,12 @@ export default function Today() {
 
   return (
     <Screen>
-      <Txt v="small">{dateStr}</Txt>
+      <View style={{ flexDirection: rowDir, alignItems: 'center', justifyContent: 'space-between' }}>
+        <Txt v="small">{dateStr}</Txt>
+        <Pressable onPress={() => router.push('/settings')} hitSlop={12} accessibilityRole="button" accessibilityLabel={t.settingsA11y} style={{ width: 40, height: 40, borderRadius: 20, borderWidth: 1, borderColor: C.line, alignItems: 'center', justifyContent: 'center' }}>
+          <IconGear color={C.ink} />
+        </Pressable>
+      </View>
       <Txt v="display" style={{ marginTop: 6 }}>{hello}{lang === 'ar' ? '،' : ','}</Txt>
       <Txt v="hand" style={{ marginTop: 2 }}>{me.name}</Txt>
 

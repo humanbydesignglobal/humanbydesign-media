@@ -41,6 +41,8 @@ function Root() {
         <Stack.Screen name="birth" />
         <Stack.Screen name="add-person" options={{ presentation: 'modal' }} />
         <Stack.Screen name="person/[id]" />
+        <Stack.Screen name="settings" />
+        <Stack.Screen name="learn/[kind]/[id]" />
         <Stack.Screen name="paywall" options={{ presentation: 'modal', contentStyle: { backgroundColor: C.esp } }} />
       </Stack>
     </>

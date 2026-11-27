@@ -116,6 +116,19 @@ const en = {
   askNotLive: 'Ask opens when the app launches.',
   askSuggest: ['How do I know if a decision is right for me?', 'Why do I feel so tired after socialising?', 'What kind of work suits my design?'],
   you2: 'You',
+  tLearn: 'Learn',
+  learnTitle: 'Learn',
+  learnLead: 'Human Design from scratch, in plain words. Start with the basics, then explore anything.',
+  searchPh: 'Search types, centres, gates…',
+  startHere: 'Start here', library: 'The library', done: 'Done', minRead: (n: number) => `${n} min`,
+  libTypes: 'The five types', libAuth: 'The authorities', libCentres: 'The nine centres', libProfiles: 'The twelve profiles', libChannels: 'The 36 channels', libGates: 'The 64 gates',
+  noResults: 'Nothing found. Try another word.',
+  markDone: 'Mark as read', nextLesson: 'Next lesson',
+  strategyL: 'Strategy', signatureL: 'Signature', notSelfL: 'Not-self', auraL: 'Aura', beingWithL: (t: string) => `Being with a ${t}`,
+  definedL: 'When it’s coloured', openL: 'When it’s white', questionL: 'A question to carry',
+  inChannels: 'Part of these channels', connects: (a: string, b: string) => `Connects the ${a} and the ${b}`, inCentre: (c: string) => `In the ${c}`,
+  linesL: 'The two lines', yoursL: 'In your chart',
+  settingsA11y: 'Settings',
 
 };
 
@@ -227,6 +240,19 @@ const ar: Strings = {
   askNotLive: 'خانة الأسئلة بتفتح لما ينزل التطبيق.',
   askSuggest: ['كيف بعرف إذا القرار صح إلي؟', 'ليش بتعب كتير بعد ما شوف ناس؟', 'أي نوع شغل بيناسب تصميمي؟'],
   you2: 'إنت',
+  tLearn: 'تعلّم',
+  learnTitle: 'تعلّم',
+  learnLead: 'الهيومان ديزاين من الصفر، بكلام بسيط. بلّش بالأساسيات، وبعدين اكتشف أي شي.',
+  searchPh: 'فتّش عن نوع، مركز، بوابة…',
+  startHere: 'بلّش من هون', library: 'المكتبة', done: 'خلص', minRead: (n) => `${n} د`,
+  libTypes: 'الأنواع الخمسة', libAuth: 'السلطات', libCentres: 'المراكز التسعة', libProfiles: 'البروفايلات الـ١٢', libChannels: 'القنوات الـ٣٦', libGates: 'البوابات الـ٦٤',
+  noResults: 'ما لقينا شي. جرّب كلمة تانية.',
+  markDone: 'قريتها', nextLesson: 'الدرس الجاي',
+  strategyL: 'الاستراتيجية', signatureL: 'الإشارة الحلوة', notSelfL: 'إشارة التنبيه', auraL: 'الهالة', beingWithL: (t) => `كيف تكون مع ${t}`,
+  definedL: 'لما يكون ملوّن', openL: 'لما يكون أبيض', questionL: 'سؤال تحملو معك',
+  inChannels: 'جزء من هالقنوات', connects: (a, b) => `بتوصل ${a} بـ${b}`, inCentre: (c) => `بـ${c}`,
+  linesL: 'الخطّين', yoursL: 'بخريطتك',
+  settingsA11y: 'الإعدادات',
 
 };
 

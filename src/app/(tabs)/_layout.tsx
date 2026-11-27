@@ -2,7 +2,7 @@ import { Redirect } from 'expo-router';
 import { Tabs } from 'expo-router/tabs';
 import React from 'react';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { IconAsk, IconChart, IconMe, IconPeople, IconToday } from '../../components/icons';
+import { IconAsk, IconChart, IconLearn, IconPeople, IconToday } from '../../components/icons';
 import { useApp } from '../../state/AppState';
 import { C, F } from '../../theme';
 
@@ -17,7 +17,7 @@ export default function TabsLayout() {
     { name: 'chart', title: t.tChart, Icon: IconChart },
     { name: 'ask', title: t.tAsk, Icon: IconAsk },
     { name: 'people', title: t.tPeople, Icon: IconPeople },
-    { name: 'settings', title: t.tMe, Icon: IconMe },
+    { name: 'learn', title: t.tLearn, Icon: IconLearn },
   ];
   // In Arabic the tab order reads right to left.
   const ordered = rtl ? [...screens].reverse() : screens;
