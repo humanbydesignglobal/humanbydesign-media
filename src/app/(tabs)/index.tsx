@@ -3,11 +3,10 @@ import { router } from 'expo-router';
 import { Pressable, View } from 'react-native';
 import { IconGear } from '../../components/icons';
 import { useLabels } from '../../components/ChartView';
-import { Listen } from '../../components/Listen';
 import { Lock } from '../../components/Lock';
 import { TypeSeal } from '../../components/TypeSeal';
 import { Card, Section, Screen, Txt, useDir } from '../../components/ui';
-import { DAILY } from '../../content/extra';
+import { AUTH_CHECK, PRACTICES } from '../../content/daily';
 import { GATE_CENTRE, hangingGates, transits } from '../../engine/hd';
 import { useApp } from '../../state/AppState';
 import { C } from '../../theme';
@@ -25,11 +24,12 @@ export default function Today() {
 
   const hour = now.getHours();
   const hello = hour < 12 ? t.goodMorning : hour < 18 ? t.goodAfternoon : t.goodEvening;
-  const tips = DAILY[lang][chart.type];
-  const tipIdx = dayOfYear(now) % tips.length;
-  const tip = tips[tipIdx];
+  const list = PRACTICES[lang][chart.type];
+  const p = list[dayOfYear(now) % list.length];
   const sun = sky.find((a) => a.planet === 'Sun')!;
   const moon = sky.find((a) => a.planet === 'Moon')!;
+  const earth = sky.find((a) => a.planet === 'Earth')!;
+  const earthGate = L.gate(earth.gate);
   const sunGate = L.gate(sun.gate);
   const moonGate = L.gate(moon.gate);
   const centre = GATE_CENTRE[sun.gate];
@@ -49,24 +49,42 @@ export default function Today() {
 
       <Section label={t.todayFor}>
         {can.dailyTips ? (
-          <Card dark style={{ paddingVertical: 28 }}>
+          <Card dark style={{ paddingVertical: 26, gap: 14 }}>
             <View style={{ flexDirection: rowDir, alignItems: 'center', gap: 10 }}>
               <TypeSeal type={chart.type} size={34} />
               <Txt v="label" color={C.redDark}>{L.type(chart.type).name}</Txt>
             </View>
-            <Txt v="italic" color={C.cream} style={{ fontSize: 25, lineHeight: lang === 'ar' ? 40 : 31 }}>{tip}</Txt>
-            <View style={{ marginTop: 16 }}><Listen dark compact voiceKey={`${lang}/daily-${chart.type.replace(/\s+/g, '')}-${tipIdx}`} /></View>
+            <Txt v="italic" color={C.cream} style={{ fontSize: 26, lineHeight: lang === 'ar' ? 42 : 32 }}>{p.title}</Txt>
+            <Txt color={C.cream} style={{ opacity: 0.92 }}>{p.body}</Txt>
+            <View style={{ borderTopWidth: 1, borderColor: 'rgba(244,238,230,0.18)', paddingTop: 14, gap: 4 }}>
+              <Txt v="label" color={C.redDark}>{t.experiment}</Txt>
+              <Txt color={C.cream}>{p.tryThis}</Txt>
+            </View>
+            <View style={{ gap: 4 }}>
+              <Txt v="label" color={C.redDark}>{t.sitWith}</Txt>
+              <Txt v="italic" color={C.cream} style={{ fontSize: 19, lineHeight: lang === 'ar' ? 32 : 26 }}>{p.ask}</Txt>
+            </View>
           </Card>
         ) : (
           <Lock text={t.tipsLocked} cta={t.managePlan} />
         )}
       </Section>
 
+      {can.dailyTips ? (
+        <Section label={t.authCheck} title={L.auth(chart.authority)}>
+          <Txt>{AUTH_CHECK[lang][chart.authority]}</Txt>
+        </Section>
+      ) : null}
+
       <Section label={t.skyTitle} title={t.sunIn(sun.gate, sunGate.name)}>
+        <Txt v="small">{t.skyLead}</Txt>
         <Txt>{sunGate.text}</Txt>
-        <Txt v="small">{t.everyone}</Txt>
+        <Txt v="italic" style={{ marginTop: 4 }}>{t.earthIn(earth.gate, earthGate.name)}</Txt>
+        <Txt>{earthGate.text}</Txt>
         <Card style={{ marginTop: 6 }}>
           <View style={{ gap: 10 }}>
+            <Txt v="label" color={C.red}>{t.whatMeans}</Txt>
+            {chart.gates.includes(earth.gate) ? <Txt>{t.youCarry}</Txt> : null}
             {chart.gates.includes(sun.gate) ? <Txt>{t.youCarry}</Txt> : null}
             {completes.map((h) => (
               <Txt key={h.key}>{t.completes(L.channel(h.key).name)}</Txt>
