@@ -2,7 +2,9 @@
 // A guided, chapter-by-chapter reading of one person's design.
 import React from 'react';
 import { View } from 'react-native';
+import { CHANNELS_DEEP } from '../content/channels-deep';
 import { DEEP_UI, LINES_DEEP } from '../content/deep';
+import { GATES_DEEP } from '../content/gates-deep';
 import { CENTRES, type Chart } from '../engine/hd';
 import { useApp } from '../state/AppState';
 import { C } from '../theme';
@@ -126,6 +128,9 @@ export function FullReading({ chart, unlocked, lockedText, ctaPrice }: { chart: 
               </View>
               <Txt v="small">{`${L.centre(ch.from)} ↔ ${L.centre(ch.to)}${circ ? ' · ' + D.circuit(lang === 'ar' ? CIRCUIT_AR[circ] ?? circ : circ) : ''}`}</Txt>
               <Txt>{lc.text}</Txt>
+              <Para body={CHANNELS_DEEP[lang][ch.key]?.life} />
+              <Para h={D.gift} body={CHANNELS_DEEP[lang][ch.key]?.gift} />
+              <Para h={D.trapL} body={CHANNELS_DEEP[lang][ch.key]?.watch} />
               {[ch.a, ch.b].map((g) => (
                 <Txt key={g} v="small">{`${t.gate} ${g} · ${L.gate(g)?.name}: ${L.gate(g)?.text}`}</Txt>
               ))}
@@ -150,6 +155,8 @@ export function FullReading({ chart, unlocked, lockedText, ctaPrice }: { chart: 
                   </View>
                   <Txt v="small">{planets[a.planet]?.text}</Txt>
                   <Txt>{g?.text}</Txt>
+                  <Para h={D.gift} body={GATES_DEEP[lang][String(a.gate)]?.gift} />
+                  <Para h={D.challenge} body={GATES_DEEP[lang][String(a.gate)]?.shadow} />
                   <Txt v="small">{`${t.line} ${a.line}, ${lines[String(a.line)]?.name}: ${lines[String(a.line)]?.text}`}</Txt>
                 </Card>
               );

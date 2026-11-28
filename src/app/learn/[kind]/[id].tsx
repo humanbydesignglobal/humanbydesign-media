@@ -6,7 +6,10 @@ import { useLabels } from '../../../components/ChartView';
 import { Listen } from '../../../components/Listen';
 import { TypeSeal } from '../../../components/TypeSeal';
 import { Button, Card, Pill, Screen, Section, Txt, useDir } from '../../../components/ui';
+import { CHANNELS_DEEP } from '../../../content/channels-deep';
+import { DEEP_UI } from '../../../content/deep';
 import { CENTRE_LABELS, TYPE_LABELS, WITH_TYPE } from '../../../content/extra';
+import { GATES_DEEP } from '../../../content/gates-deep';
 import { LESSONS } from '../../../content/lessons';
 import type { Kind } from '../../../content/library';
 import { GATE_CENTRE, partnerGates, type AuthorityId, type CentreId, type TypeId } from '../../../engine/hd';
@@ -170,6 +173,9 @@ function ChannelView({ id }: { id: string }) {
       <YoursPill show={!!mine?.channels.some((x) => x.key === id)} />
       <Txt v="small">{t.connects(CENTRE_LABELS[lang][GATE_CENTRE[a]], CENTRE_LABELS[lang][GATE_CENTRE[b]])}</Txt>
       <Txt>{ch.text}</Txt>
+      <Txt>{CHANNELS_DEEP[lang][id]?.life}</Txt>
+      <Card><Txt v="label" color={C.red}>{DEEP_UI[lang].gift}</Txt><Txt>{CHANNELS_DEEP[lang][id]?.gift}</Txt></Card>
+      <Card><Txt v="label" color={C.red}>{DEEP_UI[lang].trapL}</Txt><Txt>{CHANNELS_DEEP[lang][id]?.watch}</Txt></Card>
       <Section>
         {[a, b].map((g) => <GateLink key={g} g={g} />)}
       </Section>
@@ -190,6 +196,8 @@ function GateView({ id }: { id: number }) {
       <YoursPill show={!!mine?.gates.includes(id)} />
       <Txt v="small">{t.inCentre(CENTRE_LABELS[lang][GATE_CENTRE[id]])}</Txt>
       <Txt>{x?.text}</Txt>
+      <Card><Txt v="label" color={C.red}>{DEEP_UI[lang].gift}</Txt><Txt>{GATES_DEEP[lang][String(id)]?.gift}</Txt></Card>
+      <Card><Txt v="label" color={C.red}>{DEEP_UI[lang].challenge}</Txt><Txt>{GATES_DEEP[lang][String(id)]?.shadow}</Txt></Card>
       <Section label={t.inChannels}>
         {chans.map((p) => (
           <Pressable key={p.key} onPress={() => go('channel', p.key)} style={{ paddingVertical: 12, borderBottomWidth: 1, borderColor: C.line }}>
