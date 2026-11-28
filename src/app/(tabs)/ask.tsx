@@ -8,7 +8,7 @@ import { useApp } from '../../state/AppState';
 import { C, F } from '../../theme';
 
 const ASK_URL =
-  (Constants.expoConfig?.extra as { askUrl?: string } | undefined)?.askUrl ?? 'https://humanbydesign.global/.netlify/functions/ask';
+  (Constants.expoConfig?.extra as { askUrl?: string } | undefined)?.askUrl || 'https://humanbydesign.global/.netlify/functions/ask';
 
 type Msg = { role: 'user' | 'assistant'; content: string };
 
