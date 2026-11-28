@@ -16,6 +16,7 @@ export const previewPurchases = !storeConnected && __DEV__;
 
 let configured = false;
 let products: Partial<Record<ProductKey, PurchasesStoreProduct>> = {};
+let trialOk: Partial<Record<ProductKey, boolean>> = {};
 
 function toEntitlements(info: CustomerInfo): Entitlements {
   const active = info.entitlements.active;
@@ -40,6 +41,18 @@ export async function initStore(): Promise<Entitlements> {
       const hit = list.find((x) => x.identifier === PRODUCTS[k].id);
       if (hit) products[k] = hit;
     });
+    trialOk = {};
+    try {
+      const subs = (Object.keys(products) as ProductKey[]).filter((k) => products[k]?.introPrice?.price === 0);
+      if (subs.length) {
+        const el = await Purchases.checkTrialOrIntroductoryPriceEligibility(subs.map((k) => PRODUCTS[k].id));
+        subs.forEach((k) => {
+          trialOk[k] = el[PRODUCTS[k].id]?.status === Purchases.INTRO_ELIGIBILITY_STATUS.INTRO_ELIGIBILITY_STATUS_ELIGIBLE;
+        });
+      }
+    } catch {
+      trialOk = {};
+    }
     return toEntitlements(await Purchases.getCustomerInfo());
   } catch {
     return NO_ENTITLEMENTS;
@@ -48,6 +61,11 @@ export async function initStore(): Promise<Entitlements> {
 
 export function priceOf(k: ProductKey) {
   return products[k]?.priceString ?? PRODUCTS[k].usd;
+}
+
+// Free first week (set in App Store Connect). Only shown to people Apple says can still get it.
+export function hasFreeTrial(k: ProductKey) {
+  return !!trialOk[k];
 }
 
 export type BuyResult = { ok: true; ent?: Entitlements } | { ok: false; cancelled?: boolean; unavailable?: boolean };

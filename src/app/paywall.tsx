@@ -2,7 +2,7 @@ import { router } from 'expo-router';
 import React, { useState } from 'react';
 import { Image, Linking, Pressable, View } from 'react-native';
 import { type ProductKey, type Tier } from '../billing/plans';
-import { previewPurchases, priceOf, storeConnected } from '../billing/store';
+import { hasFreeTrial, previewPurchases, priceOf, storeConnected } from '../billing/store';
 import { BackLink } from '../components/BackLink';
 import { Button, Screen, Txt, useDir } from '../components/ui';
 import { useApp } from '../state/AppState';
@@ -52,6 +52,7 @@ export default function Paywall() {
           <Txt v="medium" color={C.cream}>{`${priceOf(key)} ${per}`}</Txt>
         </View>
         {current ? <Txt v="label" color={C.redDark}>{t.current}</Txt> : null}
+        {!current && hasFreeTrial(key) ? <Txt v="label" color={C.redDark}>{t.trialBadge}</Txt> : null}
         {features.map((f) => (
           <View key={f} style={{ flexDirection: row, gap: 10, alignItems: 'flex-start' }}>
             <Txt color={C.redDark}>✓</Txt>
@@ -101,7 +102,10 @@ export default function Paywall() {
       </View>
 
       <View style={{ marginTop: 18 }}>
-        <Button kind="light" title={t.choose(`${priceOf(subKey)} ${per}`)} loading={busy === subKey} onPress={() => go(subKey)} />
+        <Button kind="light" title={hasFreeTrial(subKey) ? t.startTrial : t.choose(`${priceOf(subKey)} ${per}`)} loading={busy === subKey} onPress={() => go(subKey)} />
+        {hasFreeTrial(subKey) ? (
+          <Txt v="small" center color={C.cream} style={{ marginTop: 10 }}>{t.trialThen(`${priceOf(subKey)} ${per}`)}</Txt>
+        ) : null}
       </View>
 
       <Txt v="label" color={C.redDark} style={{ marginTop: 34, marginBottom: 4 }}>{t.orOnce}</Txt>
