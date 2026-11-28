@@ -32,10 +32,15 @@ exports.handler = async (event) => {
   const r = await fetch('https://api.anthropic.com/v1/messages', {
     method: 'POST',
     headers: { 'content-type': 'application/json', 'x-api-key': process.env.ANTHROPIC_API_KEY, 'anthropic-version': '2023-06-01' },
-    body: JSON.stringify({ model: MODEL, max_tokens: 700, system: system(lang, chart, name), messages: clean }),
+    body: JSON.stringify({ model: MODEL, max_tokens: 1400, system: system(lang, chart, name), messages: clean }),
   });
   if (!r.ok) return { statusCode: 502, body: JSON.stringify({ error: 'upstream' }) };
   const j = await r.json();
-  const text = (j.content || []).filter((c) => c.type === 'text').map((c) => c.text).join('\n').trim();
+  let text = (j.content || []).filter((c) => c.type === 'text').map((c) => c.text).join('\n').trim();
+  // Never end mid-sentence: if the reply hit the length cap, cut back to the last full sentence.
+  if (j.stop_reason === 'max_tokens') {
+    const cut = Math.max(text.lastIndexOf('. '), text.lastIndexOf('.\n'), text.lastIndexOf('? '), text.lastIndexOf('! '), text.lastIndexOf('؟'), text.lastIndexOf('.'));
+    if (cut > 0) text = text.slice(0, cut + 1);
+  }
   return { statusCode: 200, headers: { 'content-type': 'application/json' }, body: JSON.stringify({ text }) };
 };
